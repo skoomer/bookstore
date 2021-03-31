@@ -83,7 +83,7 @@ group :development do
   #Check fast feature
   gem 'fasterer'
   # The Bullet gem is designed to help you increase your application's performance
-  gem 'bullet'
+  gem 'bullet', require: true
 
 end
 
@@ -105,6 +105,7 @@ group :test do
   # Rspec test
   gem 'rspec-rails', '~> 5.0.0'
   gem 'site_prism'
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

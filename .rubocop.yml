@@ -1,17 +1,34 @@
 require: rubocop-rspec
 
+
+AllCops:
+  Exclude:
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'script/**/*'
+    - 'bin/**/*'
+    - 'bin/{rails,rake}'
+    - !ruby/regexp /old_and_unused\.rb$/
+    - 'node_modules/**/*'
+    - 'spec/rails_helper.rb'
+    - 'Gemfile'
+
 RSpec/FilePath:
   Exclude:
     - spec/my_poorly_named_spec_file.rb
 
 Metrics/BlockLength:
   Exclude:
+    - config/**/*
     - 'spec/**/*'
     - 'vendor/*'
     - 'vendor/**/*'
     - 'node_modules/**/*'
 
 Style/Documentation:
+  Enabled: false
+
+Style/Encoding:
   Enabled: false
 
 Style/FrozenStringLiteralComment:

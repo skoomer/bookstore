@@ -29,10 +29,37 @@
 /config/master.key
 
 /public/packs
+/public/uploads
 /public/packs-test
 /node_modules
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+
+
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+node_modules
+/node_modules/
+.rspec_status
+
+.gem
+*.gem
+*.rbc
+doc/
+lib/bundler/man
+pkg
+rdoc
+.txt
+.vscode
+/.vscode
+/.vscode/
 
 my_command.txt
