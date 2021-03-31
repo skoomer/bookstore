@@ -6,26 +6,21 @@ executors:
     description: The official CircleCI Ruby Docker image
     docker:
       - image: circleci/ruby:3.0.0
-
+        auth:
+          username: skoomer
+          password: admin
+        environment:
+          PG_HOST: localhost
+          PG_USER: skoomer
+          RAILS_ENV: test
+          RACK_ENV: test
       - image: postgres:9.6-jessie
         auth:
           username: skoomer
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
         environment:
           POSTGRES_USER: skoomer
-          POSTGRES_DB: bookstore_development
-    steps:
-      - checkout
-      - run:
-          name: Install Ruby Dependencies
-          command: bundle install
-      - run: 
-          name: Set up DB
-          command: |
-            bundle exec rake db:create db:schema:load --trace
-            bundle exec rake db:migrate
-        environment:
-          DATABASE_URL: "postgres://skoomer@localhost:5432/bookstore_development"
+          POSTGRES_DB: bookstore_test
       
 
 caches:
