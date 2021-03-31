@@ -31,7 +31,7 @@ commands:
     steps:
       - run:
           name: rubocop
-          command: bundle exec rubocop --require rubocop-rspec rubocop-rails
+          command: bundle exec rubocop --require rubocop-rspec
   run_specs:
     steps:
       - run:
