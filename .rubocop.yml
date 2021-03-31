@@ -14,7 +14,7 @@ AllCops:
     - 'spec/rails_helper.rb'
     - 'Gemfile'
 
-Metrics/BlockLength:
+Layout/BlockLength:
   Exclude:
     - config/**/*
     - 'spec/**/*'
@@ -22,11 +22,11 @@ Metrics/BlockLength:
     - 'vendor/**/*'
     - 'node_modules/**/*'
 
-Style/Documentation:
+Layout/Documentation:
   Enabled: false
 
-Style/Encoding:
+Layout/Encoding:
   Enabled: false
 
-Style/FrozenStringLiteralComment:
+Layout/FrozenStringLiteralComment:
   Enabled: false
