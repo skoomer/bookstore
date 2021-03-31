@@ -60,8 +60,8 @@ test:
   encoding: unicode
   pool: 5
   timeout: 5000
-  host: localhost
-  port: 5432
+  host: localhost:5432
+
   database: bookstore_test
   username: skoomer
   password: <%= ENV['BOOKSTORE_DATABASE_PASSWORD'] %>
