@@ -6,6 +6,12 @@ executors:
     description: The official CircleCI Ruby Docker image
     docker:
       - image: circleci/ruby:3.0.0
+      - image: circleci/postgres:9.5-alpine
+        
+        environment: # add POSTGRES environment variables.
+          POSTGRES_USER: postgres
+          POSTGRES_DB: bookstore_test
+          POSTGRES_PASSWORD: "postgres"
 
 
 caches:
@@ -34,7 +40,18 @@ commands:
           name: rubocop
           command: bundle exec rubocop --require rubocop-rspec
   run_specs:
+    environment:
+      PGHOST: 127.0.0.1
+      PGUSER: postgres
+      PGPASSWORD: "postgres"
+      RAILS_ENV: test
     steps:
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
+          name: Database setup
+          command: bundle exec rails db:schema:load --trace
       - run:
           name: run_specs
           command: bundle exec rspec --format progress spec
@@ -54,6 +71,7 @@ jobs:
     parallelism: 2
     steps:
       - defaults
+
       - run_specs
 
 workflows:
