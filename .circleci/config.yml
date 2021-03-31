@@ -1,43 +1,65 @@
 version: 2.1
-orbs:
-  ruby: circleci/ruby@0.1.2
-jobs:
-  build:
+
+executors:
+  default:
+    working_directory: ~/repo
+    description: The official CircleCI Ruby Docker image
     docker:
       - image: circleci/ruby:3.0.0
+
+caches:
+  - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
+  - &bundle_cache v2-repo-
+
+commands:
+  defaults:
     steps:
       - checkout
       - restore_cache:
           keys:
-            - gem-cache-v1-{{ checksum "Gemfile.lock" }}
-            - gem-cache-v1-
-      - run:
-          name: Install dependencies
-          command: |
-            gem install bundler -v 2.2.3
-            bundle install
-            curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-            echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-            sudo apt-get update
-            sudo apt-get install yarn -y 
-            yarn install
+            - *bundle_cache
+      - run: bundle install --path vendor/bundle
+      
+
       - save_cache:
-          key: gem-cache-v1-{{ checksum "Gemfile.lock" }}
+          key: *bundle_cache_full
           paths:
             - vendor/bundle
+
+  run_linters:
+    description: command to start linters
+    steps:
       - run:
-          name: Run rubocop
-          command: bundle exec rubocop
+          name: rubocop
+          command: bundle exec rubocop --require rubocop-rspec
+  run_specs:
+    steps:
       - run:
-          name: Run fasterer
-          command: bundle exec fasterer
-      - run:
-          name: Run tests
-          command: bundle exec rspec
-      - run:
-          name: Run brakeman
-          command: bundle exec brakeman --exit-on-warn -f plain --quiet
+          name: run_specs
+          command: bundle exec rspec --format progress spec
+
       - store_artifacts:
-          path: coverage
-      - store_test_results:
-          path: test-results 
+          path: ~/repo/coverage
+          destination: coverage
+
+jobs:
+  lintering:
+    executor: default
+    steps:
+      - defaults
+      - run_linters
+  run_specs:
+    executor: default
+    parallelism: 2
+    steps:
+      - defaults
+      - run_specs
+
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - lintering
+      - run_specs:
+          requires:
+            - lintering
