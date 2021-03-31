@@ -2,6 +2,8 @@ require:
   - rubocop-rspec
   - rubocop-rails
 
+Style/ANewCop:
+  Enabled: false
 
 AllCops:
   Exclude:
@@ -13,6 +15,8 @@ AllCops:
     - 'node_modules/**/*'
     - 'spec/rails_helper.rb'
     - 'Gemfile'
+    - '!ruby/regexp /old_and_unused\.rb$/'
+    
 
 Metrics/BlockLength:
   Exclude:
@@ -22,14 +26,12 @@ Metrics/BlockLength:
     - 'vendor/**/*'
     - 'node_modules/**/*'
 
-Layout/Documentation:
+Style/Documentation:
   Enabled: false
 
-Layout/Encoding:
+Style/Encoding:
   Enabled: false
 
-Layout/FrozenStringLiteralComment:
+Style/FrozenStringLiteralComment:
   Enabled: false
 
-Style/ANewCop:
-  Enabled: false
