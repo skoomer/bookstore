@@ -1,4 +1,6 @@
-require: rubocop-rspec
+require:
+  - rubocop-rspec
+  - rubocop-rails
 
 
 AllCops:
@@ -30,6 +32,8 @@ Style/Documentation:
 
 Style/Encoding:
   Enabled: false
+
+  
 
 Style/FrozenStringLiteralComment:
   Enabled: false
