@@ -18,7 +18,8 @@ commands:
       - restore_cache:
           keys:
             - *bundle_cache
-      - run: bundle config set --local path 'vendor/bundle'
+      - run: bundle install --path vendor/bundle
+      
 
       - save_cache:
           key: *bundle_cache_full

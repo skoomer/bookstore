@@ -45,6 +45,7 @@ gem 'aasm'
 gem "mini_magick"
 # Fast and powerful Git hooks manager for Node.js, Ruby or any other type of projects.
 gem 'lefthook', '~> 0.5.5'
+gem 'mimemagic', '~> 0.4.3'
 
 
 
