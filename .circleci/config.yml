@@ -7,6 +7,15 @@ executors:
     docker:
       - image: circleci/ruby:3.0.0
 
+      - image: postgres:9.6-jessie
+        auth:
+          username: skoomer
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+        environment:
+          POSTGRES_USER: skoomer
+          POSTGRES_DB: bookstore_development
+      
+
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
   - &bundle_cache v2-repo-
