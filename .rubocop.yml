@@ -10,7 +10,6 @@ AllCops:
     - 'script/**/*'
     - 'bin/**/*'
     - 'bin/{rails,rake}'
-    - !ruby/regexp /old_and_unused\.rb$/
     - 'node_modules/**/*'
     - 'spec/rails_helper.rb'
     - 'Gemfile'
@@ -33,13 +32,5 @@ Style/Documentation:
 Style/Encoding:
   Enabled: false
 
-  
-
 Style/FrozenStringLiteralComment:
-  Enabled: false
-
-Metrics/LineLength:
-  Max: 120
-
-Style/BracesAroundHashParameters:
   Enabled: false
