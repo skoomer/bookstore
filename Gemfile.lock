@@ -446,6 +446,7 @@ DEPENDENCIES
   i18n
   jbuilder (~> 2.7)
   jquery-rails
+  jwt (~> 2.2)
   lefthook (~> 0.5.5)
   listen (~> 3.3)
   mimemagic (~> 0.4.3)
