@@ -2,9 +2,6 @@ require:
   - rubocop-rspec
   - rubocop-rails
 
-Style/ANewCop:
-  Enabled: false
-
 AllCops:
   Exclude:
     - 'config/**/*'
