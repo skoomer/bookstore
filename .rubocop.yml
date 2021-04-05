@@ -35,3 +35,7 @@ Style/Encoding:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Lint/SuppressedException:
+  Exclude:
+    - 'Rakefile'
+
