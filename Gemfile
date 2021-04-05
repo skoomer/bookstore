@@ -27,10 +27,10 @@ gem 'circleci', require: false
 # Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise'
 # Standardized Multi-Provider Authentication
-gem 'omniauth-github', github: 'intridea/omniauth-github'
-gem 'omniauth-openid', github: 'intridea/omniauth-openid'
+# gem 'omniauth-github', github: 'intridea/omniauth-github'
+# gem 'omniauth-openid', github: 'intridea/omniauth-openid'
 # OmniAuth Facebook
-gem 'omniauth-facebook'
+# gem 'omniauth-facebook'
 # Rails engine that provides an easy-to-use interface for managing your data.
 gem 'activeadmin'
 # Provides a set of helpers which guide you in leveraging regular Ruby classes 
