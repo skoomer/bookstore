@@ -47,6 +47,7 @@ gem "mini_magick"
 gem 'lefthook', '~> 0.5.5'
 gem 'mimemagic', '~> 0.4.3'
 gem 'jwt', '~> 2.2.2'
+gem 'rexml'
 
 
 
@@ -57,6 +58,10 @@ gem 'jwt', '~> 2.2.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+
+group :production, :development, :test do
+  gem 'rspec-rails', '~> 5.0.0'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -107,7 +112,7 @@ group :test do
   # Provides RSpec- and Minitest-compatible one-liners to test common Rails functionality 
   gem 'shoulda-matchers', '~> 4.0'
   # Rspec test
-  gem 'rspec-rails', '~> 5.0.0'
+  
   gem 'site_prism'
   gem 'simplecov', require: false
 end
