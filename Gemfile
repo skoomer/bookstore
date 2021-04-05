@@ -47,7 +47,7 @@ gem "mini_magick"
 gem 'lefthook', '~> 0.5.5'
 gem 'mimemagic', '~> 0.4.3'
 gem 'jwt', '~> 2.2.2'
-gem 'rexml'
+
 
 
 
