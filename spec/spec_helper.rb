@@ -1,8 +1,8 @@
-require 'simplecov'
-require 'pry'
+# require 'simplecov'
+# require 'pry'
 
-SimpleCov.start 'rails'
-require 'capybara/rspec'
+# SimpleCov.start 'rails'
+# require 'capybara/rspec'
 
 # require "active_record"
 # require "bullet"
