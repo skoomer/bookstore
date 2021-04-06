@@ -27,12 +27,7 @@ gem 'circleci', require: false
 # Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise'
 # Standardized Multi-Provider Authentication
-# gem 'omniauth-github', github: 'intridea/omniauth-github'
-# gem 'omniauth-openid', github: 'intridea/omniauth-openid'
-# OmniAuth Facebook
-# gem 'omniauth-facebook'
 # Rails engine that provides an easy-to-use interface for managing your data.
-gem 'activeadmin'
 # Provides a set of helpers which guide you in leveraging regular Ruby classes 
 gem "pundit"
 # Pagy is the ultimate pagination gem
@@ -47,6 +42,7 @@ gem "mini_magick"
 gem 'lefthook', '~> 0.5.5'
 gem 'mimemagic', '~> 0.4.3'
 gem 'jwt', '~> 2.2.2'
+gem "haml"
 
 
 
@@ -84,7 +80,6 @@ group :development do
   # Ruby internationalization and localization (i18n) solution.
   gem 'i18n'
   # Haml is a templating engine for HTML.
-  gem 'haml'
   gem 'pry-rails'
   gem 'database_consistency', group: :development, require: false
   # Brakeman is a static analysis tool which checks Ruby on Rails applications for security vulnerabilities.
@@ -92,7 +87,7 @@ group :development do
   #Check fast feature
   gem 'fasterer'
   # The Bullet gem is designed to help you increase your application's performance
-  gem 'bullet', require: true
+ 
 
 end
 
@@ -119,4 +114,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'rake'

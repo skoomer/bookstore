@@ -4,7 +4,6 @@
 // that code so it'll be compiled.
 
 
-
 import $ from 'jquery';
 window.$ = $;
 window.jQuery = $;
