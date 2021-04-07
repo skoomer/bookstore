@@ -11,8 +11,6 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
-gem 'bootstrap-sass', '~> 3.4.1'
-gem 'jquery-rails'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -25,24 +23,25 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'circleci', require: false
 # Devise is a flexible authentication solution for Rails based on Warden
-gem 'devise'
+gem 'devise', '~> 4.7.3'
 # Standardized Multi-Provider Authentication
 # Rails engine that provides an easy-to-use interface for managing your data.
 # Provides a set of helpers which guide you in leveraging regular Ruby classes 
-gem "pundit"
+gem "pundit", '~> 2.1.0'
 # Pagy is the ultimate pagination gem
 gem 'pagy', '~> 3.5'
 # Shrine is a toolkit for handling file attachments in Ruby applications.
 gem "shrine", "~> 3.0"
 # Ruby state machines
-gem 'aasm'
+gem 'aasm', '~> 5.1.1'
 # Using MiniMagick the ruby processes memory remains small 
 gem "mini_magick"
 # Fast and powerful Git hooks manager for Node.js, Ruby or any other type of projects.
 gem 'lefthook', '~> 0.5.5'
 gem 'mimemagic', '~> 0.4.3'
 gem 'jwt', '~> 2.2.2'
-gem "haml"
+gem 'haml-rails', '~> 2.0.1'
+gem 'cancancan', '~> 3.2.1'
 
 
 
@@ -50,7 +49,7 @@ gem "haml"
 
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -63,9 +62,9 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rubocop', '~> 1.12', require: false
-  gem 'rubocop-rspec', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-performance', require: false
+  gem 'rubocop-rspec', '~> 2.2.0', require: false
+  gem 'rubocop-rails', '~> 2.9.1', require: false
+  gem 'rubocop-performance', '~> 1.10.2', require: false
 end
 
 group :development do
@@ -74,18 +73,16 @@ group :development do
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'rack-mini-profiler', '~> 2.0'
-  gem 'listen', '~> 3.3'
+  gem 'listen', '~> 3.5.1'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  # Ruby internationalization and localization (i18n) solution.
-  gem 'i18n'
+  gem 'spring', '~> 2.1.1'
   # Haml is a templating engine for HTML.
-  gem 'pry-rails'
-  gem 'database_consistency', group: :development, require: false
+  gem 'pry-rails', '~> 0.3.9'
+  gem 'database_consistency', '~> 0.8.13', group: :development, require: false
   # Brakeman is a static analysis tool which checks Ruby on Rails applications for security vulnerabilities.
-  gem 'brakeman'
+  gem 'brakeman', '~> 5.0.0'
   #Check fast feature
-  gem 'fasterer'
+  gem 'fasterer', '~> 0.9.0'
   # The Bullet gem is designed to help you increase your application's performance
  
 
@@ -100,17 +97,17 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
   # Capture a screenshot for every test failure automatically!
-  gem 'capybara-screenshot'
-  gem 'selenium-webdriver'
+  gem 'capybara-screenshot', '~> 1.0.25'
+  gem 'selenium-webdriver', '~> 3.142.7'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
+  gem 'webdrivers', '~> 4.6.0'
   # Provides RSpec- and Minitest-compatible one-liners to test common Rails functionality 
   gem 'shoulda-matchers', '~> 4.0'
   # Rspec test
   
-  gem 'site_prism'
-  gem 'simplecov', require: false
+  gem 'site_prism', '~> 3.7.1'
+  gem 'simplecov', '~> 0.21.2', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', '~> 1.2021.1', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

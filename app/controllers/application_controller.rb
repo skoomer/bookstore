@@ -1,6 +1,6 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
-  include Pundit
   include Pagy::Backend
   include Pagy::Frontend
-
 end

@@ -32,9 +32,6 @@ Style/Documentation:
 Style/Encoding:
   Enabled: false
 
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
 Lint/SuppressedException:
   Exclude:
     - 'Rakefile'
