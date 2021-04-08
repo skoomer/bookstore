@@ -7,14 +7,12 @@ executors:
     docker:
       - image: circleci/ruby:3.0.0-node-browsers
         environment:
-          host: PGHOST
-          user: PGUSER
-          env: RAILS_ENV
-      - image: postgres:9.3
+          RAILS_ENV: test
+          RACK_ENV: test
+      - image: postgres:11
         environment:
-          pguser: POSTGRES_USER
-          pgpass: POSTGRES_PASSWORD
-          db: POSTGRES_DB
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
 
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
@@ -27,13 +25,12 @@ commands:
       - restore_cache:
           keys:
             - *bundle_cache
-      - run: bundle install --path vendor/bundle
-
+      - run:
+          name: Bundle install
+          command: bundle install --path vendor/bundle
       - run:
           name: install yarn
           command:  yarn install
-      
-
       - save_cache:
           key: *bundle_cache_full
           paths:
@@ -44,7 +41,8 @@ commands:
     steps:
       - run:
           name: rubocop
-          command: bundle exec rubocop --require rubocop-rspec
+          command: bundle exec rubocop
+
   run_specs:
     steps:
       - run:
@@ -52,11 +50,10 @@ commands:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Database setup
-          command: bundle exec rails db:schema:load --trace
+          command: bundle exec rails db:create db:migrate --trace
       - run:
           name: run_specs
-          command: bundle exec rspec --format progress spec
-
+          command: bundle exec rspec --format progress
       - store_artifacts:
           path: ~/repo/coverage
           destination: coverage
@@ -72,7 +69,6 @@ jobs:
     parallelism: 2
     steps:
       - defaults
-
       - run_specs
 
 workflows:
