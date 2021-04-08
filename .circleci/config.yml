@@ -15,8 +15,6 @@ executors:
           pgpass: POSTGRES_PASSWORD
 
         
- 
-
 
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
