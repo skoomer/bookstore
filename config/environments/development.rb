@@ -9,8 +9,6 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
-  config.seeds_enabled = true
-
 
   # Do not eager load code on boot.
   config.eager_load = false
@@ -69,10 +67,8 @@ Rails.application.configure do
   config.assets.quiet = true
 
   # Raises error for missing translations.
-  # config.i18n.raise_on_missing_translations = true
+  config.i18n.raise_on_missing_translations = true
 
-
-  config.i18n.available_locales = :en
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
 
