@@ -12,9 +12,9 @@ executors:
           env: RAILS_ENV
       - image: postgres:9.3
         environment:
+          pguser: POSTGRES_USER
           pgpass: POSTGRES_PASSWORD
-
-        
+          db: POSTGRES_DB
 
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
