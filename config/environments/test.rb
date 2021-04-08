@@ -9,13 +9,14 @@ require "active_record"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.cache_classes = false
-  config.action_view.cache_template_loading = true
+  config.cache_classes = true
+
+  # config.action_view.cache_template_loading = true
 
   # Do not eager load code on boot. This avoids loading your whole application
   # just for the purpose of running a single test. If you are using a tool that
   # preloads Rails for running tests, you may have to set it to true.
-  config.eager_load = true
+  config.eager_load = false
 
   # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.enabled = true
