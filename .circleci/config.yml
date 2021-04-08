@@ -71,8 +71,6 @@ jobs:
     environment:
       PGHOST: PGLOCALHOST
       PGUSER: PGUSER
-      PGPASSWORD: PGPASSWORD
-      BOOKSTORE_DATABASE_PASSWORD: PGPASSWORD
       ENV: TEST
     steps:
       - defaults
