@@ -60,7 +60,6 @@ test:
   pool: 5
   timeout: 5000
   host: localhost
-  database: bookstore_test
   username: postgres
   password: <%= ENV['BOOKSTORE_DATABASE_PASSWORD'] %>
 
