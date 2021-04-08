@@ -69,7 +69,7 @@ jobs:
     executor: default
     parallelism: 2
     environment:
-      PGHOST: PGLOCALHOST
+      PGHOST: LOCALHOST
       PGUSER: PGUSER
       ENV: TEST
     steps:
