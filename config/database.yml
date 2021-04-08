@@ -13,6 +13,8 @@ development:
 
 test:
   <<: *default
+  username: <%= Rails.application.credentials.dig(:db, :username) %> # => skoomer
+  password: <%= Rails.application.credentials.dig(:db, :password) %> # => postgres
   database: bookstore_test
 
 production:
