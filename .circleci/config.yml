@@ -12,7 +12,6 @@ executors:
           env: RAILS_ENV
       - image: postgres:9.3
         environment:
-          pguser: POSTGRES_USER
           pgpass: POSTGRES_PASSWORD
 
         
