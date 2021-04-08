@@ -32,6 +32,9 @@ Style/Documentation:
 Style/Encoding:
   Enabled: false
 
+RSpec/MultipleExpectations:
+  Max: 5
+
 Lint/SuppressedException:
   Exclude:
     - 'Rakefile'

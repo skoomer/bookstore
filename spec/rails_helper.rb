@@ -23,6 +23,7 @@ require 'capybara-screenshot/rspec'
 require 'selenium-webdriver'
 require 'site_prism'
 require 'site_prism/all_there'
+require_relative 'support/pages/home'
 
 Capybara.register_driver :selenium_chrome do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
