@@ -9,9 +9,9 @@ executors:
       - image: circleci/postgres:9.5-alpine
         
         environment: # add POSTGRES environment variables.
-          POSTGRES_USER: PGUSER
-          POSTGRES_DB: PGDB
-          POSTGRES_PASSWORD: PGPASS
+          POSTGRES_USER: pguser
+          POSTGRES_DB: pgdatabase
+          POSTGRES_PASSWORD: pgpassword
 
 
 caches:
@@ -69,11 +69,11 @@ jobs:
     executor: default
     parallelism: 2
     environment:
-      PGHOST: PGLOCALHOST
-      PGUSER: PGUSER
-      PGPASSWORD: PGPASS
-      BOOKSTORE_DATABASE_PASSWORD: PGPASS
-      RAILS_ENV: RAILS_ENV
+      PGHOST: pglocalhost
+      PGUSER: pguser
+      PGPASSWORD: pgpassword
+      BOOKSTORE_DATABASE_PASSWORD: pgpassword
+      RAILS_ENV: test
     steps:
       - defaults
 
