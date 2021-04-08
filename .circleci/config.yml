@@ -14,7 +14,7 @@ executors:
         environment:
           pguser: POSTGRES_USER
           pgpass: POSTGRES_PASSWORD
-          db: POSTGRES_DB
+
         
  
 
