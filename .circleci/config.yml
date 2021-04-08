@@ -8,7 +8,7 @@ executors:
       - image: circleci/ruby:3.0.0-node-browsers
       - image: circleci/postgres:9.5-alpine
         
-        environment: # POSTGRES environment variables
+        environment: # POSTGRES add environment variables
           POSTGRES_PASSWORD: PGPASSWORD
 
 
