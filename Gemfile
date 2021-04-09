@@ -17,10 +17,6 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 gem 'circleci', require: false
 # Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise', '~> 4.7.3'
@@ -42,15 +38,7 @@ gem 'mimemagic', '~> 0.4.3'
 gem 'jwt', '~> 2.2.2'
 gem 'haml-rails', '~> 2.0.1'
 gem 'cancancan', '~> 3.2.1'
-
-
-
-
-
-
-# Use Active Storage variant
 gem 'image_processing', '~> 1.2'
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
@@ -83,9 +71,6 @@ group :development do
   gem 'brakeman', '~> 5.0.0'
   #Check fast feature
   gem 'fasterer', '~> 0.9.0'
-  # The Bullet gem is designed to help you increase your application's performance
- 
-
 end
 
 group :assets do
