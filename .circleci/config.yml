@@ -11,7 +11,7 @@ executors:
           RACK_ENV: test
       - image: postgres:11
         environment:
-          POSTGRES_USER: skoomer
+          POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
 
 caches:
