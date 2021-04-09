@@ -3,10 +3,7 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-
 import $ from 'jquery';
 window.$ = $;
 window.jQuery = $;
 import 'bootstrap-sass/assets/javascripts/bootstrap';
-
-
