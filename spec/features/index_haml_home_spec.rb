@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require_relative '../support/pages/home'
 
-RSpec.describe 'Home' do
+RSpec.describe 'Home', type: :feature, js: true do
   let!(:home_page) { Home.new }
 
   context 'when all elements present' do
@@ -20,7 +21,7 @@ RSpec.describe 'Home' do
     end
 
     it do
-      within(home_page.header) { click_link(I18n.t('header.shop')) }
+      within('header') { click_link(I18n.t('header.shop')) }
       expect(home_page).to have_content(I18n.t('header.mobile_dev'))
       expect(home_page).to have_content(I18n.t('header.photo'))
       expect(home_page).to have_content(I18n.t('header.desing'))
