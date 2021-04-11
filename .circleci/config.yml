@@ -13,9 +13,9 @@ executors:
           user: PGUSER
       - image: postgres:11
         environment:
-          pguser: POSTGRES_USER
-          pgpass: POSTGRES_PASSWORD
-          db: POSTGRES_DB
+          POSTGRES_USER: PGUSER
+          POSTGRES_PASSWORD: PG_PASSWORD
+          POSTGRES_DB: PGDATABASE
 
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
