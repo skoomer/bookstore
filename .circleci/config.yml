@@ -9,8 +9,7 @@ executors:
         environment:
           host: PGHOST
           user: PGUSER
-          RAILS_ENV: test
-          RACK_ENV: test
+          env: RAILS_ENV
       - image: postgres:11
         environment:
           pguser: POSTGRES_USER
