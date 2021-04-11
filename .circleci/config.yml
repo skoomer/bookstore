@@ -8,8 +8,8 @@ executors:
       - image: circleci/ruby:3.0.0-node-browsers
       - image: postgres:11
         environment:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          pguser: POSTGRES_USER
+          pgpass: POSTGRES_PASSWORD
 
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
