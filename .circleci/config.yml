@@ -9,13 +9,13 @@ executors:
         environment:
           RAILS_ENV: test
           RACK_ENV: test
-          PGUSER: PGUSER
-          PGPASSWORD: PG_PASSWORD
+          host: PGHOST
+          user: PGUSER
       - image: postgres:11
         environment:
-          POSTGRES_USER: PGUSER
-          POSTGRES_PASSWORD: PG_PASSWORD
-          POSTGRES_DB: PGDATABASE
+          pguser: POSTGRES_USER
+          pgpass: POSTGRES_PASSWORD
+          db: POSTGRES_DB
 
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
