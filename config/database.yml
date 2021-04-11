@@ -3,9 +3,8 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  host: localhost
   username: postgres
-  password: <%= ENV['BOOKSTORE_DATABASE_PASSWORD'] %>
+  password: postgres
 
 development:
   <<: *default
@@ -13,11 +12,6 @@ development:
 
 test:
   <<: *default
-  host: localhost
-  port: 5432
-  username: postgres
-  password: postgres
-
   database: bookstore_test
 
 production:
