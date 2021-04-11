@@ -7,14 +7,12 @@ executors:
     docker:
       - image: circleci/ruby:3.0.0-node-browsers
         environment:
-          host: PGHOST
-          user: PGUSER
-          env: RAILS_ENV
+          RAILS_ENV: test
+          RACK_ENV: test
       - image: postgres:11
         environment:
           POSTGRES_USER: PGUSER
-          POSTGRES_PASSWORD: $PG_PASSWORD
-          
+          POSTGRES_PASSWORD: POSTGRES_PASSWORD
 
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
