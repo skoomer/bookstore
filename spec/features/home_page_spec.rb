@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require_relative '../support/pages/home'
 
 RSpec.describe 'Home', type: :feature, js: true do
-  let!(:home_page) { Home.new }
+  let(:home_page) { Home.new }
 
-  context 'when all elements present' do
+  describe 'content' do
     before do
       home_page.load
     end
@@ -15,7 +14,7 @@ RSpec.describe 'Home', type: :feature, js: true do
     it { expect(home_page.item_best_sellers.size).to eq(4) }
   end
 
-  context 'when have correct menu' do
+  describe 'menu' do
     before do
       home_page.load
     end

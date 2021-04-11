@@ -4,9 +4,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "license": "ISC",
-  "description": "bookstore_shop",
-  "repository": "https://github.com/skoomer/bookstore",
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",

@@ -5,7 +5,7 @@ default: &default
   timeout: 5000
   host: localhost
   username: postgres
-  password: postgres
+  password: <%= ENV['BOOKSTORE_DATABASE_PASSWORD'] %>
 
 development:
   <<: *default
