@@ -12,6 +12,7 @@ executors:
           env: RAILS_ENV
       - image: postgres:11
         environment:
+          POSTGRES_HOST_AUTH_METHOD: trust
           pguser: POSTGRES_USER
           pgpass: POSTGRES_PASSWORD
           db: POSTGRES_DB
