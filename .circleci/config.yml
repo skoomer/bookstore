@@ -13,7 +13,7 @@ executors:
           user: PGUSER
       - image: postgres:11
         environment:
-          POSTGRES_USER: PGUSER
+          POSTGRES_USER: postgres
           POSTGRES_PASSWORD: PG_PASSWORD
           POSTGRES_DB: PGDATABASE
 
