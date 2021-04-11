@@ -15,8 +15,8 @@ test:
   <<: *default
   host: localhost
   port: 5432
-  PGUSER: PGUSER
-  password: PG_PASSWORD
+  username: postgres
+  password: postgres
 
   database: bookstore_test
 
