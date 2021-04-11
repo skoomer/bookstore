@@ -21,10 +21,4 @@ class Home < SitePrism::Page
   element :text_best_sellers, 'h3', text: I18n.t('home_page.best')
 
   element :header, 'header'
-  # section :menu, 'menu', text: I18n.t('menu')
-  section :header, 'header'
-end
-
-class HomeSection < SitePrism::Section
-  element :header, 'header'
 end
