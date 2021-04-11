@@ -53,3 +53,5 @@ rdoc
 /.vscode/
 my_command.txt
 
+
+/config/credentials/test.key
