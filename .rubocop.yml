@@ -8,15 +8,10 @@ AllCops:
   Exclude:
     - 'config/**/*'
     - 'db/**/*'
-    - 'script/**/*'
     - 'bin/**/*'
     - vendor/bundle/**/*
-    - 'bin/{rails,rake}'
     - 'node_modules/**/*'
-    - 'spec/rails_helper.rb'
-    - 'Gemfile'
-    - '!ruby/regexp /old_and_unused\.rb$/'
-    
+        
 Metrics/BlockLength:
   Exclude:
     - config/**/*
