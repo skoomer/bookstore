@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Home' do
+require 'rails_helper'
+
+RSpec.describe 'Home', type: :feature, js: true do
   let(:home_page) { Home.new }
 
   describe 'content' do
@@ -9,7 +11,6 @@ RSpec.describe 'Home' do
     end
 
     it { expect(home_page).to be_all_there }
-    it { expect(home_page).to be_displayed }
     it { expect(home_page.item_best_sellers.size).to eq(4) }
   end
 
@@ -19,8 +20,11 @@ RSpec.describe 'Home' do
     end
 
     it do
-      home_page.button_shop.click
-      expect(home_page).to have_menu
+      within('header') { click_link(I18n.t('header.shop')) }
+      expect(home_page).to have_content(I18n.t('header.mobile_dev'))
+      expect(home_page).to have_content(I18n.t('header.photo'))
+      expect(home_page).to have_content(I18n.t('header.desing'))
+      expect(home_page).to have_content(I18n.t('header.my_account'))
     end
   end
 end

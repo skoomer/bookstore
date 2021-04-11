@@ -1,0 +1,5 @@
+require 'capybara/rspec'
+require 'capybara-screenshot/rspec'
+require 'selenium-webdriver'
+require 'site_prism'
+require 'site_prism/all_there'
