@@ -13,7 +13,7 @@ executors:
       - image: postgres:11
         environment:
           POSTGRES_USER: PGUSER
-          POSTGRES_PASSWORD: PG_PASSWORD
+          POSTGRES_PASSWORD: $PG_PASSWORD
           
 
 caches:
