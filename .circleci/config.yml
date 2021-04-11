@@ -11,8 +11,8 @@ executors:
           RACK_ENV: test
       - image: postgres:11
         environment:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          pguser: POSTGRES_USER
+          pgpass: POSTGRES_PASSWORD
 
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
