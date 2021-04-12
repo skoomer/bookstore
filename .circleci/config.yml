@@ -9,8 +9,6 @@ executors:
         environment:
           RAILS_ENV: test
           RACK_ENV: test
-          host: PGHOST
-          user: PGUSER
       - image: postgres:11
         environment:
           POSTGRES_USER: postgres
