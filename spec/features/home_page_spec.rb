@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Home', type: :feature, js: true do
+RSpec.describe 'Home', type: :request do
   let(:home_page) { Home.new }
 
   describe 'content' do
