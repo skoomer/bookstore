@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'menu'
+
 class Home < SitePrism::Page
   set_url '/'
 
@@ -21,4 +23,5 @@ class Home < SitePrism::Page
   element :text_best_sellers, 'h3', text: I18n.t('home_page.best')
 
   element :header, 'header'
+  section :menu, Menu, 'li.dropdown'
 end

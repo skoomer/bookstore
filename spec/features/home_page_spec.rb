@@ -11,6 +11,7 @@ RSpec.describe 'Home', type: :feature, js: true do
     end
 
     it { expect(home_page).to be_all_there }
+    it { expect(home_page).to be_displayed }
     it { expect(home_page.item_best_sellers.size).to eq(4) }
   end
 
@@ -20,11 +21,8 @@ RSpec.describe 'Home', type: :feature, js: true do
     end
 
     it do
-      within('header') { click_link(I18n.t('header.shop')) }
-      expect(home_page).to have_content(I18n.t('header.mobile_dev'))
-      expect(home_page).to have_content(I18n.t('header.photo'))
-      expect(home_page).to have_content(I18n.t('header.desing'))
-      expect(home_page).to have_content(I18n.t('header.my_account'))
+      within(home_page.header) { click_link(I18n.t('header.shop')) }
+      expect(home_page).to have_menu
     end
   end
 end
