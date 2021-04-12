@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe 'Home', type: :request do
   let(:home_page) { Home.new }
 
@@ -21,7 +19,7 @@ RSpec.describe 'Home', type: :request do
     end
 
     it do
-      within(home_page.header) { click_link(I18n.t('header.shop')) }
+      within(home_page.header) { home_page.header.shop_button.click }
       expect(home_page).to have_menu
     end
   end
