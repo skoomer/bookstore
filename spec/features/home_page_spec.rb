@@ -19,7 +19,7 @@ RSpec.describe 'Home', type: :request do
     end
 
     it do
-      within(home_page.header) { home_page.header.shop_button.click }
+      home_page.btn_shop.click
       expect(home_page).to have_menu
     end
   end
