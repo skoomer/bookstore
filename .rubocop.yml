@@ -28,7 +28,3 @@ Style/Encoding:
 
 RSpec/MultipleExpectations:
   Max: 5
-
-Lint/SuppressedException:
-  Exclude:
-    - 'Rakefile'
