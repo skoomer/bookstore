@@ -10,24 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_30_190812) do
+ActiveRecord::Schema.define(version: 2021_05_18_102018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "active_admin_comments", force: :cascade do |t|
-    t.string "namespace"
-    t.text "body"
-    t.string "resource_type"
-    t.bigint "resource_id"
-    t.string "author_type"
-    t.bigint "author_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
-    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
-    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
-  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -59,18 +45,16 @@ ActiveRecord::Schema.define(version: 2021_06_30_190812) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "type"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "city"
-    t.string "address"
-    t.string "country"
-    t.string "zip"
-    t.string "phone_number"
+    t.string "first_name", limit: 50, null: false
+    t.string "last_name", limit: 50, null: false
+    t.string "city", limit: 50, null: false
+    t.string "address", limit: 50, null: false
+    t.string "country", limit: 50, null: false
+    t.string "zip", limit: 10, null: false
+    t.string "phone_number", limit: 15, null: false
     t.bigint "user_id"
-    t.bigint "order_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["order_id"], name: "index_addresses_on_order_id"
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
@@ -121,78 +105,11 @@ ActiveRecord::Schema.define(version: 2021_06_30_190812) do
     t.index ["category_id"], name: "index_books_on_category_id"
   end
 
-  create_table "cards", force: :cascade do |t|
-    t.string "number"
-    t.string "card_holder"
-    t.string "valid_thru"
-    t.string "cvv"
-    t.bigint "order_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["order_id"], name: "index_cards_on_order_id"
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string "title", null: false
     t.integer "books_count", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "coupons", force: :cascade do |t|
-    t.string "code"
-    t.boolean "active", default: true
-    t.decimal "discount", default: "5.0"
-    t.bigint "order_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["order_id"], name: "index_coupons_on_order_id"
-  end
-
-  create_table "deliveries", force: :cascade do |t|
-    t.string "name"
-    t.string "time_shipping"
-    t.decimal "price"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "order_items", force: :cascade do |t|
-    t.integer "quantity", default: 0
-    t.bigint "book_id"
-    t.bigint "order_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["book_id"], name: "index_order_items_on_book_id"
-    t.index ["order_id"], name: "index_order_items_on_order_id"
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.datetime "compleated_at"
-    t.datetime "deleted_at"
-    t.string "number"
-    t.integer "status", default: 0
-    t.decimal "total_price", precision: 8, scale: 2
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "delivery_id"
-    t.string "use_billing"
-    t.index ["delivery_id"], name: "index_orders_on_delivery_id"
-    t.index ["user_id"], name: "index_orders_on_user_id"
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.string "title"
-    t.string "text"
-    t.integer "score"
-    t.integer "status", default: 0
-    t.bigint "book_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["book_id"], name: "index_reviews_on_book_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -213,12 +130,4 @@ ActiveRecord::Schema.define(version: 2021_06_30_190812) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "books", "authors"
   add_foreign_key "books", "categories"
-  add_foreign_key "cards", "orders"
-  add_foreign_key "coupons", "orders"
-  add_foreign_key "order_items", "books"
-  add_foreign_key "order_items", "orders"
-  add_foreign_key "orders", "deliveries"
-  add_foreign_key "orders", "users"
-  add_foreign_key "reviews", "books"
-  add_foreign_key "reviews", "users"
 end
