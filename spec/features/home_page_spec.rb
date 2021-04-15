@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Home', type: :request do
+RSpec.describe 'Home', type: :feature do
   let(:home_page) { Home.new }
 
   describe 'content' do

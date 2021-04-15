@@ -17,7 +17,6 @@
 /tmp/pids/*
 !/tmp/pids/
 !/tmp/pids/.keep
-yarn.lock
 
 # Ignore uploaded files in development.
 /storage/*
@@ -52,8 +51,4 @@ rdoc
 .txt
 /.vscode/
 my_command.txt
-/config/credentials/test.key
-
-/config/credentials/development.key
-
-/config/credentials/production.key
+*.key

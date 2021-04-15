@@ -3,5 +3,7 @@
   = render 'partials/head'
   %body
     = render 'partials/header', cached: true
+    %p.notice= notice
+    %p.alert= alert
     = yield
     = render 'partials/footer', cached: true
