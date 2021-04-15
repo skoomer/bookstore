@@ -4,7 +4,6 @@ require:
   - rubocop-performance
 
 AllCops:
-  NewCops: enable
   Exclude:
     - 'config/**/*'
     - 'db/**/*'
@@ -28,3 +27,6 @@ Style/Encoding:
 
 RSpec/MultipleExpectations:
   Max: 5
+
+Rails/FilePath:
+  Enabled: false
