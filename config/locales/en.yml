@@ -20,6 +20,9 @@ en:
       phone_number: (555)-555-5555
   pages:
     index:
+      buttons:
+        buy: Buy Now
+        start: Get Started
       android: Android Programming for Beginners
       previous: Previous
       next: Next
