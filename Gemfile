@@ -62,10 +62,6 @@ group :development do
   gem 'spring', '~> 2.1.1'
 end
 
-group :assets do
-  gem 'compass', '~> 1.0'
-end
-
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
