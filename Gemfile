@@ -71,6 +71,7 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers', '~> 4.6.0'
   # Provides RSpec- and Minitest-compatible one-liners to test common Rails functionality
+  gem 'rails-controller-testing', '~> 1.0.5'
   gem 'shoulda-matchers', '~> 4.0'
   gem 'simplecov', '~> 0.21.2', require: false
   gem 'site_prism', '~> 3.7.1'
