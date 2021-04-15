@@ -27,12 +27,10 @@ gem 'devise', '~> 4.7.3'
 # Provides a set of helpers which guide you in leveraging regular Ruby classes
 # Pagy is the ultimate pagination gem
 gem 'pagy', '~> 3.5'
-# Shrine is a toolkit for handling file attachments in Ruby applications.
-gem 'shrine', '~> 3.0'
 # Ruby state machines
 gem 'aasm', '~> 5.1.1'
 # Using MiniMagick the ruby processes memory remains small
-gem 'mini_magick'
+gem 'mini_magick', '~> 4.11.0'
 # Fast and powerful Git hooks manager for Node.js, Ruby or any other type of projects.
 gem 'cancancan', '~> 3.2.1'
 gem 'haml-rails', '~> 2.0.1'
@@ -45,15 +43,19 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
-end
-
-group :development do
+  gem 'byebug', '~> 11.1.3', platforms: %i[mri mingw x64_mingw]
+  gem 'database_consistency', '~> 0.8.13', require: false
+  gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 5.0.0'
   gem 'rubocop', '~> 1.12', require: false
   gem 'rubocop-performance', '~> 1.10.2', require: false
   gem 'rubocop-rails', '~> 2.9.1', require: false
   gem 'rubocop-rspec', '~> 2.2.0', require: false
+  # Brakeman is a static analysis tool which checks Ruby on Rails applications for security vulnerabilities.
+  gem 'brakeman', '~> 5.0.0'
+end
+
+group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
@@ -62,11 +64,6 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 2.1.1'
-  # Haml is a templating engine for HTML.
-  gem 'database_consistency', '~> 0.8.13', require: false
-  gem 'pry-rails', '~> 0.3.9'
-  # Brakeman is a static analysis tool which checks Ruby on Rails applications for security vulnerabilities.
-  gem 'brakeman', '~> 5.0.0'
 end
 
 group :assets do
@@ -83,8 +80,6 @@ group :test do
   gem 'webdrivers', '~> 4.6.0'
   # Provides RSpec- and Minitest-compatible one-liners to test common Rails functionality
   gem 'shoulda-matchers', '~> 4.0'
-  # Rspec test
-
   gem 'simplecov', '~> 0.21.2', require: false
   gem 'site_prism', '~> 3.7.1'
 end
