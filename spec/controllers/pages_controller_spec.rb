@@ -1,15 +1,11 @@
 # frozen_string_literal: true
 
-RSpec.describe PagesController do
-  describe '#index' do
-    before { get :index }
+RSpec.describe 'Pages', type: :request do
+  describe 'GET /index' do
+    before { get root_path }
 
-    it 'returns http success' do
-      expect(response).to have_http_status(:success)
-    end
-
-    it 'renders index template' do
-      expect(response).to render_template(:index)
+    it 'return status 200' do
+      expect(response.status).to eq 200
     end
   end
 end
