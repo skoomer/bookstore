@@ -22,9 +22,6 @@ gem 'circleci', require: false
 gem 'jbuilder', '~> 2.7'
 # Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise', '~> 4.7.3'
-# Standardized Multi-Provider Authentication
-# Rails engine that provides an easy-to-use interface for managing your data.
-# Provides a set of helpers which guide you in leveraging regular Ruby classes
 # Pagy is the ultimate pagination gem
 gem 'pagy', '~> 3.5'
 # Ruby state machines
@@ -58,7 +55,6 @@ end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
-  # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'listen', '~> 3.5.1'
   gem 'rack-mini-profiler', '~> 2.0'

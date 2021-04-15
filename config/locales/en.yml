@@ -8,7 +8,7 @@ en:
       shop: Shop
       mobile_dev: Mobile development
       photo: Photo
-      desing: Web desing
+      design: Web design
       my_account: My account
       log_out: Log out
     footer:
@@ -20,6 +20,11 @@ en:
       phone_number: (555)-555-5555
   pages:
     index:
+      android: Android Programming for Beginners
+      previous: Previous
+      next: Next
+      smart_front: Smart front-end techniques and design patterns derived from real-life responsive projects
+      real_life: Real-Life Responsive Web Design
       btn_buy: Buy Now
       greeting: Welcome to our amazing Bookstore!
       info: We pore through hundreds of new books each month and select the five best we can find to share with our members.
