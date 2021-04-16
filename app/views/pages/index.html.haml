@@ -12,11 +12,11 @@
                             %img.img-shadow.general-thumbnail-img{src: "http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg", alt: "design-book"}
                     .col-sm-7
                         .mb-60
-                            %h1 Real-Life Responsive Web Design
-                            %p.lead Smart front-end techniques and design patterns derived from real-life responsive projects
+                            %h1= t('.real_life')
+                            %p.lead= t('.smart_front')
                             %p.lead.small Vitaly Friedman, Daniel Mall,Vitaly Friedman
                             .general-align
-                                %button.disabled.btn= t('.btn_buy')
+                                %button.disabled.btn= t('.buttons.buy')
             .item
                 .row
                     .col-sm-5
@@ -24,11 +24,11 @@
                             %img.img-shadow.general-thumbnail-img{src: "http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg", alt: "design-book"}
                     .col-sm-7
                         .mb-60
-                            %h1 Real-Life Responsive Web Design
-                            %p.lead Smart front-end techniques and design patterns derived from real-life responsive projects
+                            %h1= t('.real_life')
+                            %p.lead= t('.smart_front')
                             %p.lead.small Vitaly Friedman, Daniel Mall,Vitaly Friedman
                             .general-align
-                                %button.disabled.btn= t('.btn_buy')
+                                %button.disabled.btn= t('.buttons.buy')
             .item
                 .row
                     .col-sm-5
@@ -36,23 +36,23 @@
                             %img.img-shadow.general-thumbnail-img{src: "http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg", alt: "design-book"}
                     .col-sm-7
                         .mb-60
-                            %h1 Real-Life Responsive Web Design
-                            %p.lead Smart front-end techniques and design patterns derived from real-life responsive projects
+                            %h1= t('.real_life')
+                            %p.lead= t('.smart_front')
                             %p.lead.small Vitaly Friedman, Daniel Mall,Vitaly Friedman
                             .general-align
-                                %button.btn.btn-primary= t('.btn_buy')
+                                %button.btn.btn-primary= t('.buttons.buy')
         %a.left.carousel-control{href: "#slider", role: "button", 'data-slide': "prev"}
             %span.icon-prev{'aria-hidden': "true"}
-            %span.sr-only Previous
+            %span.sr-only= t('.previous')
         %a.right.carousel-control{href: "#slider", role: "button", 'data-slide': "next"}
             %span.icon-next{'aria-hidden': "true"}
-            %span.sr-only Next
+            %span.sr-only= t('.next')
 .container
     .jumbotron.text-center.mb-0
         %h2.h1= t('.greeting')
         .mb-res-50
             %p= t('.info')
-        %button.btn.btn-default= t('.btn_start')
+        %button.btn.btn-default= t('.buttons.start')
     .mb-35
         %h3= t('.best')
         #best_sellers.row
@@ -69,7 +69,7 @@
                 .mb-35
                     .clearfix
                         %p.pull-right.font-16.in-gold-500 €28.50
-                        %p.title.mr-55 Android Programming for Beginners
+                        %p.title.mr-55= t('.android')
                     %span.divider-sm
                     %p.lead.small John Horton
             .col-sm-6.col-md-3
@@ -85,7 +85,7 @@
                 .mb-35
                     .clearfix
                         %p.pull-right.font-16.in-gold-500 €28.50
-                        %p.title.mr-55 Android Programming for Beginners
+                        %p.title.mr-55= t('.android')
                     %span.divider-sm
                     %p.lead.small John Horton
             .col-sm-6.col-md-3
@@ -101,7 +101,7 @@
                 .mb-35
                     .clearfix
                         %p.pull-right.font-16.in-gold-500 €28.50
-                        %p.title.mr-55 Android Programming for Beginners
+                        %p.title.mr-55= t('.android')
                     %span.divider-sm
                     %p.lead.small John Horton
             .col-sm-6.col-md-3
@@ -117,6 +117,6 @@
                 .mb-35
                     .clearfix
                         %p.pull-right.font-16.in-gold-500 €28.50
-                        %p.title.mr-55 Android Programming for Beginners
+                        %p.title.mr-55= t('.android')
                     %span.divider-sm
                     %p.lead.small John Horton
