@@ -21,18 +21,34 @@
 # Ignore uploaded files in development.
 /storage/*
 !/storage/.keep
-
-/public/assets
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+/public/assets
 /public/packs
+/public/uploads
 /public/packs-test
-/node_modules
+
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-
+/.yardoc
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+/node_modules/
+.rspec_status
+*.gem
+*.rbc
+doc/
+lib/bundler/man
+pkg
+rdoc
+.txt
+/.vscode/
 my_command.txt
+*.key

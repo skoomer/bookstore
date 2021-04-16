@@ -1,11 +1,19 @@
-require: rubocop-rspec
+require:
+  - rubocop-rspec
+  - rubocop-rails
+  - rubocop-performance
 
-RSpec/FilePath:
+AllCops:
   Exclude:
-    - spec/my_poorly_named_spec_file.rb
-
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'bin/**/*'
+    - vendor/bundle/**/*
+    - 'node_modules/**/*'
+        
 Metrics/BlockLength:
   Exclude:
+    - config/**/*
     - 'spec/**/*'
     - 'vendor/*'
     - 'vendor/**/*'
@@ -14,8 +22,11 @@ Metrics/BlockLength:
 Style/Documentation:
   Enabled: false
 
-Style/FrozenStringLiteralComment:
+Style/Encoding:
   Enabled: false
 
-Metrics/LineLength:
-  Max: 120
+RSpec/MultipleExpectations:
+  Max: 5
+
+Rails/FilePath:
+  Enabled: false
