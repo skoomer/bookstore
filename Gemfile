@@ -37,6 +37,7 @@ gem 'lefthook', '~> 0.5.5'
 gem 'mimemagic', '~> 0.4.3'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'faker', '~> 2.17.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -60,6 +61,8 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 2.1.1'
+  gem 'bullet', '~> 6.1.4'
+  gem 'fasterer', '~> 0.9.0'
 end
 
 group :test do
@@ -75,6 +78,7 @@ group :test do
   gem 'shoulda-matchers', '~> 4.0'
   gem 'simplecov', '~> 0.21.2', require: false
   gem 'site_prism', '~> 3.7.1'
+  gem 'factory_bot_rails', '~> 6.1.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
