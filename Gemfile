@@ -37,6 +37,7 @@ gem 'lefthook', '~> 0.5.5'
 gem 'mimemagic', '~> 0.4.3'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'will_paginate', '~> 3.1.0'
 gem 'faker', '~> 2.17.0', require: false
 
 group :development, :test do
