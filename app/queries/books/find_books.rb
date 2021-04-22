@@ -1,14 +1,18 @@
-class Books::FindBooks
-  DEFAULT_SORT = 'title ASC'
+# frozen_string_literal: true
 
-  def initialize(books, params)
-    @books = books
-    @category_id = params[:category_id]
-    @sort_by_param = params[:sort_by]
-  end
+module Books
+  class FindBooks
+    DEFAULT_SORT = 'title ASC'
 
-  def call
-    select_books = @category_id ? Category.find(@category_id).books : @books
-    @sort_by_param ? select_books.order(@sort_by_param) : select_books.order(DEFAULT_SORT)
+    def initialize(books, params)
+      @books = books
+      @category_id = params[:category_id]
+      @sort_by_param = params[:sort_by]
+    end
+
+    def call
+      select_books = @category_id ? Category.find(@category_id).books : @books
+      @sort_by_param ? select_books.order(@sort_by_param) : select_books.order(DEFAULT_SORT)
+    end
   end
 end

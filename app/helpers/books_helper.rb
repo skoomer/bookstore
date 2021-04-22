@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BooksHelper
-    include Pagy::Frontend
+  include Pagy::Frontend
 end
