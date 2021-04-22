@@ -37,8 +37,8 @@ gem 'lefthook', '~> 0.5.5'
 gem 'mimemagic', '~> 0.4.3'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-gem 'will_paginate', '~> 3.1.0'
 gem 'faker', '~> 2.17.0', require: false
+gem 'will_paginate', '~> 3.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -55,15 +55,15 @@ group :development, :test do
 end
 
 group :development do
+  gem 'bullet', '~> 6.1.4'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'listen', '~> 3.5.1'
   gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '~> 2.1.1'
-  gem 'bullet', '~> 6.1.4'
   gem 'fasterer', '~> 0.9.0'
+  gem 'spring', '~> 2.1.1'
 end
 
 group :test do
@@ -75,11 +75,11 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers', '~> 4.6.0'
   # Provides RSpec- and Minitest-compatible one-liners to test common Rails functionality
+  gem 'factory_bot_rails', '~> 6.1.0'
   gem 'rails-controller-testing', '~> 1.0.5'
   gem 'shoulda-matchers', '~> 4.0'
   gem 'simplecov', '~> 0.21.2', require: false
   gem 'site_prism', '~> 3.7.1'
-  gem 'factory_bot_rails', '~> 6.1.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

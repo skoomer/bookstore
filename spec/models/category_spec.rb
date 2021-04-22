@@ -1,5 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:category) { FactoryBot.create(:category) }
+
+  describe 'create objects category' do
+    it 'create Photo' do
+      expect(category.title).to eq('Mobile Development')
+    end
+  end
 end

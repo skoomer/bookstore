@@ -1,5 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Author, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:author) { FactoryBot.create(:author) }
+
+  describe 'create author object' do
+    it 'create author' do
+      expect(author).to be_truthy
+    end
+  end
 end
