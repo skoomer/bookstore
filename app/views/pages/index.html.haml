@@ -13,7 +13,7 @@
                         .col-sm-7
                             .mb-60
                                 %h1= book.title
-                                %p.lead= book.description
+                                %p.lead= book.description.split('.').first
                                 %p.lead.small= book.author.first_name
                                 .general-align
                                     %button.disabled.btn= t('.buttons.buy')

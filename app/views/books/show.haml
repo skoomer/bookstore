@@ -32,15 +32,15 @@
       .general-info-wrap.divider-lg
         %p= t('.description')
         %p.lead.small.line-height-2
-          = @book.description
+          = @book.description.truncate(240)
           %span.end-of-description-js{style: 'display:none'}
-            = @book.description
-          = button_tag t('.buttons.read_more'), disabled: @book.description?, class: 'btn-link in-gold-500 ml-10 read-more-js'  
+            = @book.description.truncate(241)
+          = button_tag t('.buttons.read_more'), disabled: @book.description.size < 240, class: 'btn-link in-gold-500 ml-10 read-more-js'  
       .general-info-wrap.divider-lg
         .clearfix
           %p.pull-left= t('.publication_year')
           %p.lead.small.pull-right
-            -# = @book.publication
+            = @book.publication_year
       .general-info-wrap.divider-lg
         .clearfix
           %p.pull-left Dimensions

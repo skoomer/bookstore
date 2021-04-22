@@ -8,7 +8,8 @@ en:
       shop: Shop
       mobile_dev: Mobile development
       photo: Photo
-      design: Web design
+      design: Web Design
+      web_dev: Web Development
       my_account: My account
       log_out: Log out
     footer:
@@ -50,8 +51,6 @@ en:
         title: Title
         review: Review
     partials:
-      locals:
-        pagy: Pagy
       filter:
         title: Сatalog
         all: All

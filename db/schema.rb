@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_21_094334) do
+ActiveRecord::Schema.define(version: 2021_04_21_102611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2021_04_21_094334) do
     t.float "depth"
     t.string "material"
     t.integer "quantity"
-    t.integer "publication_yer"
+    t.integer "publication_year"
     t.index ["author_id"], name: "index_books_on_author_id"
     t.index ["category_id"], name: "index_books_on_category_id"
   end
