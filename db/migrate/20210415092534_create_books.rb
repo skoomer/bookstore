@@ -1,6 +1,9 @@
 class CreateBooks < ActiveRecord::Migration[6.1]
   def change
     create_table :books do |t|
+      t.references :author, foreign_key: true
+      t.references :category, foreign_key: true
+      
       t.string :title, :null => false
       t.float :price, precision: 12, scale: 2
       t.text :description
@@ -11,8 +14,6 @@ class CreateBooks < ActiveRecord::Migration[6.1]
       t.string :material
       t.integer :quantity
       t.integer :publication_year
-      t.references :category, foreign_key: true
-      t.references :author, foreign_key: true
       t.timestamps
     end
   end
