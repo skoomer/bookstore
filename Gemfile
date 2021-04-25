@@ -38,7 +38,7 @@ gem 'mimemagic', '~> 0.4.3'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'factory_bot_rails', '~> 6.1.0'
-gem 'ffaker', '~> 2.18.0'
+gem 'ffaker', '~> 2.18.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
