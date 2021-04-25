@@ -44,8 +44,8 @@ group :development, :test do
   gem 'database_consistency', '~> 0.8.13', require: false
   gem 'pry-rails', '~> 0.3.9'
   gem 'factory_bot_rails', '~> 6.1.0'
-  gem 'rspec-rails', '~> 5.0.0'
   gem 'ffaker', '~> 2.18.0', require: false
+  gem 'rspec-rails', '~> 5.0.0'
   gem 'rubocop', '~> 1.12', require: false
   gem 'rubocop-performance', '~> 1.10.2', require: false
   gem 'rubocop-rails', '~> 2.9.1', require: false
