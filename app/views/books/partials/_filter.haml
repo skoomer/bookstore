@@ -15,12 +15,12 @@
         = link_to books_path, class: 'filter-link' do
           = t('.all')
           %span.badge.general-badge
-            = @books.count
+            = @books.size
       - Category.all.each do |category|
         %li.mr-35
           = link_to books_path(category_id: category.id), class: 'filter-link' do
             = category.title
-            %span.badge.general-badge= category.books.count
+            %span.badge.general-badge= category.books.size
   .dropdowns.mb-25.visible-xs
     %p.lead.small.mb-10= t('.filter_by_category')
     .dropdown

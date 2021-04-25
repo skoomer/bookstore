@@ -1,13 +1,17 @@
 # frozen_string_literal: true
 
+BOOK_MATERIAL = ['hardcover', 'glossy paper', 'matte paper'].freeze
+
 FactoryBot.define do
   factory :book do
-    title { Faker::Book.title }
-    price { Faker::Number.decimal(l_digits: 2) }
-    description { Faker::Books::Lovecraft.paragraph(sentence_count: 5) }
-    height { Faker::Number.decimal(l_digits: 1, r_digits: 1) }
-    width { Faker::Number.decimal(l_digits: 1, r_digits: 1) }
-    depth { Faker::Number.decimal(l_digits: 1, r_digits: 1) }
-    quantity { Faker::Number.number(digits: 2) }
+    title { FFaker::Book.title }
+    price { rand(10.0..150.0).floor(2) }
+    description { FFaker::Book.description(10) }
+    publication_year { rand(2000...Time.zone.now.year) }
+    height { rand(0.1...0.9).floor(1) }
+    width { rand(0.1...0.9).floor(1) }
+    depth { rand(0.1...0.9).floor(1) }
+    material { BOOK_MATERIAL.sample }
+    quantity { rand(50) }
   end
 end

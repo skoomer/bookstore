@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Book, type: :model do
+RSpec.describe Book do
   let(:book_material) { ['leather', 'glossy paper', 'matte paper'] }
 
   let(:book) { FactoryBot.create(:book, author: author, category: category, material: book_material.sample) }
