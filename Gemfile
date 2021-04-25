@@ -37,6 +37,7 @@ gem 'lefthook', '~> 0.5.5'
 gem 'mimemagic', '~> 0.4.3'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'factory_bot_rails', '~> 6.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -74,7 +75,6 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers', '~> 4.6.0'
   # Provides RSpec- and Minitest-compatible one-liners to test common Rails functionality
-  gem 'factory_bot_rails', '~> 6.1.0'
   gem 'rails-controller-testing', '~> 1.0.5'
   gem 'shoulda-matchers', '~> 4.0'
   gem 'simplecov', '~> 0.21.2', require: false
