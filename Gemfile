@@ -37,8 +37,7 @@ gem 'lefthook', '~> 0.5.5'
 gem 'mimemagic', '~> 0.4.3'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-gem 'factory_bot_rails', '~> 6.1.0'
-gem 'ffaker', '~> 2.18.0', require: false
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -52,6 +51,8 @@ group :development, :test do
   gem 'rubocop-rspec', '~> 2.2.0', require: false
   # Brakeman is a static analysis tool which checks Ruby on Rails applications for security vulnerabilities.
   gem 'brakeman', '~> 5.0.0'
+  gem 'factory_bot_rails', '~> 6.1.0'
+  gem 'ffaker', '~> 2.18.0', require: false
   
 end
 
