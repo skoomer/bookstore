@@ -2,6 +2,7 @@
 
 module Books
   class FindBooks
+    include Filtering
     DEFAULT_SORT = 'title ASC'
 
     def initialize(books, params)

@@ -8,8 +8,6 @@ RSpec.describe 'Home', type: :feature do
       home_page.load
     end
 
-    after { p(home_page.elements_missing, '<====MISING ELEMENTS') }
-
     it { expect(home_page).to be_all_there }
     it { expect(home_page).to be_displayed }
     it { expect(home_page.item_best_sellers.size).to eq(4) }

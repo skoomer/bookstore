@@ -1,0 +1,30 @@
+en:
+  books:
+    show:
+      buttons:
+        back: Back to results
+        add_to_cart: Add to Cart
+        read_more: Read More
+        post: Post
+      description: Description
+      publication_year: Year of publication
+      materials: Materials
+      price: "€%{price}"
+      dimensions: "H: %{h}\" x W: %{w}\" x D: %{d}"
+      dimensions_title: Dimensions
+      review: Write a Review
+      score: Score
+      form:
+        title: Title
+        review: Review
+    partials:
+      filter:
+        title: Сatalog
+        all: All
+        filter_by_category: Filter by category
+        sort: Sort by
+      book:
+        price: "€%{price}"
+      next_page_link:
+        button: View More
+
