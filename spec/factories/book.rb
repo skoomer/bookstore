@@ -13,5 +13,13 @@ FactoryBot.define do
     depth { rand(0.1...0.9).floor(1) }
     material { BOOK_MATERIAL.sample }
     quantity { rand(50) }
+    category
+    author
+  end
+
+  trait :attach_author do
+    after(:create) do |_book|
+      create_list(:author, rand(1..3))
+    end
   end
 end
