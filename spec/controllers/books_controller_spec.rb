@@ -1,12 +1,7 @@
 # frozen_string_literal: true
 
 require 'pry'
-
 RSpec.describe BooksController do
-  let(:book) { FactoryBot.create(:book, author: author, category: category) }
-  let(:author) { FactoryBot.create(:author) }
-  let(:category) { FactoryBot.create(:category) }
-
   describe 'GET /index' do
     before { get :index }
 
@@ -19,8 +14,24 @@ RSpec.describe BooksController do
     end
   end
 
+  describe 'assingns' do
+    let!(:books) { create_list(:book, 3) }
+
+    before { get :index }
+
+    it 'assingns @books' do
+      expect(assigns(:books)).to eq(books.sort_by(&:title))
+    end
+  end
+
   describe 'GET show book ' do
-    before { get :show, params: { id: book.id } }
+    let(:book) { create(:book) }
+
+    before do
+      get :show, params: { id: book.id }
+    end
+
+    it { expect(response).to render_template :show }
 
     it 'return http success if book exists' do
       expect(response).to have_http_status(:success)
