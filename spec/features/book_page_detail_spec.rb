@@ -13,8 +13,6 @@ RSpec.describe 'BookDetail', type: :feature do
       book_page_detail.load(book: book.id)
     end
 
-    after { p(book_page_detail.elements_missing, '<====MISING ELEMENTS') }
-
     it {
       expect(book_page_detail).to have_btn_back
       expect(book_page_detail).to have_book_name(text: book.title)
