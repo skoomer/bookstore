@@ -40,8 +40,6 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'factory_bot_rails', '~> 6.1.0'
 gem 'ffaker', '~> 2.18.0', require: false
 
-
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '~> 11.1.3', platforms: %i[mri mingw x64_mingw]
