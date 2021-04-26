@@ -1,0 +1,20 @@
+.text-center
+    %h3.general-login-title Sign UP
+    %a.general-login-icon{href: "#"}
+        %i.fa.fa-facebook-official
+    %p.general-login-text or
+%form.general-form
+    .form-group.mb-30
+        %label.control-label.input-label{for: "email"} Enter Email
+        %input#email.form-control{name:"email", type: "email", placeholder: "Enter Email"}
+    .form-group.mb-30
+        %label.control-label.input-label{for: "password"} Password
+        %input#password.form-control{name:"password", type: "password", placeholder: "Password"}
+    .form-group.mb-30
+        %label.control-label.input-label{for: "confirm"} Confirm Password
+        %input#confirm.form-control{name:"confirm", type: "password", placeholder: "Confirm Password"}
+    .text-center
+        %button.btn.btn-default.mb-20 Sign Up
+    %p.general-sign-text.text-center
+        Have an Account?
+        = link_to 'Log in', login_index_path
