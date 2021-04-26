@@ -20,7 +20,7 @@ end
     width: rand(0.1...0.9).floor(1),
     depth: rand(0.1...0.9).floor(1),
     material: BOOK_MATERIAL.sample,
-    quantity: Random.srand(1),
+    quantity: rand(1),
     category_id: Category.all.sample.id,
     author_id: Author.all.sample.id
 
