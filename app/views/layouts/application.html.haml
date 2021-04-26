@@ -2,7 +2,11 @@
 %html
   = render 'partials/head'
   %body
+  - if request.original_url == signup_index_path
+    = render  'signup/partials/header', cached: true
+  - else
     = render 'partials/header', cached: true
+    
     %p.notice= notice
     %p.alert= alert
     = yield

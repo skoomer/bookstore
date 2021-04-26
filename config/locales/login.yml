@@ -1,0 +1,12 @@
+en:
+  login:
+    show:
+      buttons:
+        back: Back to results
+        add_to_cart: Add to Cart
+        read_more: Read More
+        post: Post
+      password: Password
+      sign_up: Sign Up
+
+
