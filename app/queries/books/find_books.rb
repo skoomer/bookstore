@@ -5,8 +5,8 @@ module Books
     include Filtering
     DEFAULT_SORT = 'title ASC'
 
-    def initialize(books, params)
-      @books = books
+    def initialize(params)
+      @books = Book.all
       @category_id = params[:category_id]
       @sort_by_param = params[:sort_by]
     end

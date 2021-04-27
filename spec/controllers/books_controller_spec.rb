@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'pry'
 RSpec.describe BooksController do
   describe 'GET /index' do
     before { get :index }
