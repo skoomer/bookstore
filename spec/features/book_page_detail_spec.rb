@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
-RSpec.describe 'BookDetail', type: :feature do
+RSpec.describe 'BookDetail' do
   let(:book_page_detail) { BookDetail.new }
-  let(:book_material) { ['leather', 'glossy paper', 'matte paper'] }
 
-  let!(:book) { FactoryBot.create(:book, author: author, category: category, material: book_material.sample) }
-  let(:author) { FactoryBot.create(:author) }
-  let(:category) { FactoryBot.create(:category) }
+  let!(:book) { create(:book, author: author, category: category) }
+  let(:author) { create(:author) }
+  let(:category) { create(:category) }
 
   describe 'content' do
     before do

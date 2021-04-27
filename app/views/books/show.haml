@@ -17,7 +17,7 @@
             %img{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
     .col-sm-6
       %h1.mt-res-0= @book.title
-      %p.lead.small= @book.author.first_name
+      %p.lead.small= book.author_name
       .row
         .col-xs-12.col-md-4
           %p.h1.in-gold-500.mt-10= t('.price', price: @book.price)
@@ -33,10 +33,10 @@
       .general-info-wrap.divider-lg
         %p= t('.description')
         %p.lead.small.line-height-2
-          = @book.description.truncate(BooksController::SHORT_TRUNCATE)
+          = book.medium_description
           %span.end-of-description-js{style: 'display:none'}
-            = @book.description.truncate(BooksController::BOOKS_TRUNCATE)
-          = button_tag t('.buttons.read_more'), disabled: @book.description.size < BooksController::BOOKS_TRUNCATE, class: 'btn-link in-gold-500 ml-10 read-more-js'  
+            = book.all_description
+          = button_tag t('.buttons.read_more'), disabled: book.description_truncate?, class: 'btn-link in-gold-500 ml-10 read-more-js'  
       .general-info-wrap.divider-lg
         .clearfix
           %p.pull-left= t('.publication_year')
@@ -45,11 +45,11 @@
       .general-info-wrap.divider-lg
         .clearfix
           %p.pull-left= t('.dimensions_title')
-          %p.lead.small.pull-right= t('.dimensions', h: @book.height, w: @book.width, d: @book.depth)
+          %p.lead.small.pull-right= book.dimensions
       .general-info-wrap.divider-lg
         .clearfix
           %p.pull-left= t('.materials')
-          %p.lead.small.pull-right= @book.material
+          %p.lead.small.pull-right= book.book_matarial
   .mb-80
     %h3= t('.review')
     %p.general-info-text= t('.score')
