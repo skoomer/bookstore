@@ -16,10 +16,4 @@ FactoryBot.define do
     category
     author
   end
-
-  trait :attach_author do
-    after(:create) do |_book|
-      create_list(:author, rand(1..3))
-    end
-  end
 end

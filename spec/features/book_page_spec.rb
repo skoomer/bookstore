@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'BookPage', type: :feature do
+RSpec.describe 'BookPage' do
   let(:book_page) { BookPage.new }
 
   describe 'content' do
