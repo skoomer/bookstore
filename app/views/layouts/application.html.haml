@@ -2,10 +2,20 @@
 %html
   = render 'partials/head'
   %body
-  - if request.original_url == signup_index_path
-    = render  'signup/partials/header', cached: true
-  - else
-    = render 'partials/header', cached: true
+    - if current_page?( root_url)
+      = render 'partials/header', cached: true
+    - if current_page?( books_path)
+      = render 'partials/header', cached: true
+    - if current_page?(login_index_path)
+      = render 'signup/partials/header'
+    - if current_page?(signup_index_path )
+      = render 'signup/partials/header'
+    - if current_page?(new_password_index_path )
+      = render 'signup/partials/header'
+    - if current_page?(reset_password_index_path )
+      = render 'signup/partials/header'
+
+
     
     %p.notice= notice
     %p.alert= alert
