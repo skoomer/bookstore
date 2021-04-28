@@ -38,6 +38,8 @@ gem 'mimemagic', '~> 0.4.3'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'draper', '~> 4.0.1'
+gem 'omniauth', '~> 1.9.1'
+gem 'omniauth-facebook', '8.0.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -64,8 +66,7 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'fasterer', '~> 0.9.0'
-  gem 'omniauth', '~> 1.9.1'
-  gem 'omniauth-facebook', '8.0.0'
+
   gem 'spring', '~> 2.1.1'
 end
 
