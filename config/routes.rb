@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" } #defaults: { format: :json } 
+  
   root 'pages#index'
 
   resources :books, only:[:index, :show]
@@ -8,5 +10,8 @@ Rails.application.routes.draw do
   resources :new_password, only:[:index]
 
 
-
+  # devise_scope :user do
+    # get 'sign_in', :to => 'devise/sessions#new', :as => :new_user_session
+    # get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+  # end
 end
