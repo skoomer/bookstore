@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" } #defaults: { format: :json } 
+  # resources :users
   
   root 'pages#index'
 
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   resources :signup, only:[:index]
   resources :reset_password, only:[:index]
   resources :new_password, only:[:index]
+
 
 
   # devise_scope :user do
