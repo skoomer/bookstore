@@ -1,15 +1,28 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" } #defaults: { format: :json } 
-  # resources :users
-  
   root 'pages#index'
+  # devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" } #defaults: { format: :json } 
+  
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'devise/user',
+    sessions: 'devise/store_sessions'
+  }
+
+  # devise_scope :user do
+  #   get   'user',          to: 'devise/user#edit',   as: 'user'
+  #   patch 'user/password', to: 'devise/user#update', as: 'update_user_password'
+  #   patch 'user/email',    to: 'devise/user#update', as: 'update_user_email'
+  #   patch 'user/address',  to: 'address#create',     as: 'user_address_forms'
+  #   get   'user/orders',   to: 'orders#index',       as: 'user_orders'
+  #   get   'user/orders/:id', to: 'orders#show', as: 'user_order'
+  # end
 
   resources :books, only:[:index, :show]
   resources :login, only:[:index]
   resources :signup, only:[:index]
+
   resources :reset_password, only:[:index]
   resources :new_password, only:[:index]
-
 
 
   # devise_scope :user do
