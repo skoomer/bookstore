@@ -16,11 +16,13 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(_resource_or_scope)
-    case request.referrer
-    when checkout_email_login_url then checkout_path
-    else
-      root_path
-    end
+    request.referrer
+    # root_path
+    # case request.referrer
+    # when checkout_email_login_url then checkout_path
+    # else
+    #   root_path
+    # end
   end
   
   def current_user

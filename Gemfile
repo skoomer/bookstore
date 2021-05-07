@@ -41,6 +41,7 @@ gem 'draper', '~> 4.0.1'
 gem 'omniauth', '~> 1.9.1'
 gem 'omniauth-facebook', '8.0.0'
 gem 'omniauth-rails_csrf_protection'
+gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

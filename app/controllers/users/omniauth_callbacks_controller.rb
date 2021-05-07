@@ -17,6 +17,10 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
+  def authentication_and_redirect(path_default: '')
+    sign_in(@user, event: :authentication)
+    redirect_to redirect_path || path_default
+  end
   def failure
     redirect_to root_path
   end
@@ -30,5 +34,5 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         request.env['omniauth.origin']
       end
     end
-  end
+
 end

@@ -17,7 +17,7 @@ module Devise
         return quick_registrate_user if quick_registrate?
   
         super
-        CartItemService.new(user_id: current_user&.id, session_id: session.id.to_s).join_cart_items
+        User.new
       end
   
       private
