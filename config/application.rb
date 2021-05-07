@@ -14,6 +14,7 @@ module Bookstore
     config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
     config.generators.stylesheets = false
     config.generators.javascripts = false
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.

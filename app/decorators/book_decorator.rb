@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class BookDecorator < Draper::Decorator
-  TRUNCATE = 240
-
+  BOOK_DESCRIPTION = 240
   delegate_all
 
   def book_matarial
@@ -14,7 +13,7 @@ class BookDecorator < Draper::Decorator
   end
 
   def dimensions
-    "H: #{height}\" x W: #{width}\" x D: #{depth}"
+    I18n.t('books.show.dimensions', height: height, width: width, depth: depth)
   end
 
   def author_name
@@ -22,14 +21,14 @@ class BookDecorator < Draper::Decorator
   end
 
   def medium_description
-    description[0..TRUNCATE]
+    description[0..BOOK_DESCRIPTION]
   end
 
   def all_description
-    description[(TRUNCATE.next)..]
+    description[(BOOK_DESCRIPTION.next)..]
   end
 
   def description_truncate?
-    description.size < TRUNCATE
+    description.size < BOOK_DESCRIPTION
   end
 end

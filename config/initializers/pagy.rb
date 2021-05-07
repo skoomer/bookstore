@@ -174,3 +174,6 @@ Pagy::VARS[:metadata] = [:scaffold_url, :count, :page, :prev, :next, :last]    #
 
 # Default i18n key
 # Pagy::VARS[:i18n_key] = 'pagy.item_name'   # default
+
+Rails.application.config.assets.paths << Pagy.root.join('javascripts')
+Pagy::VARS[:items] = Constants::BOOKS_ON_PAGE

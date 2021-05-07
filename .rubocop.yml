@@ -31,5 +31,3 @@ RSpec/MultipleExpectations:
 Rails/FilePath:
   Enabled: false
 
-RSpec/RepeatedExampleGroupDescription:
-  Enabled: false
