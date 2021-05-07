@@ -16,11 +16,11 @@
           %a.img-link{href: "#"}
             %img{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
     .col-sm-6
-      %h1.mt-res-0= @book.title
+      %h1.mt-res-0= book.title
       %p.lead.small= book.author_name
       .row
         .col-xs-12.col-md-4
-          %p.h1.in-gold-500.mt-10= t('.price', price: @book.price)
+          %p.h1.in-gold-500.mt-10= number_to_currency(book.price)
         .col-xs-5.col-md-3
           .input-group.general-position
             %a.input-link.btn-minus-js
@@ -36,12 +36,15 @@
           = book.medium_description
           %span.end-of-description-js{style: 'display:none'}
             = book.all_description
-          = button_tag t('.buttons.read_more'), disabled: book.description_truncate?, class: 'btn-link in-gold-500 ml-10 read-more-js'  
+          - if book.description_truncate?
+            = book.all_description
+          - else
+            = button_tag t('.buttons.read_more'), disabled: book.description_truncate?, class: 'btn-link in-gold-500 ml-10 read-more-js'  
       .general-info-wrap.divider-lg
         .clearfix
           %p.pull-left= t('.publication_year')
           %p.lead.small.pull-right
-            = @book.publication_year
+            = book.publication_year
       .general-info-wrap.divider-lg
         .clearfix
           %p.pull-left= t('.dimensions_title')

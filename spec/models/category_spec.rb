@@ -1,13 +1,16 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe Category do
-  let(:category) { FactoryBot.create(:category) }
+  let(:category) { create(:category) }
 
-  describe 'create objects category' do
-    it 'create Photo' do
-      expect(category.title).to be_truthy
+  describe 'with associations' do
+    it { is_expected.to have_many(:books).class_name(Book) }
+    it { is_expected.to have_many(:books).dependent(:destroy) }
+  end
+
+  describe '#validate category' do
+    it '.presence title' do
+      expect(category).to validate_presence_of(:title)
     end
   end
 end
