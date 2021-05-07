@@ -1,19 +1,18 @@
+
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" } #defaults: { format: :json } 
-  # resources :users
-  
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   root 'pages#index'
+  
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations'
+  }
 
-  resources :books, only:[:index, :show]
-  resources :login, only:[:index]
-  resources :signup, only:[:index]
-  resources :reset_password, only:[:index]
-  resources :new_password, only:[:index]
-
-
-
-  # devise_scope :user do
-    # get 'sign_in', :to => 'devise/sessions#new', :as => :new_user_session
-    # get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
-  # end
+  devise_scope :user do
+    put '/users/edit',  to: 'users/registrations#update', as: :user_edit
+  end
+  resources :books, only: %i[index show]
 end

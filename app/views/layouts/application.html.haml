@@ -18,15 +18,11 @@
     = button_to 'Logout', destroy_user_session_path, method: :delete
 
     = button_to 'Login', new_user_session_path
+    = link_to 'Sign up', new_user_registration_path
     
     = button_to 'Sign up', new_user_registration_path
     = current_user
-    -# - unless current_user
-    -#   = link_to 'Sign in with Facebook', user_facebook_omniauth_authorize_path
-    -# - else
-    -#   = link_to “Logout”, destroy_user_session_path, method: :delete
 
-    
     %p.notice= notice
     %p.alert= alert
     = yield
