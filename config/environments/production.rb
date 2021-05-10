@@ -91,4 +91,14 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.seeds_enabled = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  :port => 587,
+  :address => 'smtp.gmail.com',
+  :user_name => 'bookstorerubygarage@gmail.com', # This is the string literal 'apikey', NOT the ID of your API key
+  :password => 'mhbwsgdhdrvsfwhh', # This is the secret sendgrid API key which was issued during API key creation
+  :domain => 'gmail.com',
+  :authentication => :plain,
+  :enable_starttls_auto => true
+  }
 end

@@ -1,39 +1,38 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :validatable, :trackable, :omniauthable, :omniauth_providers => [:facebook]
+  PASSWORD_FORMAT_REGEX = /\A(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/x
 
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable,
+         :omniauthable,
+         omniauth_providers: %i[facebook]
+
+  validate :password_regex
+
+  has_one :shipping_address, dependent: :destroy
+  has_one :billing_address, dependent: :destroy
+
+  accepts_nested_attributes_for :shipping_address
+  accepts_nested_attributes_for :billing_address
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
+    find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
       user.email = auth.info.email
-      
       user.password = Devise.friendly_token[0, 20]
+      user.uid = auth.uid
+      user.provider = auth.provider
     end
   end
 
-  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-    user = User.where(:provider => auth.provider, :uid => auth.uid).first
-    if user
-      return user
-    else
-      registered_user = User.where(:email => auth.info.email).first
-      if registered_user
-        return registered_user
-      else
-        user = User.create(name:auth.extra.raw_info.name,
-        provider:auth.provider,
-        uid:auth.uid,
-        email:auth.info.email,
-        password:Devise.friendly_token[0,20]
-         )
-      end
-    end
-  end
+  private
 
+  def password_regex
+    return if password.blank? || password =~ PASSWORD_FORMAT_REGEX
+
+    errors.add :password, I18n.t('users.passwords.messages.uncorrect_password')
+  end
 end

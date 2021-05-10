@@ -13,4 +13,4 @@
     .form-group.mb-30
       = f.input :password_confirmation, label_html: { class: 'control-label input-label' }, label: '.confirm_password_label', placeholder: '.confirm_password_label'
     .text-center
-      = f.submit 'signup', class: 'btn btn-default mb-20', id: 'sign_up'
+      = f.submit 'signup', class: 'btn btn-default mb-20', id: 'sign_up', method: :post
