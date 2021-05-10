@@ -1,18 +1,25 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  # PASSWORD_FORMAT = /\A(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/x
   PASSWORD_FORMAT_REGEX = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\S]{8,}\z/
 
-  devise  :database_authenticatable,
-          :registerable,
-          :recoverable,
-          :rememberable,
-          :validatable,
-          :omniauthable,
-          omniauth_providers: %i[facebook]
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable,
+         :omniauthable,
+         omniauth_providers: %i[facebook]
 
   validates :password,
             format: { with: PASSWORD_FORMAT_REGEX }
+
+  has_one  :shipping_address, dependent: :destroy
+  has_one  :billing_address, dependent: :destroy
+
+  accepts_nested_attributes_for :shipping_address
+  accepts_nested_attributes_for :billing_address
 
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
