@@ -12,15 +12,25 @@ module Books
 
     DEFAULT_SORT = 'title ASC'
 
-    def call(params)
+    def initialize(params = {})
       @category_id = params[:category_id]
       @sort_by_param = params[:sort_by]
+    end
 
-      @sort_by_param ? category_books_line.order(@sort_by_param) : category_books_line.order(DEFAULT_SORT)
+    def call
+      category_books_line.order(sorting_params)
+    end
+
+    def sorting_params
+      validate_sort_by_params? ? @sort_by_param : DEFAULT_SORT
+    end
+
+    def validate_sort_by_params?
+      BOOK_FILTERING_ORDER.include?(@sort_by_param)
     end
 
     def category_books_line
-      Book.where(category_id: @category_id).or(Book.all)
+      @category_id ? Book.where(category_id: @category_id) : Book.all
     end
   end
 end
