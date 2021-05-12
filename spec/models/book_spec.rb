@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe Book do
   let(:book_material) { ['leather', 'glossy paper', 'matte paper'] }
 
@@ -9,9 +7,14 @@ RSpec.describe Book do
   let(:author) { FactoryBot.create(:author) }
   let(:category) { FactoryBot.create(:category) }
 
-  describe 'create book object' do
-    it 'create book' do
-      expect(book).to be_truthy
+  describe 'with associations' do
+    it { is_expected.to belong_to(:author).class_name(Author) }
+    it { is_expected.to belong_to(:category) }
+  end
+
+  describe '#validate book' do
+    it '.presence title' do
+      expect(book).to validate_presence_of(:title)
     end
   end
 end

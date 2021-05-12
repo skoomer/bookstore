@@ -1,5 +1,12 @@
 en:
   books:
+    sort_list:
+        newest_first: Newest first
+        popular_first: Popular first
+        price_asc: 'Price: Low to hight'
+        price_desc: 'Price: Hight to low'
+        title_asc: 'Title: A - Z'
+        title_desc: 'Title: Z - A'
     show:
       buttons:
         back: Back to results
@@ -9,8 +16,7 @@ en:
       description: Description
       publication_year: Year of publication
       materials: Materials
-      price: "€%{price}"
-      dimensions: "H: %{h}\" x W: %{w}\" x D: %{d}"
+      dimensions: "H: %{height}\" x W: %{width}\" x D: %{depth}"
       dimensions_title: Dimensions
       review: Write a Review
       score: Score
@@ -23,8 +29,5 @@ en:
         all: All
         filter_by_category: Filter by category
         sort: Sort by
-      book:
-        price: "€%{price}"
       next_page_link:
         button: View More
-

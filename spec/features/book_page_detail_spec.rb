@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'BookDetail' do
+RSpec.describe 'Book' do
   let(:book_page_detail) { BookDetail.new }
 
   let!(:book) { create(:book, author: author, category: category) }
@@ -15,7 +15,6 @@ RSpec.describe 'BookDetail' do
     it {
       expect(book_page_detail).to have_btn_back
       expect(book_page_detail).to have_book_name(text: book.title)
-      expect(book_page_detail).to have_book_price(text: I18n.t('books.partials.book.price', price: book.price))
       expect(book_page_detail).to have_book_authors(text: book.author.first_name)
     }
 
