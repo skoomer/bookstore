@@ -1,12 +1,15 @@
 en:
   login:
-    show:
-      buttons:
-        back: Back to results
-        add_to_cart: Add to Cart
-        read_more: Read More
-        post: Post
-      password: Password
-      sign_up: Sign Up
+    log_in: Log in
+    or: or
+    email_label: Email
+    email_placeholder: enter your email example@mail.com
+    password_label: Password
+    password_placeholder: enter your valid password
+    forgot_password: Forgot password?
+    remember_me: Remember me
+    dont_have_account: Don't have an account?
+    sign_up: Sign up
+
 
 
