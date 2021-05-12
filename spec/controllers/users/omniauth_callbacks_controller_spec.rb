@@ -1,32 +1,28 @@
 # frozen_string_literal: true
 
 module Users
-  RSpec.describe OmniauthCallbacksController do
-    describe '#facebook' do
-      let(:get_facebook) { get :facebook }
-      let(:user) { create(:user) }
+  class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+    def facebook
+      user = User.from_omniauth(request.env['omniauth.auth'])
 
-      context 'when user failure' do
-        before do
-          request.env['devise.mapping'] = Devise.mappings[:user]
-          request.env['omniauth.auth'] = stub_facebook_omniauth(email: user.email)
-          get_facebook
-        end
-
-        it { expect(response).to redirect_to(new_user_registration_path) }
+      if user.persisted?
+        sign_in_and_redirect user, event: :authentication
+        success_flash_message if is_navigational_format?
+      else
+        session['devise.facebook_data'] = request.env['omniauth.auth']
+        redirect_to new_user_registration_url
+        failure_flash_message
       end
+    end
 
-      context 'when user success' do
-        let(:user) { create(:user, :with_facebook) }
+    private
 
-        before do
-          request.env['devise.mapping'] = Devise.mappings[:user]
-          request.env['omniauth.auth'] = stub_facebook_omniauth(email: user.email, uid: user.uid)
-          get_facebook
-        end
+    def failure_flash_message
+      set_flash_message(:alert, :failure, kind: t('devise.omniauth_callbacks.facebook'))
+    end
 
-        it { expect(response).to redirect_to(root_path) }
-      end
+    def success_flash_message
+      set_flash_message(:notice, :success, kind: t('devise.omniauth_callbacks.facebook'))
     end
   end
 end

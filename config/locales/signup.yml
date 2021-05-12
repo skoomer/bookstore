@@ -1,5 +1,13 @@
 en:
   signup:
+    sign_up: Sign up
+    or: or
+    have_account: Have an Account?
+    email_label: Email
+    email_placeholder: enter your email example@mail.com
+    password_label: Password
+    password_placeholder: enter your valid password
+    confirm_password_label: Password
     show:
       buttons:
         back: Back to results
