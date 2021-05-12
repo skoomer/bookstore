@@ -1,27 +1,27 @@
 %main.container.general-main-wrap
   .text-center
     %h3.general-login-title
-      'Login'
+      = t('login.log_in')
     = render 'devise/partials/social_buttons'
     %p.general-login-text
-      'or' 
+      = t('login.or') 
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'general-form' }, validate: true) do |f|
     .form-group.mb-30
-      = f.input :email, label_html: { class: 'control-label input-label' }, label: 'email_label', placeholder: '.email_placeholder'
+      = f.input :email, label_html: { class: 'control-label input-label' }, label: t('login.email_label'), placeholder: t('login.email_placeholder')
     .form-group.mb-30
-      = f.input :password, label_html: { class: 'control-label input-label' }, label: '.password_label', placeholder: '.password_placeholder'
-      = link_to '.forgot_password', new_user_password_path, class: 'help-block in-gold-500', id:'forgot_password'
+      = f.input :password, label_html: { class: 'control-label input-label' }, label: t('login.password_label'), placeholder: t('login.password_placeholder')
+      = link_to t('login.forgot_password'), new_user_password_path, class: 'help-block in-gold-500', id: t('login.forgot_password')
     .form-group.checkbox.text-center.mb-30
       %label.checkbox-label
         = f.input_field :remember_me, as: :boolean, class: 'checkbox-input', hidden: 'true'
         %span.checkbox-icon
           %i.fa.fa-check
         %span.checkbox-text
-        '.remember_me'
+        = t('login.remember_me')
     .text-center
       %p#alert-message
         = alert
-      = f.submit 'login', class: 'btn btn-default mb-20', id: 'log_in'
+      = f.submit t('login.log_in'), class: 'btn btn-default mb-20', id: 'log_in'
   %p.general-sign-text.text-center
-    '.dont_have_account'
-    = link_to '.sign_up', new_user_registration_path, class: 'in-gold-500', id: 'sign_up'
+    = t('login.dont_have_account')
+    = link_to t('login.sign_up'), new_user_registration_path, class: 'in-gold-500', id: 'sign_up'

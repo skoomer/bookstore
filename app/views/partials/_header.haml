@@ -43,12 +43,22 @@
                 %li
                   = link_to books_path(category_id: category.id) do
                     = category.title
-
-              %ul.dropdown-menu
+            %li
+              - if user_signed_in?
+                %a.dropdown-toggle#user-email{ href: '#', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }
+                  = current_user.email
+                %ul.dropdown-menu
+                  %li
+                    = link_to 'settings', user_session_path
+                  %li
+                    = link_to  'menu order'
+                  %li
+                    = link_to 'log out', destroy_user_session_path, method: :delete
+              - else
                 %li
-                  = link_to 'Login', new_user_session_path, class: 'collapse-link'
+                  = link_to t('login.log_in'), new_user_session_path, class: 'collapse-link'
                 %li
-                  = link_to 'SignUp', new_user_registration_path, class: 'collapse-link'
+                  = link_to t('signup.sign_up'), new_user_registration_path, class: 'collapse-link'
 
 
 
