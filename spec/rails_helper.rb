@@ -1,7 +1,15 @@
 # frozen_string_literal: true
 
-require 'simplecov'
 require 'spec_helper'
+require 'simplecov'
+
+SimpleCov.start 'rails' do
+  add_filter 'app/channels/application_cable/'
+  add_filter 'app/jobs/'
+  add_filter 'app/mailers/'
+  add_filter 'app/models/application_record.rb'
+  minimum_coverage 95
+end
 
 ENV['RAILS_ENV'] ||= 'test'
 
@@ -26,5 +34,4 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
-  config.include ApplicationHelper
 end
