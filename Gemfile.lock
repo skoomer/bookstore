@@ -197,6 +197,8 @@ GEM
     nio4r (2.5.7)
     nokogiri (1.11.3-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.11.3-x86_64-linux)
+      racc (~> 1.4)
     oauth2 (1.4.7)
       faraday (>= 0.8, < 2.0)
       jwt (>= 1.0, < 3.0)
@@ -407,6 +409,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-18
+  x86_64-linux
 
 DEPENDENCIES
   aasm (~> 5.1.1)
@@ -464,5 +467,4 @@ DEPENDENCIES
 RUBY VERSION
    ruby 3.0.0p0
 
-BUNDLED WITH
-   2.2.15
+BUNDLED WI
