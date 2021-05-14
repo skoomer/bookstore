@@ -1,0 +1,22 @@
+en:
+  settings:
+    settings: Settings
+    address: Address
+    privacy: Privacy
+    billing_address: Billing address
+    shipping_address: Shipping address
+    billing_address_form: Billing address from
+    email_caption: Email caption
+    password_caption: Password caption
+    remove_account_caption: Remove account caption
+    email: Email
+    save: Save
+    email_placeholder: enter email
+
+    successful_message: Update success
+    pass_changed: Password update
+    password: Password
+
+    remove_account_button: Pleas remove account
+    remove_check_message: I understand that all data will be lost
+    remove_account: Remove account
