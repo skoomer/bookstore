@@ -38,7 +38,7 @@ gem 'mimemagic', '~> 0.4.3'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'draper', '~> 4.0.1'
-gem 'omniauth', '~> 1.4.1'
+gem 'omniauth', '~> 1.9.1'
 gem 'omniauth-facebook', '8.0.0'
 gem 'omniauth-rails_csrf_protection'
 gem 'simple_form'
