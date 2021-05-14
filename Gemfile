@@ -55,7 +55,7 @@ group :development, :test do
   gem 'rubocop-performance', '~> 1.10.2', require: false
   gem 'rubocop-rails', '~> 2.9.1', require: false
   gem 'rubocop-rspec', '~> 2.2.0', require: false
-  # Brakeman is a static analysis tool which checks Ruby on Rails applications for security vulnerabilities.
+  # Brakeman is a static analysis tool which checks Ruby on Rails applications for security vulnerabilitie
   gem 'brakeman', '~> 5.0.0'
 end
 
