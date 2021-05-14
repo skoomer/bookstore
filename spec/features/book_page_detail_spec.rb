@@ -12,15 +12,15 @@ RSpec.describe 'Book' do
       book_page_detail.load(book: book.id)
     end
 
-    it {
+    it do
       expect(book_page_detail).to have_btn_back
       expect(book_page_detail).to have_book_name(text: book.title)
       expect(book_page_detail).to have_book_authors(text: book.author.first_name)
-    }
+    end
 
-    it {
+    it do
       book_page_detail.btn_read_more.click
       expect(book_page_detail).to have_book_all_description
-    }
+    end
   end
 end

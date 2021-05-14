@@ -10,5 +10,4 @@
           - Books::FilterQuery::BOOK_FILTERING_ORDER.each do |filter_attribute, filter_name|
             %li
               = link_to filter_name, books_path(request.params.merge(sort_by: filter_attribute))
-    = render partial: 'books/partials/categories_line'
-
+    = render 'books/partials/categories_line'
