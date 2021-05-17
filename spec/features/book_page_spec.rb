@@ -2,7 +2,7 @@
 
 RSpec.describe 'Books' do
   let(:book_page) { BookPage.new }
-  let(:count_books) { Constants::BOOKS_ON_PAGE }
+  let(:count_books) { stub_const 'Constants::BOOKS_ON_PAGE', 12 }
 
   describe 'content' do
     let!(:book) { create_list(:book, count_books) }
