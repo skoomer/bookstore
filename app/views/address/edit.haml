@@ -1,0 +1,25 @@
+%main.container
+  %h1.general-title-margin=t('address.settings')
+  %ul.nav.clearfix.mb-20{role: "tablist"}
+    %li.tab-item.active{role: "presentation"}
+      %a.tab-link{href: "/settings/addresses"}=t('address.address')
+    %li.tab-item{role: "presentation"}
+      %a.tab-link{href: "/settings"}=t('address.privacy')
+  .tab-content
+    #address.tab-pane.fade.in.active.general-main-wrap{role: "tabpanel"}
+      %div
+        .hidden-xs.hidden-sm
+          .row
+            .col-md-5
+              %h3.general-subtitle.mt-0=t('address.billing_address')
+            .col-md-5.col-md-offset-1
+              %h3.general-subtitle.mt-0=t('address.shipping_address')
+        .row
+          .col-md-5.mb-40
+            #billing
+              = render 'billing'
+          .col-md-5.col-md-offset-1.mb-25
+            #shipping
+              = render 'shipping'
+            
+            
