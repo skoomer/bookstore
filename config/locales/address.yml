@@ -1,0 +1,21 @@
+en:
+  address:
+    settings: Settings
+    address: Address
+    privacy: Privacy
+    billing_address: Billing Address
+    shipping_address: Shipping Address
+    first_name: "First name"
+    last_name: "Last name"
+    city: "City"
+    zip: "Zip"
+    country: Select country
+    phone_number: "Example +355 66 123 4567"
+    save: "Save"
+    email: "Email"
+    password: "Password"
+    remove_account: "Remove Account"
+    please_remove_account: "Please Remove My Account"
+    i_understand: "I understand that all data will be lost"
+    blank_email: "Email can't be blank and Email invalid format"
+    blank_password: "Current password can't be blank"
