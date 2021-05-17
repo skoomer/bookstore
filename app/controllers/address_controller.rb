@@ -1,4 +1,5 @@
 class AddressController < ApplicationController
+
     before_action :set_addresses
     def edit
     end
@@ -36,5 +37,12 @@ class AddressController < ApplicationController
     def safe_params
         params.require(:address).permit(:first_name, :last_name, :address,
             :country, :city, :zip, :phone_number)
+
+    def edit
+    end
+    def update
+    end
+    def create
+
     end
 end
