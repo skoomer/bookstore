@@ -43,6 +43,7 @@ gem 'omniauth-facebook', '8.0.0'
 gem 'omniauth-rails_csrf_protection'
 gem 'simple_form'
 gem 'rectify', '~> 0.13.0'
+gem 'country_select', '~> 4.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
