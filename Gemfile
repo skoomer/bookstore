@@ -44,6 +44,9 @@ gem 'omniauth-rails_csrf_protection'
 gem 'simple_form'
 gem 'rectify', '~> 0.13.0'
 gem 'country_select', '~> 4.0'
+gem 'activeadmin'
+gem 'activeadmin_addons'
+gem 'pundit'    
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
