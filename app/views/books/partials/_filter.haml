@@ -4,7 +4,7 @@
     .dropdowns.pull-right
       .dropdown.width-240
         %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
-          = @presenter.search_books(params[:sort_by])
+          = presenter.search_books(params[:sort_by])
           %i.fa.fa-angle-down.dropdown-icon.pull-right
         %ul.dropdown-menu
           - Books::FilterQuery::BOOK_FILTERING_ORDER.each do |filter_attribute, filter_name|

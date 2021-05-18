@@ -2,6 +2,7 @@
 
 class BookDecorator < Draper::Decorator
   BOOK_DESCRIPTION = 240
+
   decorates_association :author
   delegate :full_name, to: :author, prefix: true
   delegate_all
