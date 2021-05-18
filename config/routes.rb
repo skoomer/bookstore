@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
-    registrations: 'devise/user',
+    # registrations: 'devise/user',
     # sessions: 'devise/store_sessions'
   }
 
@@ -12,8 +12,8 @@ Rails.application.routes.draw do
     patch 'user/update_password', to: 'devise/user#update', as: 'update_password'
     patch 'user/email',    to: 'devise/user#update', as: 'update_user_email'
     get 'user/address',  to: 'address#edit'
-    # get 'user/address',  to: 'address#create'
-    # get 'user/address',  to: 'address#update'
+    post 'user/address',  to: 'address#create' # это на будущие
+    patch 'user/address',  to: 'address#update'
     get   'user/orders',   to: 'orders#index',       as: 'user_orders'
     get   'user/orders/:id', to: 'orders#show', as: 'user_order'
   end
@@ -25,10 +25,5 @@ Rails.application.routes.draw do
   #   end
   # end
   
-
-  # devise_scope :user do
-  #   get 'sign_in', :to => 'devise/sessions#new', :as => :new_user_session
-  #   get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
-  # end
   resources :books, only: %i[index show]
 end
