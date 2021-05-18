@@ -1,5 +1,9 @@
 en:
   books:
+    review: Thanks for Review. It will be published as soon as Admin will approve it"
+    title : Title
+    post: Post
+    verified: Verified Reviewer
     sort_list:
         newest_first: Newest first
         popular_first: Popular first

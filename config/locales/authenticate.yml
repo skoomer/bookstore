@@ -1,4 +1,8 @@
 en:
+  admin:
+    change_status: Change status
+    change_state: Change state
+    reviews: Reviews
   forgot_password:
     forgot_your_password: Forgot your password?
     instructions_message: We'll email you instructions on how to reset it
