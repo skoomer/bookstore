@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Category do
   permit_params :title
   config.filters = false
@@ -16,5 +18,4 @@ ActiveAdmin.register Category do
               method: :delete, data: { confirm: t('admin.categories.confirmations', quantity: category.books.count) }
     end
   end
-  
 end

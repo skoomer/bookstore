@@ -1,49 +1,35 @@
 # frozen_string_literal: true
 
-ActiveAdmin.register Book do
-  decorate_with BookDecorator
-  includes :category, :author
+ActiveAdmin.register Author do
+  config.filters = false
+  decorate_with AuthorDecorator
 
-  permit_params :title, :price, :description, :author_id, :category_id, :height, :width, :depth, :material, :quantity,
-                :publication_year
+  permit_params :first_name, :last_name
 
   index do
     selectable_column
-    column :title
-    column :author
-    column :description, &:description_short
-    column :category
-    column :price
-    column :image
-    actions
+    column :first_name
+    column :last_name
+    column :description
+    column :books
+    column I18n.t('admin.authors.view') do |author|
+      link_to I18n.t('admin.authors.view'), admin_author_path(author)
+    end
+    column I18n.t('admin.authors.edit') do |author|
+      link_to I18n.t('admin.authors.edit'), edit_admin_author_path(author)
+    end
+    column I18n.t('active_admin.delete') do |author|
+      link_to I18n.t('active_admin.delete'), admin_author_path(author),
+              method: :delete, data: { confirm: t('admin.authors.confirmations', quantity: author.books.count) }
+    end
   end
 
-  show do
+  show title: :full_name do
     attributes_table do
-      row :title
-      row :author
-      row :description
-      row :price
-      row :publication_year
-      row :material
-      row :dimensions
+      row :first_name
+      row :last_name
+      row :created_at
+      row :updated_at
     end
-  end
-
-  form do |f|
-    f.semantic_errors
-    f.inputs do
-      f.input :title
-      f.input :description, as: :text
-      f.input :price
-      f.input :publication_year
-      f.input :material
-      f.input :height
-      f.input :width
-      f.input :depth
-      f.input :category
-      f.input :author, as: :check_boxes, collection: Author.all.decorate.map { |author| [author.full_name, author.id] }
-    end
-    f.actions
   end
 end
