@@ -1,15 +1,7 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
 require 'simplecov'
-
-SimpleCov.start 'rails' do
-  add_filter 'app/channels/application_cable/'
-  add_filter 'app/jobs/'
-  add_filter 'app/mailers/'
-  add_filter 'app/models/application_record.rb'
-  minimum_coverage 95
-end
+require 'spec_helper'
 
 ENV['RAILS_ENV'] ||= 'test'
 
