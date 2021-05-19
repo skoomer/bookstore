@@ -38,11 +38,11 @@ gem 'mimemagic', '~> 0.4.3'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'draper', '~> 4.0.1'
+gem 'ffaker', '~> 2.18.0', require: false
 gem 'omniauth', '~> 1.4.1'
 gem 'omniauth-facebook', '8.0.0'
-gem 'simple_form'
 gem 'rectify', '~> 0.13.0'
-gem 'ffaker', '~> 2.18.0', require: false
+gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
