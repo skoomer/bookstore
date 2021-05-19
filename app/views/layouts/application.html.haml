@@ -2,31 +2,7 @@
 %html
   = render 'partials/head'
   %body
-    - if current_page?( root_url)
-      = render 'partials/header', cached: true
-    - if current_page?( books_path)
-      = render 'partials/header', cached: true
-    - if current_page?(login_index_path)
-      = render 'signup/partials/header'
-    - if current_page?(signup_index_path )
-      = render 'signup/partials/header'
-    - if current_page?(new_password_index_path )
-      = render 'signup/partials/header'
-    - if current_page?(reset_password_index_path )
-      = render 'signup/partials/header'
-
-    = button_to 'Logout', destroy_user_session_path, method: :delete
-
-    = link_to 'Login', new_user_session_path
-    = link_to 'Sign up', new_user_registration_path
-
-
-    = link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, method: :post
-    
-    = button_to 'Sign up', new_user_registration_path
-    = current_user
-
-    %p.notice= notice
-    %p.alert= alert
+    = render 'partials/header', cached: true
+    = render 'partials/flash_message'
     = yield
     = render 'partials/footer', cached: true
