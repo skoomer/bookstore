@@ -2,7 +2,6 @@
 
 class ApplicationController < ActionController::Base
   include Pagy::Backend
-  include Rectify::ControllerHelpers
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
   helper_method :categories
   protect_from_forgery

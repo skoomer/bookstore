@@ -19,7 +19,7 @@ RSpec.describe 'Home' do
     end
 
     it do
-      home_page.btn_shop.click
+      home_page.button_shop.click
       expect(home_page).to have_menu
     end
   end
