@@ -274,9 +274,10 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   # config.omniauth :github, ENV['GITHUB_APP_ID'], ENV['GITHUB_APP_SECRET'], scope: 'user,public_repo'
-  config.omniauth :facebook, '1644072325780517', '8f8555119a2b34f2941ea55b5050a41b', { provider_ignores_state: :true }
-  # config.omniauth :facebook, Rails.application.credentials.facebook[:APP_ID],Rails.application.credentials.facebook[:APP_SECRET], token_params: { parse: :json }
-  # config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], { provider_ignores_state: :true }
+  config.omniauth :facebook, Rails.application.credentials.dig(:facebook, :app_id), Rails.application.credentials.dig(:facebook, :app_key)
+  # config.omniauth :facebook, '1644072325780517', '8f8555119a2b34f2941ea55b5050a41b', { provider_ignores_state: :true } # work
+  # config.omniauth :facebook, Rails.application.credentials.facebook[:APP_ID],Rails.application.credentials.facebook[:APP_SECRET], token_params: { parse: :json } # dont work
+  # config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], { provider_ignores_state: :true } #dont work
   # callback_url: 'http://localhost:3000/auth/facebook/callback'
 
 
