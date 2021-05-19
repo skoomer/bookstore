@@ -54,3 +54,5 @@ my_command.txt
 *.key
 
 /config/credentials/production.key
+
+/config/credentials/eaa7b0666b1325208d63744987a43b4f.key
