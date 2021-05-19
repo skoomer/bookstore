@@ -4,5 +4,4 @@
     .row#show-books
       = render books
     .text-center#more_books
-      - if (pagy_next_url(@pagy))
-        = render partial: 'books/partials/next_page_link'
+      = render 'books/partials/next_page_link', pagy: @pagy
