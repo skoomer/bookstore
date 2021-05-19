@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   #   get   'user/orders/:id', to: 'orders#show', as: 'user_order'
   # end
 
-  resources :books, only:[:index, :show]
   # resources :login, only:[:index]
   # resources :signup, only:[:index]
 
