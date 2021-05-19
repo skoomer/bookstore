@@ -23,12 +23,13 @@ RSpec.describe 'Books' do
   end
 
   describe 'books per page' do
+
     before do
       create_list(:book, count_books)
       book_page.load
     end
 
-    it '12 books per page' do
+    it "renders books per page" do
       expect(book_page.book_content.size).to eq(count_books)
     end
   end
