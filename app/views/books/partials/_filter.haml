@@ -1,0 +1,13 @@
+%h1.general-title-margin 
+  = t('.title')
+  .hidden-xs.clearfix
+    .dropdowns.pull-right
+      .dropdown.width-240
+        %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
+          = presenter.search_books(params[:sort_by])
+          %i.fa.fa-angle-down.dropdown-icon.pull-right
+        %ul.dropdown-menu
+          - Books::FilterQuery::BOOK_FILTERING_ORDER.each do |filter_attribute, filter_name|
+            %li
+              = link_to filter_name, books_path(request.params.merge(sort_by: filter_attribute))
+    = render 'books/partials/categories_line'

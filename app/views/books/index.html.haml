@@ -1,0 +1,7 @@
+%main.container
+  = render 'books/partials/filter', presenter: @presenter
+  .mb-120
+    .row#show-books
+      = render books
+    .text-center#more_books
+      = render 'books/next_link', pagy: @pagy

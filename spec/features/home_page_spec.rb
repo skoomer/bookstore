@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Home', type: :feature do
+RSpec.describe 'Home' do
   let(:home_page) { Home.new }
 
   describe 'content' do
@@ -19,7 +19,7 @@ RSpec.describe 'Home', type: :feature do
     end
 
     it do
-      home_page.btn_shop.click
+      home_page.button_shop.click
       expect(home_page).to have_menu
     end
   end

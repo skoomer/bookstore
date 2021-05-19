@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 RSpec.describe PagesController do
-  describe 'GET /index' do
+  describe '#index' do
     before { get :index }
 
-    it 'return http success' do
+    it 'returns http success' do
       expect(response).to have_http_status(:success)
     end
 
-    it 'render index template' do
+    it 'renders index template' do
       expect(response).to render_template(:index)
     end
   end
