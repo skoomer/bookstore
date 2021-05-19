@@ -28,7 +28,7 @@ RSpec.describe 'Books' do
       book_page.load
     end
 
-    it "renders #{count_books} books per page" do
+    it 'renders 2 books per page' do
       expect(book_page.book_content.size).to eq(count_books)
     end
   end
