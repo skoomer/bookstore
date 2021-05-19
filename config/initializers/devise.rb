@@ -277,7 +277,9 @@ Devise.setup do |config|
   # config.omniauth :facebook, Rails.application.credentials.dig(:facebook, :app_id), Rails.application.credentials.dig(:facebook, :app_key)
   # config.omniauth :facebook, '1644072325780517', '8f8555119a2b34f2941ea55b5050a41b', { provider_ignores_state: :true } # work
   # config.omniauth :facebook, Rails.application.credentials.facebook[:APP_ID],Rails.application.credentials.facebook[:APP_SECRET], token_params: { parse: :json } # dont work
-  config.omniauth :facebook, ENV['APP_ID'], ENV['APP_SECRET'], { provider_ignores_state: :true } #dont work
+  # config.omniauth :facebook, ENV['APP_ID'], ENV['APP_SECRET'], { provider_ignores_state: :true } #dont work
+  config.omniauth :facebook, Rails.application.credentials.dig(:omniauth, :id),
+  Rails.application.credentials.dig(:omniauth, :secret), token_params: { parse: :json }
   # callback_url: 'http://localhost:3000/auth/facebook/callback'
 
 
