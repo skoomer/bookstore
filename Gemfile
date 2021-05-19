@@ -42,7 +42,7 @@ gem 'ffaker', '~> 2.18.0', require: false
 gem 'omniauth', '~> 1.4.1'
 gem 'omniauth-facebook', '8.0.0'
 gem 'rectify', '~> 0.13.0'
-gem 'simple_form'
+gem 'simple_form', '~> 5.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
