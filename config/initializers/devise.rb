@@ -278,12 +278,6 @@ Devise.setup do |config|
   config.omniauth :facebook, Rails.application.credentials.dig(:facebook, :APP_ID), Rails.application.credentials.dig(:facebook, :APP_SECRET)
   # config.omniauth :facebook, '1644072325780517', '8f8555119a2b34f2941ea55b5050a41b', { provider_ignores_state: :true } # work
   
-  # config.omniauth :facebook, ENV['APP_ID'], ENV['APP_SECRET'], { provider_ignores_state: :true } #dont work
-
-  # config.omniauth :facebook, Rails.application.credentials.dig(:omniauth, :id),
-  # Rails.application.credentials.dig(:omniauth, :secret), token_params: { parse: :json } #dont work
-  # callback_url: 'http://localhost:3000/auth/facebook/callback'
-
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
