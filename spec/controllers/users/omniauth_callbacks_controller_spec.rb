@@ -4,7 +4,7 @@ module Users
   RSpec.describe OmniauthCallbacksController do
     let(:get_facebook) { get :facebook }
 
-    context 'with default  behaivor' do
+    context 'with default behaivor' do
       it 'was redirect status' do
         stub_env_for_omniauth_fb
 
