@@ -20,5 +20,13 @@ RSpec.describe 'Login' do
       sign_in.log_in_button.click
       expect(sign_in.alert_message.visible?).to eq(true)
     end
+
+    it 'enter email and password' do
+      sign_in.email_input.set user.email
+      sign_in.password_input.set user.password
+      sign_in.log_in_button.click
+
+      expect(sign_in.user_email.text).to eq(user.email)
+    end
   end
 end

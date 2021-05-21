@@ -24,16 +24,5 @@ module Users
     def failure
       redirect_to root_path
     end
-
-    # private
-
-    # def redirect_path
-    #   case request.env['omniauth.origin']
-    #   when new_user_session_url then root_path
-    #   when new_user_registration_url then root_path
-    #   else
-    #     request.env['omniauth.origin']
-    #   end
-    # end
   end
 end
