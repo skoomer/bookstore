@@ -3,6 +3,5 @@
     = link_to books_path, class: 'filter-link' do
       = t('books.partials.filter.all')
       %span.badge.general-badge
-        = @books_count
-      = render partial: 'books/partials/categories_line_item'
-
+        = books.size
+      = render 'books/partials/categories_line_item'

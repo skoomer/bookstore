@@ -30,4 +30,3 @@ RSpec/MultipleExpectations:
 
 Rails/FilePath:
   Enabled: false
-

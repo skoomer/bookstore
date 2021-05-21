@@ -2,7 +2,7 @@
 
 RSpec.describe BooksController do
   describe '#index' do
-    let!(:books) { create_list(:book, 3) }
+    let!(:books) { create_list(:book, 2) }
 
     before { get :index }
 
@@ -15,7 +15,7 @@ RSpec.describe BooksController do
     end
 
     it 'assingns @books' do
-      expect(assigns(:books)).to eq(books.sort_by(&:title))
+      expect(assigns(:books)).to match_array(books)
     end
   end
 

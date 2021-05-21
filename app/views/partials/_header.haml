@@ -27,7 +27,6 @@
                     = category.title
             %li
               - if user_signed_in?
-             
                 %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}=t('partials.header.my_account')
                 %ul.dropdown-menu
                   %li
@@ -44,21 +43,3 @@
                     = link_to t('login.log_in'), new_user_session_path, class: 'collapse-link'
                   %li
                     = link_to t('signup.sign_up'), new_user_registration_path, class: 'collapse-link'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     # sessions: 'devise/store_sessions'
   }
 
+
   devise_scope :user do
     get   'user',          to: 'devise/user#edit',   as: 'user'
     patch 'user/update_password', to: 'devise/user#update', as: 'update_password'
@@ -25,5 +26,6 @@ Rails.application.routes.draw do
   #   end
   # end
   
+
   resources :books, only: %i[index show]
 end
