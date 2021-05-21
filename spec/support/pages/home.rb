@@ -13,9 +13,6 @@ class Home < SitePrism::Page
   elements :item_best_sellers, 'div#best_sellers div.col-sm-6'
   element :footer, 'footer.navbar-inverse'
 
-  element :sign_in, 'a', text: I18n.t('signup.sign_up')
-  element :sign_up, 'a', text: I18n.t('login.log_in')
-
   element :title, 'a', text: I18n.t('partials.header.title')
   element :button_home, 'a', text: I18n.t('partials.header.home')
   element :button_shop, 'header', text: I18n.t('partials.header.shop')
