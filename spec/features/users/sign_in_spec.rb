@@ -35,13 +35,11 @@ RSpec.describe SignIn do
     it 'sets failure flash message' do
       expect(sign_in).to have_failure_flash_message
     end
+  end
 
-    it 'enter email and password' do
-      sign_in.email_input.set user.email
-      sign_in.password_input.set user.password
-      sign_in.log_in_button.click
-
-      expect(sign_in.user_email.text).to eq(user.email)
+  describe 'Click valid values' do
+    before do
+      sign_up.visit_and_login_as(user.email, user.password)
     end
   end
 end
