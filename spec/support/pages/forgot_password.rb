@@ -6,7 +6,7 @@ class ForgotPassword < SitePrism::Page
   element :forgot_title, 'h1'
   element :email_instriction, 'p'
   element :user_email, '#user_email'
-  element :email_button, 'input#forgot_password'
+  element :email_button, 'input#user_email'
   element :cancel_link, 'a'
   element :alert_message, '#alert-message'
 end

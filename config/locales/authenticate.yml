@@ -9,6 +9,7 @@ en:
     password_placeholder: Type a new Password
     password_label: Type a new Password
     cancel: Cancel
+    enter_email: Enter email
 
   signup:
     sign_up: Sign up
