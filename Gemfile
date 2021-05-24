@@ -46,7 +46,8 @@ gem 'rectify', '~> 0.13.0'
 gem 'country_select', '~> 4.0'
 gem 'activeadmin'
 gem 'activeadmin_addons'
-gem 'pundit'    
+gem 'pundit'
+gem "aws-sdk-s3", require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -5,7 +5,7 @@ ActiveAdmin.register Book do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :title, :price, :description, :author_id, :category_id, :height, :width, :depth, :material, :quantity, :publication_year
+  permit_params :title, :price, :description, :author_id, :category_id, :height, :width, :depth, :material, :quantity, :publication_year, covers:[]
   #
   # or
   #
@@ -17,11 +17,11 @@ ActiveAdmin.register Book do
   index do
     selectable_column
 
-    # column :covers do |book|
-    #   book.covers.map do |cover|
-    #     image_tag url_for(cover.variant(resize: '50x50').processed)
-    #   end
-    # end
+    column :covers do |book|
+      book.covers.map do |cover|
+        image_tag url_for(cover.variant(resize: '50x50').processed)
+      end
+    end
 
     column :title
 
