@@ -34,7 +34,7 @@ module Users
         get_facebook
       end
 
-      it { expect(response).to redirect_to(root_path) }
+      it { expect(response).to redirect_to(new_user_session_path) }
     end
   end
 end
