@@ -19,12 +19,7 @@ RSpec.describe 'Login' do
     it 'Empty email and password' do
       sign_in.log_in_button.click
       expect(sign_in.alert_message.visible?).to eq(true)
-    end
-  end
-
-  describe 'Click valid values' do
-    before do
-      sign_up.visit_and_login_as(user.email, user.password)
+      sign_in.visit_and_login_as(user.email, user.password)
     end
   end
 end
