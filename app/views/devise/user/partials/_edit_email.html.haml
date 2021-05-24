@@ -1,6 +1,6 @@
-= form_for(@user, url: update_user_email_path, html: {class: 'general-form-md email' }) do |f|
-  .form-group.mb-30
-    = f.label :email, class: "control-label input-label"
-    = f.email_field :email, class: "form-control"
-  .form-group.mb-30
-    = f.submit t('settings.save'), class: 'btn btn-default mb-10', id: 'email_btn'
+= simple_form_for current_user, remote: true, url: update_user_email_path, html: { class: 'general-form-md', id: 'new_users_email_form'} do |f|
+  .form-group.mb-35
+    = f.input 'email', as: :hidden
+    = f.input :email, label: t('auth_user.email_label'), label_html: { class: 'input-label' }, placeholder: t('auth_user.email_placeholder')
+  .general-text-align
+    = f.button :submit, t('auth_user.save'), style: 'btn-default mb-35'

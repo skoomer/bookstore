@@ -10,13 +10,13 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get   'user',          to: 'devise/user#edit',   as: 'user'
-    patch 'user/update_password', to: 'devise/user#update', as: 'update_password'
-    patch 'user/email',    to: 'devise/user#update', as: 'update_user_email'
+    # patch 'user/update_password', to: 'devise/user#update', as: 'update_password'
+    patch 'user/password', to: 'devise/user#update', as: 'update_password'
+
+    patch 'user/email', to: 'devise/user#update', as: 'update_user_email'
     get 'user/address',  to: 'address#edit'
-    post 'user/address',  to: 'address#create' # это на будущие
+    # post 'user/address',  to: 'address#create'
     patch 'user/address',  to: 'address#update'
-    get   'user/orders',   to: 'orders#index',       as: 'user_orders'
-    get   'user/orders/:id', to: 'orders#show', as: 'user_order'
   end
   
   # resource :user, only: %i[edit] do

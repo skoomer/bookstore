@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   belongs_to :shipping_address, class_name: 'Address', optional: true, autosave: true
   belongs_to :billing_address, class_name: 'Address', optional: true, autosave: true
-  
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
