@@ -10,4 +10,12 @@ class SignUp < SitePrism::Page
   element :sign_up_button, '#sign_up'
   element :email_invalid_feedback, '.email > .invalid-feedback'
   element :user_email, '#user-email'
+
+  def visit_and_sign_up_as(email, password)
+    load
+    email_input.set email
+    password_input.set password
+    password_confirm_input.set password
+    sign_up_button.click
+  end
 end

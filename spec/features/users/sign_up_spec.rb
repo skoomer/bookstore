@@ -20,13 +20,11 @@ RSpec.describe 'Signup' do
       sign_up.sign_up_button.click
       expect(sign_up.email_invalid_feedback.visible?).to eq(true)
     end
+  end
 
-    it 'enter valid email and password' do
-      sign_up.email_input.set user.email
-      sign_up.password_input.set user.password
-      sign_up.password_confirm_input.set user.password
-      sign_up.sign_up_button.click
-      expect(sign_up.user_email.text).to eq(user.email)
+  describe 'Click valid values' do
+    before do
+      sign_up.visit_and_sign_up_as(user.email, user.password)
     end
   end
 end
