@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Forgot' do
-  let(:forgot_password) { ForgotPassword.new }
-  let(:home_page) { Home.new }
-  let(:user) { create(:user) }
+RSpec.describe ForgotPassword do
+  let(:forgot_password) { described_class.new }
 
   before { forgot_password.load }
 

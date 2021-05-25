@@ -17,17 +17,14 @@ class User < ApplicationRecord
   validates :password,
             format: { with: PASSWORD_FORMAT_REGEX },
             on: :create
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
       user.name = auth.info.name
       user.uid = auth.uid
+      user.skip_confirmation!
     end
   end
-
-  # after_create :send_admin_mail
-  # def send_admin_mail
-  #   UserMailer.send_new_user_message(self).deliver
-  # end
 end

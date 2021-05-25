@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Login' do
-  let(:sign_in) { SignIn.new }
-  let(:home_page) { Home.new }
+RSpec.describe SignIn do
+  let(:sign_in) { described_class.new }
   let(:user) { create(:user) }
 
   before { sign_in.load }
