@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Login' do
-  let(:sign_in) { SignIn.new }
-  let(:home_page) { Home.new }
+RSpec.describe SignIn do
+  let(:sign_in) { described_class.new }
   let(:user) { create(:user) }
 
   before { sign_in.load }
@@ -19,14 +18,7 @@ RSpec.describe 'Login' do
     it 'Empty email and password' do
       sign_in.log_in_button.click
       expect(sign_in.alert_message.visible?).to eq(true)
-    end
-
-    it 'enter email and password' do
-      sign_in.email_input.set user.email
-      sign_in.password_input.set user.password
-      sign_in.log_in_button.click
-
-      expect(sign_in.user_email.text).to eq(user.email)
+      sign_in.visit_and_login_as(user.email, user.password)
     end
   end
 end

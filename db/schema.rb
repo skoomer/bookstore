@@ -63,31 +63,35 @@ ActiveRecord::Schema.define(version: 2021_05_17_163032) do
   end
 
   create_table "books", force: :cascade do |t|
-    t.string "title", limit: 50, null: false
-    t.float "price"
-    t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.bigint "author_id"
     t.bigint "category_id"
+    t.string "title", null: false
+    t.float "price"
+    t.text "description"
     t.float "height"
     t.float "width"
     t.float "depth"
     t.string "material"
     t.integer "quantity"
     t.integer "publication_year"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["author_id"], name: "index_books_on_author_id"
     t.index ["category_id"], name: "index_books_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
+    t.integer "books_count", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "books_count", default: 0
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.string "name"
+    t.string "image"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -98,17 +102,16 @@ ActiveRecord::Schema.define(version: 2021_05_17_163032) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "provider"
-    t.string "uid"
-    t.string "name"
-    t.text "image"
     t.bigint "billing_address_id"
     t.bigint "shipping_address_id"
     t.index ["billing_address_id"], name: "index_users_on_billing_address_id"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["shipping_address_id"], name: "index_users_on_shipping_address_id"
   end
 
