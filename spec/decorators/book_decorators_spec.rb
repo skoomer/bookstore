@@ -20,7 +20,7 @@ RSpec.describe BookDecorator do
     let(:length) { BookDecorator::BOOK_DESCRIPTION }
     let(:description) { book.description }
 
-    it '#short_description' do
+    it '#description_short' do
       expect(book.description_short).to eq(description.split('.').first)
     end
 
@@ -32,7 +32,7 @@ RSpec.describe BookDecorator do
       expect(book.all_description.size).to eq(description[(length + 1)..].length)
     end
 
-    it '#description_less_240' do
+    it '#description_truncate' do
       allow(book.description).to receive(:size) { length - 5 }
       expect(book).to be_description_truncate
     end

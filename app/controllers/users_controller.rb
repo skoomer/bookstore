@@ -17,7 +17,6 @@ class UsersController < ApplicationController
     end
   
     def update_email
-      @user.skip_reconfirmation!
       if @user.update_without_password(user_params_email)
         flash[:success] = t('devise.email_changed')
       else

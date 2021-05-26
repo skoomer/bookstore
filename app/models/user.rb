@@ -9,8 +9,6 @@ class User < ApplicationRecord
           :recoverable,
           :rememberable,
           :validatable,
-          :trackable,
-          :confirmable,
           :omniauthable,
           omniauth_providers: %i[facebook]
 
@@ -22,12 +20,9 @@ class User < ApplicationRecord
   belongs_to :billing_address, class_name: 'Address', optional: true, autosave: true
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    User.find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
-      user.name = auth.info.name
-      user.uid = auth.uid
-      user.skip_confirmation!
     end
   end
 end
