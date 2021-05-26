@@ -1,19 +1,19 @@
 %main.container.general-main-wrap
   .text-center
     %h3.general-login-title
-      = t('signup.sign_up')
+      = t('.sign_up')
     = render 'devise/partials/social_buttons'
     %p.general-login-text
-      = t('or')
+      = t('.or')
   = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html:{ class: 'general-form' }) do |f|
     .form-group.mb-30
-      = f.input :email, label_html: { class: 'control-label input-label' }, label: t('auth_user.email_label'), placeholder: t('auth_user.email_placeholder')
+      = f.input :email, wrapper_html: { class: 'email' }, label: t('.email_label'), placeholder: t('.email_placeholder')
     .form-group.mb-30
-      = f.input :password, required: false, label_html: { class: 'control-label input-label' }, label: t('auth_user.password_label'), placeholder: t('auth_user.password_placeholder')
+      = f.input :password, required: false, wrapper_html: { class: 'password' }, label: t('auth_user.password_label'), placeholder: t('.password_placeholder')
     .form-group.mb-30
-      = f.input :password_confirmation, label_html: { class: 'control-label input-label' }, label: t('auth_user.confirm_password_label'), placeholder: t('auth_user.confirm_password_label')
+      = f.input :password_confirmation, wrapper_html: { class: 'password_confirmation' }, label: t('.confirm_password_label'), placeholder: t('.confirm_password_label')
     .text-center
-      = f.submit t('signup.sign_up'), class: 'btn btn-default mb-20', id: 'sign_up', method: :post
+      = f.submit t('.sign_up'), wrapper_html: { class: 'btn btn-default mb-20' }, id: 'sign_up', method: :post
     %p.general-sign-text.text-center
-      = t('signup.have_account')
-      = link_to 'Log in', new_user_session_path
+      = t('.have_account')
+      = link_to t('.log_in'), new_user_session_path

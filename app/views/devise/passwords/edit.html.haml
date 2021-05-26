@@ -1,11 +1,11 @@
 %main.container.general-main-wrap
   .text-center
     %h3.general-login-title
-      = t('forgot_password.title')
+      = t('.title')
   = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: 'general-form' }) do |f|
-    = f.hidden_field :reset_password_token 
+    = f.hidden_field :reset_password_token
     .form-group.mb-30
-      = f.input :password, label_html: { class: 'control-label input-label' }, label: t('forgot_password.password_label'), placeholder: t('forgot_password.password_placeholder')
+      = f.input :password, wrapper_html: { class: 'password' }, label: t('.password_label'), placeholder: t('.password_placeholder')
     .form-group.mb-40
-      = f.input :password_confirmation, label_html: { class: 'control-label input-label' }, label: t('forgot_password.confirm_password_label'), placeholder: t('forgot_password.confirm_password_label')
-    = f.submit t('forgot_password.change'), class: 'btn btn-default center-block mb-20'
+      = f.input :password_confirmation, wrapper_html: { class: 'password_confirmation' }, label: t('.confirm_password_label'), placeholder: t('.confirm_password_label')
+    = f.submit t('.change'), class: 'btn btn-default center-block mb-20'

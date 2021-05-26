@@ -6,7 +6,13 @@ class ForgotPassword < SitePrism::Page
   element :forgot_title, 'h1'
   element :email_instriction, 'p'
   element :user_email, '#user_email'
-  element :email_button, 'input#user_email'
+  element :email_button, 'input#email_button'
   element :cancel_link, 'a'
-  element :alert_message, '#alert-message'
+  element :email_input, 'input#user_email'
+
+  def forgot_email_form(email)
+    load
+    email_input.set email
+    email_button.click
+  end
 end

@@ -1,15 +1,13 @@
 %main.container.general-main-wrap
   .text-center
     %h1.mb-30
-      = t('auth_user.forgot_password')
+      = t('.forgot_password')
     %p.general-password-text
-      = t('forgot_password.instructions_message')
-  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "general-form" }) do |f|
+      = t('.instructions_message')
+  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "general-form" }) do |f|
     .mb-25
-      = f.email_field :email, autofocus: true, placeholder: t('forgot_password.enter_email'), autocomplete: "email", class: "form-control"
+      = f.input :email, wrapper_html: { class: 'email' }, label: false, placeholder: t('.enter_email')
     .text-center
-      %p#alert-message
-        = alert
-      = f.submit t('forgot_password.email_instructions'), class: "btn btn-default mb-20"
+      = f.submit t('.email_instructions'), wrapper_html: { class: "btn btn-default mb-20" }, id: 'email_button'
     .text-center
-      %a.in-gold-500.mb-20{href: "/users/sign_in" }= t('forgot_password.cancel')
+      = link_to(t('.cancel'), new_user_session_path, wrapper_html: { class: 'in-gold-500 mb-20' })
