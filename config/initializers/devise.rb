@@ -9,7 +9,6 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  require "omniauth-facebook"
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
@@ -162,6 +161,7 @@ Devise.setup do |config|
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
+  config.send_email_changed_notification = true
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
@@ -179,7 +179,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  config.password_length = 6..128
+  config.password_length = 8..128
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
@@ -273,13 +273,8 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  # config.omniauth :github, ENV['GITHUB_APP_ID'], ENV['GITHUB_APP_SECRET'], scope: 'user,public_repo'
-  # config.omniauth :facebook, Rails.application.credentials.facebook[:APP_ID],Rails.application.credentials.facebook[:APP_SECRET], token_params: { parse: :json }
-  config.omniauth :facebook, '1644072325780517', '8f8555119a2b34f2941ea55b5050a41b', token_params: { parse: :json }
-  # callback_url: 'http://localhost:3000/auth/facebook/callback'
-
-
+  config.omniauth :facebook, Rails.application.credentials.dig(:facebook, :app_id), Rails.application.credentials.dig(:facebook, :app_secret)
+  
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

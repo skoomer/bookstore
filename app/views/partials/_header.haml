@@ -27,38 +27,20 @@
                     = category.title
             %li
               - if user_signed_in?
-             
-                %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}=t('partials.header.my_account')
+                %a.dropdown-toggle#user-email{ href: '#', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }
+                  = current_user.email
                 %ul.dropdown-menu
                   %li
-                    = link_to 'settings', user_path
+                    = link_to t('.settings'), edit_user_path
                   %li
-                    = link_to  'menu order'
+                    = link_to  t('.menu_order')
                   %li
-                    = link_to 'log out', destroy_user_session_path, method: :delete
+                    = link_to t('.log_out'), destroy_user_session_path, method: :delete
               - else
                 %a.dropdown-toggle{ href: '#', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }
-                  = t('partials.header.my_account')
+                  = t('.my_account')
                 %ul.dropdown-menu
                   %li
-                    = link_to t('login.log_in'), new_user_session_path, class: 'collapse-link'
+                    = link_to t('.log_in'), new_user_session_path, class: 'collapse-link'
                   %li
-                    = link_to t('signup.sign_up'), new_user_registration_path, class: 'collapse-link'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    = link_to t('.sign_up'), new_user_registration_path, class: 'collapse-link'

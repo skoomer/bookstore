@@ -1,5 +1,6 @@
 ActiveAdmin.register Book do
   decorate_with BookDecorator
+  includes :category,  :author
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -25,16 +26,32 @@ ActiveAdmin.register Book do
 
     column :title
 
-    column :authors, &:author_name #  во 2 степе есть автор декоратор так что будет ошибка после пула
-
+    # column :author, &:full_name #  во 2 степе есть автор декоратор так что будет ошибка после пула
+    column t('.authors'), :authors_show
     column :description, &:description_short
 
     column :category
 
-    column :price
+    # column :price
+    column t('.price'), :price_show
+
 
     column :image
 
     actions
+  end
+
+  show do
+    attributes_table do
+      row :name
+      row :authors_show
+      row :description
+      row 'Price' do
+        :price_show
+      end
+      row :year_of_publication
+      row :materials_show
+      row :dimensions_show
+    end
   end
 end

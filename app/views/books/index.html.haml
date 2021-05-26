@@ -1,8 +1,7 @@
 %main.container
-  = render partial: 'books/partials/filter'
+  = render 'books/partials/filter', presenter: @presenter
   .mb-120
     .row#show-books
-      = render partial: 'books/partials/book', collection: books, as: :book
+      = render books
     .text-center#more_books
-      - if (pagy_next_url(@pagy))
-        = render partial: 'books/partials/next_page_link'
+      = render 'books/next_link', pagy: @pagy

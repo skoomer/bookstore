@@ -1,4 +1,6 @@
 ActiveAdmin.register Author do
+  config.filters = false
+  decorate_with AuthorDecorator
   #decorate_with AuthorDecorator #добавиться после пула со 2 степа
 
 
@@ -27,6 +29,15 @@ ActiveAdmin.register Author do
     column :description
 
     actions
+  end
+
+  show title: :full_name do
+    attributes_table do
+      row :first_name
+      row :last_name
+      row :created_at
+      row :updated_at
+    end
   end
   
 end
