@@ -5,6 +5,7 @@
       %a.tab-link{href: "/user/address"}=t('address.address')
     %li.tab-item{role: "presentation"}
       %a.tab-link{href: user_path }=t('address.privacy')
+      %a.tab-link{href: edit_user_path }= t('address.privacy')
   .tab-content
     #address.tab-pane.fade.in.active.general-main-wrap{role: "tabpanel"}
       %div
