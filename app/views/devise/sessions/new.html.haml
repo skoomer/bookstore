@@ -5,22 +5,17 @@
     = render 'devise/partials/social_buttons'
     %p.general-login-text
       = t('.or')
-  = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'general-form' }, validate: true) do |f|
-    .form-group.mb-30
-      = f.input :email, wrapper_html: { class: 'email' }, label: t('auth_user.email_label'), placeholder: t('.email_placeholder')
-    .form-group.mb-30
-      = f.input :password, wrapper_html: { class: 'password' }, label: t('.password_label'), placeholder: t('.password_placeholder')
-      = link_to t('.forgot_password'), new_user_password_path, class: 'help-block in-gold-500', id: t('.forgot_password')
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'general-form' }, validate: true ) do |f|
+    = f.label :email, t('.email_label')
+    = f.input :email, label: false, autofocus: true, placeholder: t('.email_placeholder')
+    = f.label :passowrd, t('.password_label')
+    = f.input :password, label: false, placeholder: t('.password_placeholder')
+    = link_to t('.forgot_password'), new_user_password_path, class: 'help-block in-gold-500', id: t('.forgot_password')
+
     .form-group.checkbox.text-center.mb-30
       %label.checkbox-label
-        = f.input_field :remember_me, as: :boolean, wrapper_html: { class: 'checkbox-input' }, hidden: 'true', id: 'remember_me'
-        %span.checkbox-icon
-          %i.fa.fa-check
-        %span.checkbox-text
-        = t('.remember_me')
+        = f.input :remember_me, as: :boolean, class: 'checkbox-input', hidden: 'true', id: 'remember_me'
     .text-center
-      %p#alert-message
-        = alert
       = f.submit t('.log_in'), class: 'btn btn-default mb-20', id: 'log_in'
   %p.general-sign-text.text-center
     = t('.dont_have_account')

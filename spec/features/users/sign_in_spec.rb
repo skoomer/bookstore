@@ -8,13 +8,15 @@ RSpec.describe SignIn do
 
   it { expect(sign_in).to be_all_there }
 
-  describe 'Click to Log in button' do
+  describe 'validations' do
     it 'invalid values' do
       sign_in.log_in_button.click
-      expect(sign_in.alert_message).to be_visible
+      expect(page).not_to have_selector 'div.alert.alert-danger',
+                                        text: I18n.t('devise.failure.not_found_in_database',
+                                                     authentication_keys: 'Email')
     end
 
-    it 'redirect to root_path if valid login' do
+    it 'redirects to root_path if valid login' do
       sign_in.visit_and_login_as(user.email, user.password)
       expect(page).to have_current_path(root_path, ignore_query: true)
     end

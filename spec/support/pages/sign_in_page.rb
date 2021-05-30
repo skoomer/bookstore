@@ -6,7 +6,6 @@ class SignIn < SitePrism::Page
   element :email_input, 'input#user_email'
   element :password_input, 'input#user_password'
   element :log_in_button, 'input#log_in'
-  element :alert_message, '#alert-message'
 
   def visit_and_login_as(email, password)
     load
