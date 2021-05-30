@@ -58,7 +58,7 @@ Rails.application.configure do
 
   # Raises error for missing translations.
   config.i18n.raise_on_missing_translations = true
-  
+
   # config.action_view.annotate_rendered_view_with_filenames = true
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   # Uncomment if you wish to allow Action Cable access from any origin.
