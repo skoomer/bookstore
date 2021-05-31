@@ -57,5 +57,6 @@ ActiveAdmin.register Review do
     end
     f.actions
   end
+
   
 end
