@@ -4,10 +4,9 @@
       = t('.forgot_password')
     %p.general-password-text
       = t('.instructions_message')
-  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "general-form" }, defaults: { wrapper_html: { class: 'form_group mb-30' } }) do |f|
-    = f.label :email, t('.email_label')
-    = f.input :email, autofocus: true, placeholder: t('.email_placeholder'),label: false
+  = simple_form_for(resource, as: resource_name, url: password_path(resource_name)) do |f|
+    = f.input :email, autofocus: true
     .text-center
-      = f.submit t('.email_instructions'), class: "btn btn-default mb-20" , id: 'email_button'
-    .text-center
+      .action
+        = f.button :submit, t('.email_instructions'), id: 'email_button'
       = link_to(t('.cancel'), new_user_session_path, class: 'in-gold-500 mb-20' )
