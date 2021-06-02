@@ -12,8 +12,7 @@ class User < ApplicationRecord
           omniauth_providers: %i[facebook]
 
   validates :password,
-            format: { with: PASSWORD_FORMAT_REGEX },
-            on: :update
+            format: { with: PASSWORD_FORMAT_REGEX }
 
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|

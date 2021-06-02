@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 module OmniAuthTestHelper
-  def stub_facebook_omniauth(uid: '', picture: '', email: '')
+  def stub_facebook_omniauth(uid: '', email: '')
     OmniAuth.config.test_mode = true
     OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(
-      provider: :facebook,
+      provider: 'facebook',
       uid: uid,
-      info: { picture_url: picture, email: email }
+      info: { email: email }
     )
   end
 end

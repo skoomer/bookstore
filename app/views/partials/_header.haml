@@ -33,11 +33,11 @@
                   %li
                     = link_to t('.settings'), user_session_path
                   %li
-                    = link_to  t('.menu_order')
+                    = link_to t('.menu_order')
                   %li
                     = link_to t('.log_out'), destroy_user_session_path, method: :delete
               - else
                 %li
-                  = link_to t('.log_in'), new_user_session_path, class: 'collapse-link'
+                  = link_to t('.log_in'), new_user_session_path, class: 'collapse-link', id: 'log_in_link'
                 %li
-                  = link_to t('.sign_up'), new_user_registration_path, class: 'collapse-link'
+                  = link_to t('.sign_up'), new_user_registration_path, class: 'collapse-link', id: 'sign_up_link'

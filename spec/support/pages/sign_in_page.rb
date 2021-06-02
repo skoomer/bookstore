@@ -3,9 +3,9 @@
 class SignIn < SitePrism::Page
   set_url '/users/sign_in'
 
-  element :email_input, 'input#user_email'
-  element :password_input, 'input#user_password'
-  element :log_in_button, 'input#log_in'
+  element :email_input, '#user_email'
+  element :password_input, '#user_password'
+  element :log_in_button, '#log_in_button'
 
   def visit_and_login_as(email, password)
     load

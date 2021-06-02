@@ -11,9 +11,9 @@ RSpec.describe User do
     let(:auth_data) { stub_facebook_omniauth(email: user.email, uid: user.uid) }
 
     context 'when user already registered' do
-      let(:user) { create(:user) }
+      let(:user) { create(:user, :with_facebook) }
 
-      it 'when returns user' do
+      it 'returns user' do
         expect(described_class.from_omniauth(auth)).to eq(user)
       end
     end
@@ -22,7 +22,7 @@ RSpec.describe User do
       let(:user) { build(:user) }
 
       it 'creates a new user' do
-        expect { described_class.from_omniauth(auth) }.to change(described_class, :count).by(1)
+        expect { described_class.from_omniauth(auth) }.to change(described_class, :count).from(0).to(1)
       end
     end
   end
