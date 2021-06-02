@@ -3,12 +3,6 @@
   = render 'partials/head'
   %body
     = render 'partials/header', cached: true
-<<<<<<< HEAD
     = render 'partials/flash_message'
-=======
-    
-    %p.notice= notice
-    %p.alert= alert
->>>>>>> a232d61 (fix views)
     = yield
     = render 'partials/footer', cached: true
