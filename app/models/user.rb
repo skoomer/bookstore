@@ -1,35 +1,43 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  # PASSWORD_FORMAT = /\A(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/x
   PASSWORD_FORMAT_REGEX = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\S]{8,}\z/
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise  :database_authenticatable,
-          :registerable,
-          :recoverable,
-          :rememberable,
-          :validatable,
-          :trackable,
-          :omniauthable,
-          omniauth_providers: %i[facebook]
+
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable,
+         :omniauthable,
+         omniauth_providers: %i[facebook]
+
+  # validate :password_regex
 
   validates :password,
-            format: { with: PASSWORD_FORMAT_REGEX },
-            on: :create
-
-  belongs_to :shipping_address, class_name: 'Address', optional: true, autosave: true
-  belongs_to :billing_address, class_name: 'Address', optional: true, autosave: true
+            format: { with: PASSWORD_FORMAT_REGEX }
+  has_one  :shipping_address, dependent: :destroy
+  has_one  :billing_address, dependent: :destroy
 
   has_many :reviews, dependent: :destroy
 
-  
+  accepts_nested_attributes_for :shipping_address
+  accepts_nested_attributes_for :billing_address
+
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
-      user.name = auth.info.name
-      # user.provider = auth.provider
       user.uid = auth.uid
+      user.provider = auth.provider
     end
   end
+
+  # private
+
+  # def password_regex
+  #   return if password.blank? || password =~ PASSWORD_FORMAT
+
+  #   errors.add :password, I18n.t('users.passwords.messages.uncorrect_password')
+  # end
 end

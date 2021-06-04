@@ -51,7 +51,6 @@ ActiveAdmin.register Review do
       f.input :title, input_html: { disabled: true }
       f.input :text, input_html: { disabled: true }
 
-      # use the attr_accessor to pass the data
       f.input :active_admin_requested_event, label: t('admin.change_state'), as: :radio, collection:
         f.object.aasm.events(permitted: true).map(&:name)
     end

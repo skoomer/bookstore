@@ -1,40 +1,78 @@
 ActiveAdmin.register Book do
   decorate_with BookDecorator
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
-  permit_params :title, :price, :description, :author_id, :category_id, :height, :width, :depth, :material, :quantity, :publication_year, covers:[]
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:title, :price, :description, :author_id, :category_id, :height, :width, :depth, :material, :quantity, :publication_year]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
+  config.filters = false
+
+  permit_params :title, :price, :description, :author_id, :author,
+   :category_id, :height, :width, :depth, :material, :quantity,
+    :publication_year, :cover, images: []
+
   index do
     selectable_column
-
-    column :covers do |book|
-      book.covers.map do |cover|
-        image_tag url_for(cover.variant(resize: '50x50').processed)
+    column :title
+    column :authors, &:author
+    column :description, &:description_short
+    column :category
+    column :price
+    column :cover do |book|
+      if book.cover.attached?
+        image_tag book.cover, style: 'width: 100px'
       end
     end
 
-    column :title
-
-    column :authors, &:author_name #  во 2 степе есть автор декоратор так что будет ошибка после пула
-
-    column :description, &:description_short
-
-    column :category
-
-    column :price
-
-    column :image
-
+    column :images do |book|
+      book.images.map do |cover|
+        image_tag url_for(cover.variant(resize: '50x50').processed)
+      end
+    end
     actions
+  end
+
+  show do
+    attributes_table do
+      row :title
+      row :author
+      row :category
+      row :description
+      row :cover
+      row :images
+      row :price
+      row :publication_year
+      row :material
+      row :height
+      row :width
+      row :depth
+    end
+    
+    if book.reviews.approved.present?
+      panel t('admin.reviews') do
+        table_for book.reviews.approved do
+          column :title
+          column :user
+          column :created_at
+        end
+      end
+    end
+    active_admin_comments
+  end
+
+
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :title
+      f.input :author, collection: Hash[Author.all.map { |author| [author.decorate.full_name, author.id] }]
+      f.input :category
+      f.input :price
+      f.input :description
+      f.input :publication_year
+      f.input :material
+      f.input :height
+      f.input :width
+      f.input :depth
+      f.input :cover, :as => :file
+      f.input :images, :as => :file, input_html: { multiple: true }
+
+    end
+    f.actions
   end
 end
