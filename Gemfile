@@ -48,6 +48,7 @@ gem 'activeadmin'
 gem 'activeadmin_addons'
 gem 'pundit'
 gem "aws-sdk-s3", require: false
+gem 'virtus'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

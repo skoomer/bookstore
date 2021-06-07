@@ -7,9 +7,18 @@ class ApplicationController < ActionController::Base
   include Pagy::Backend
   helper_method :categories
   protect_from_forgery
+  helper_method :current_order
+  before_action :set_cart
   
   def not_found
     render 'errors/404.html', layout: false, status: :not_found
+  end
+
+  def set_cart
+    @cart = Cart.find(session[:cart_id])
+    rescue ActiveRecord::RecordNotFound
+    @cart = Cart.create
+    session[:cart_id] = @cart.id
   end
 
   protected

@@ -20,4 +20,17 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @reviews = @book.reviews
   end
+
+  # def add_to_cart
+  #   book = Book.find(params[:id])
+   
+  #   if params[:add_to_cart]
+  #     quantity = params[:add_to_cart].fetch(:quantity, 1).to_i
+  #   else
+  #     quantity = 1
+  #   end
+  #   @cart = current_user.cart
+  #   @cart.add_book(book, quantity)
+  #   redirect_to cart_path(:intro), notice: (I18n.t"books.add_to_cart.books_was_successfully_added_to_cart")
+  # end
 end

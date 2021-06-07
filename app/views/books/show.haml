@@ -14,18 +14,19 @@
     .col-sm-6
       %h1.mt-res-0= book.title
       %p.lead.small= book.author_full_name
+      -#  %p.h1.in-gold-500.mt-10= number_to_currency(book.price)
+          -# %button.btn.btn-default.pull-right.general-position= t('.buttons.add_to_cart')
       .row
-        .col-xs-12.col-md-4
-          %p.h1.in-gold-500.mt-10= number_to_currency(book.price)
-        .col-xs-5.col-md-3
-          .input-group.general-position
-            %a.input-link.btn-minus-js
-              %i.fa.fa-minus.line-height-40
-            %input.form-control.quantity-input.book-quantity-js{type: "text", value: 1}
-            %a.input-link.btn-plus-js
-              %i.fa.fa-plus.line-height-40
-        .col-xs-7.col-md-5
-          %button.btn.btn-default.pull-right.general-position= t('.buttons.add_to_cart')
+        = simple_form_for [@cart, @cart.build] ], remote:true do |f|
+          .col-xs-12.col-md-4
+            %p.h1.in-gold-500.mt-10#price
+              = number_to_currency(book.price)
+            -# = f.input_field :book_id, as: :hidden, value: @book.id
+          .col-xs-5.col-md-3
+            -# = render partial: 'partials/counter', locals: { f: f, quantity: CartItemForm::DEFAULT_CART_ITEM_COUNT }
+          .col-xs-7.col-md-5
+            = f.submit t('add_to_cart'), class: 'btn btn-default pull-right general-position', id: 'button_add_to_cart'
+        -# = render 'carts/form'
       .general-info-wrap.divider-lg
         %p= t('.description')
         %p.lead.small.line-height-2

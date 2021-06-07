@@ -20,9 +20,11 @@ class User < ApplicationRecord
   has_one  :billing_address, dependent: :destroy
 
   has_many :reviews, dependent: :destroy
+  has_many :cart, dependent: :destroy
 
   accepts_nested_attributes_for :shipping_address
   accepts_nested_attributes_for :billing_address
+
 
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|

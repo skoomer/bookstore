@@ -10,3 +10,5 @@ window.jQuery = $;
 import 'bootstrap-sass/assets/javascripts/bootstrap';
 import '../js/books'
 import '../js/users'
+import '../js/cart'
+

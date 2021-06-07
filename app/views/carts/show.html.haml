@@ -1,0 +1,48 @@
+%main.container.general-main-wrap
+  %h1.general-title-margin Cart
+  .visible-xs
+    .hidden-xs
+      %table.table.table-hover
+        %tr.no-hover
+          %th.col-pic.pl-0
+            %span.in-grey-600=t('.product')
+          %th.col-title
+          %th.col-price
+            %span.in-grey-600=t('.price')
+          %th.col-quantity
+            %span.in-grey-600=t('.quantity')
+          %th.col-total
+            %span.in-grey-600=t('.subtotal')
+          %th.col-close
+          -# = render partial: 'cart_book', collection: @order_items, as: :order_item
+      .general-order-wrap
+        .row
+          .col-sm-4
+            = form_with url: cart_path, local: true, method: :patch  do |form|
+              = form.label :code, t('.enter_coupon'), class: "input-label"
+              = form.text_field :code, placeholder: t('.enter_coupon_code'), class: "form-control mb-30"
+              %div
+                = form.submit t('.apply_coupon'), class: "btn btn-primary mr-5 mb-15"
+          .col-sm-8
+            .res-mr-200.general-text-right
+              %p.in-gold-500.font-18=t('.order_summary')
+              %table.general-summary-table.general-summary-table-right.general-text-right
+                %tr
+                  %td
+                    %p.font-16=t('.subtotal')
+                  %td
+                    %p.font-16
+                %tr
+                  %td
+                    %p.font-16=t('.coupon')
+                  %td
+                    %p.discount.font-16
+                %tr
+                  %td
+                    %strong.font-18=t('.order_total')
+                  %td
+                    %strong.font-18
+      .text-center
+        = link_to t('.checkout') # checkout_path(:login), class: "btn btn-default mb-20"
+  
+    %h2.general-title-margin.in-gold-500=t('.sorry')
