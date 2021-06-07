@@ -9,10 +9,14 @@ class ForgotPassword < SitePrism::Page
   element :email_button, 'input#email_button'
   element :cancel_link, 'a'
   element :email_input, 'input#user_email'
+  element :success_flash_message, 'div.alert.alert-success', text: I18n.t('devise.passwords.send_instructions')
+  element :error_message, 'div.help-block'
 
-  def forgot_email_form(email)
+  def forgot_email_form(email: '')
     load
     email_input.set email
     email_button.click
   end
+
+  expected_elements :forgot_title, :email_instriction, :user_email, :email_button, :cancel_link, :email_input
 end
