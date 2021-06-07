@@ -2,41 +2,24 @@
 
 RSpec.describe ForgotPassword do
   let(:forgot_password) { described_class.new }
+  let(:user) { create(:user) }
+  let(:email) { FFaker::Internet.email }
+  let(:home_page) { Home.new }
 
   before { forgot_password.load }
 
   it { expect(forgot_password).to be_all_there }
 
-  context 'when valid email' do
-    let(:user) { create(:user) }
-    let(:email) { user.email }
-
-    before do
-      forgot_password.forgot_email_form(email: email)
-    end
-
-    it 'redirects to user path' do
-      expect(forgot_password).to have_current_path(new_user_session_path)
-    end
-
-    it 'sets success flash message' do
-      expect(forgot_password).to have_success_flash_message
-    end
+  it 'enter valid email' do
+    forgot_password.forgot_email_form(user.email)
+    expect(home_page).to have_current_path(new_user_session_path)
+    expect(home_page).to have_div_success(text: I18n.t('devise.passwords.send_instructions'))
   end
 
-  context 'when invalid email' do
-    let(:email) { FFaker::Internet.email }
-
-    before do
-      forgot_password.forgot_email_form(email: email)
-    end
-
-    it 'redirects to root path' do
-      expect(forgot_password).to have_current_path(user_password_path)
-    end
-
-    it 'sets failure flash message' do
-      expect(forgot_password).to have_error_message
-    end
+  it 'enter invalid email' do
+    forgot_password.forgot_email_form(email)
+    expect(home_page).not_to have_selector 'div.alert.alert-danger',
+                                           text: I18n.t('devise.failure.not_found_email',
+                                                        authentication_keys: 'Email')
   end
 end
