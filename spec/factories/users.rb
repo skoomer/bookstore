@@ -9,5 +9,10 @@ FactoryBot.define do
       provider { :facebook }
       uid { rand(5) }
     end
+
+    factory :user_with_addresses do
+      association :shipping_address, factory: :address
+      association :billing_address, factory: :address
+    end
   end
 end
