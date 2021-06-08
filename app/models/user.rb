@@ -14,6 +14,9 @@ class User < ApplicationRecord
 
   validates :password,
 
+
+
+
             format: { with: PASSWORD_FORMAT_REGEX }
 
   has_one  :shipping_address, dependent: :destroy
@@ -23,12 +26,15 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :billing_address
 
 
+
             format: { with: PASSWORD_FORMAT_REGEX },
             on: :create
 
   belongs_to :shipping_address, class_name: 'Address', optional: true, autosave: true
   belongs_to :billing_address, class_name: 'Address', optional: true, autosave: true
   
+
+
 
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|

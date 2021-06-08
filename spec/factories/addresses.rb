@@ -11,5 +11,4 @@ FactoryBot.define do
     country { FFaker::AddressUA.country }
     phone_number { FFaker::PhoneNumberUA.international_mobile_phone_number.gsub!(/\s/, '').delete('-') }
     user
-
 end
