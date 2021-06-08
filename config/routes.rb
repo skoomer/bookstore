@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root 'pages#index'
   get  'orders', to: 'orders#index'
-
   resources :order_items, only: %i[create update destroy]
   resource :cart, only: %i[show update]
+
 
 
   devise_for :users, controllers: {

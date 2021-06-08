@@ -8,17 +8,33 @@ class ApplicationController < ActionController::Base
   helper_method :categories
   protect_from_forgery
   helper_method :current_order
-  before_action :set_cart
   
   def not_found
     render 'errors/404.html', layout: false, status: :not_found
   end
 
-  def set_cart
-    @cart = Cart.find(session[:cart_id])
-    rescue ActiveRecord::RecordNotFound
-    @cart = Cart.create
-    session[:cart_id] = @cart.id
+  def current_order
+    @current_order ||= set_current_order
+    @current_order = @current_order.in_progress? ? @current_order : set_current_order
+  end
+
+  def set_current_order
+    if current_user.present?
+      order = current_user.orders.in_progress.first_or_create
+      order.coupon = session_order.coupon if session_order.coupon
+      order.order_items << session_order.order_items
+      return order
+    end
+    session_order
+  end
+
+  def session_order
+    order = Order.find_by(id: session[:current_order_id])
+    return order if order.present?
+
+    order = Order.create
+    session[:current_order_id] = order.id
+    order
   end
 
   protected

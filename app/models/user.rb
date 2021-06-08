@@ -20,7 +20,7 @@ class User < ApplicationRecord
   has_one  :billing_address, dependent: :destroy
 
 
-  has_many :orders
+  has_many :orders, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
   accepts_nested_attributes_for :shipping_address

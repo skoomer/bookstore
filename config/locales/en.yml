@@ -1,5 +1,7 @@
 en:
-  add_to_cart: add cart
+  order_items:
+    form:
+      add_to_cart: add cart
   active_admin:
     resource:
       edit:
@@ -128,7 +130,7 @@ en:
       quantity: quantity
       product: Product
       price: Price
-    cart: "Cart"
+      cart: "Cart"
     product: "Product"
     price: "Price"
     quantity: "Quantity"

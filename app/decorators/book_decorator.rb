@@ -15,8 +15,9 @@ class BookDecorator < Draper::Decorator
   def book_images
     images&.drop(1)
   end
+
   def book_cover
-    cover&.first&.image_url(:large) || DEFAULT_COVER_URL
+    cover.attached? ?  cover : DEFAULT_COVER_URL
   end
 
   def description_short

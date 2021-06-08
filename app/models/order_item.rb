@@ -1,7 +1,6 @@
 class OrderItem < ApplicationRecord
+    belongs_to :order
     belongs_to :book
-    # belongs_to :user
-    belongs_to :order, optional: true
   
     # validates :quantity, presence: true
     validates :book, presence: true

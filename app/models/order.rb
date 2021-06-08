@@ -4,7 +4,9 @@ class Order < ApplicationRecord
    
     has_many :order_items, dependent: :destroy
     belongs_to :user, optional: true
+    has_one :coupon, dependent: :destroy
 
+    after_create :set_number
     scope :order_not_in_progress, -> { where.not(status: :in_progress) }
 
     enum status: {
@@ -34,5 +36,17 @@ class Order < ApplicationRecord
     
       def subtotal_price
         order_items.sum { |item| item.quantity * item.book.price }
+      end
+
+      def discount
+        subtotal_price - price_with_disc || 0.00
+      end
+    
+      def price_with_disc
+        ((100 - (coupon ? coupon.discount.to_f : 0)) / 100) * subtotal_price
+      end
+
+      def set_number
+        update(number: "R#{id.to_s.rjust(8, '0')}")
       end
 end
