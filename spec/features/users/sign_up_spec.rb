@@ -22,7 +22,7 @@ RSpec.describe SignUp do
       expect(sign_up).to have_success_flash_message
     end
 
-    it 'hide links sign_up and log_in after success' do
+    it 'hides links sign_up and log_in after success' do
       expect(sign_up).not_to have_sign_up_link
       expect(sign_up).not_to have_log_in_link
     end
