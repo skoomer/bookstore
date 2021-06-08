@@ -58,15 +58,18 @@ ActiveRecord::Schema.define(version: 2021_05_18_102032) do
   end
 
   create_table "addresses", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "city", null: false
-    t.string "address", null: false
-    t.string "country", null: false
-    t.integer "zip", null: false
-    t.string "phone_number", null: false
+    t.string "type"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "city"
+    t.string "address"
+    t.string "country"
+    t.integer "zip"
+    t.string "phone_number"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "admin_users", force: :cascade do |t|
