@@ -1,4 +1,3 @@
-
 # frozen_string_literal: true
 
 class Address < ApplicationRecord
@@ -21,6 +20,4 @@ class Address < ApplicationRecord
     code_country = ISO3166::Country[country]
     code_country || code_country.name
   end
-
-
 end
