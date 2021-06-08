@@ -3,10 +3,9 @@
 FactoryBot.define do
   factory :user do
     email { FFaker::Internet.email }
-    password { FFaker::String.from_regexp(User::PASSWORD_FORMAT_REGEX) }
+    password { Devise.friendly_token[0, 20] }
 
     trait :with_facebook do
-      password { User::DEFAULT_PASSWORD }
       provider { :facebook }
       uid { rand(5) }
     end

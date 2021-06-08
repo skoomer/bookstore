@@ -3,10 +3,10 @@
 class SignUp < SitePrism::Page
   set_url '/users/sign_up'
 
-  element :email_input, 'input#user_email'
-  element :password_input, 'input#user_password'
+  element :email_input, '#user_email'
+  element :password_input, '#user_password'
   element :password_confirm_input, 'input#user_password_confirmation'
-  element :sign_up_button, 'input#sign_up'
+  element :sign_up_button, '#sign_up'
   element :success_flash_message, 'div.alert.alert-success', text: I18n.t('devise.registrations.signed_up')
   element :error_message, 'div.help-block'
   element :sign_up_link, 'a.sign_up_link'
