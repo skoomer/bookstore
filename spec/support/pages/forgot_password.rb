@@ -19,5 +19,5 @@ class ForgotPassword < SitePrism::Page
   end
 
   expected_elements :forgot_password_title, :email_instructions_title,
-   :user_email, :email_button, :cancel_link, :email_input
+                    :user_email, :email_button, :cancel_link, :email_input
 end
