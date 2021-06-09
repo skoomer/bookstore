@@ -21,7 +21,12 @@ class Home < SitePrism::Page
   element :greeting, 'h2.h1', text: I18n.t('pages.index.greeting')
   element :button_start, 'a', text: I18n.t('pages.index.buttons.start')
   element :text_best_sellers, 'h3', text: I18n.t('pages.index.best')
-
+  element :success_flash_message, 'div.alert.alert-success'
+  element :failure_flash_message, 'div.alert.alert-danger'
   element :header, 'header'
   section :menu, Menu, 'li.dropdown'
+
+  expected_elements :nav_bar, :slider, :button_prev, :button_next, :best_sellers, :item_best_sellers, :footer, :title,
+                    :button_home, :button_shop, :footer_email,
+                    :greeting, :button_start, :text_best_sellers, :header, :menu
 end

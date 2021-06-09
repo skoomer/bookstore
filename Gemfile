@@ -38,21 +38,24 @@ gem 'mimemagic', '~> 0.4.3'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'draper', '~> 4.0.1'
+gem 'ffaker', '~> 2.18.0', require: false
+gem 'omniauth', '~> 1.4.1'
+gem 'omniauth-facebook', '8.0.0'
 gem 'rectify', '~> 0.13.0'
+gem 'simple_form', '~> 5.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '~> 11.1.3', platforms: %i[mri mingw x64_mingw]
   gem 'database_consistency', '~> 0.8.13', require: false
   gem 'factory_bot_rails', '~> 6.1.0'
-  gem 'ffaker', '~> 2.18.0', require: false
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 5.0.0'
   gem 'rubocop', '~> 1.12', require: false
   gem 'rubocop-performance', '~> 1.10.2', require: false
   gem 'rubocop-rails', '~> 2.9.1', require: false
   gem 'rubocop-rspec', '~> 2.2.0', require: false
-  # Brakeman is a static analysis tool which checks Ruby on Rails applications for security vulnerabilities.
+  # Brakeman is a static analysis tool which checks Ruby on Rails applications for security vulnerabilitie
   gem 'brakeman', '~> 5.0.0'
 end
 
@@ -65,6 +68,7 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'fasterer', '~> 0.9.0'
+  gem 'letter_opener', '~> 1.7.0'
   gem 'spring', '~> 2.1.1'
 end
 

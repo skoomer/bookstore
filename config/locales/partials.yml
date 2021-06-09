@@ -6,12 +6,16 @@ en:
       title: Bookstore
       home: Home
       shop: Shop
+      settings: Settings
+      menu_order: Order
       mobile_dev: Mobile development
       photo: Photo
       design: Web Design
       web_dev: Web Development
       my_account: My account
       log_out: Log out
+      log_in: Log In
+      sign_up: Sign Up
     footer:
       home: Home
       shop: Shop
