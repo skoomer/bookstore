@@ -1,26 +1,17 @@
 ActiveAdmin.register Book do
   decorate_with BookDecorator
-  # decorate_with AuthorDecorator
   includes :category,  :author
 
   permit_params :title, :price, :description, :author_id, :category_id, :height, :width, :depth, :material, :quantity, :publication_year
 
   index do
     selectable_column
-
     column :title
-
-    # column :author, &:full_name #  во 2 степе есть автор декоратор так что будет ошибка после пула
-    # column t('.authors'), &:full_name
     column :author
     column :description, &:description_short
-
     column :category
-
     column :price
-
     column :image
-
     actions
   end
 
