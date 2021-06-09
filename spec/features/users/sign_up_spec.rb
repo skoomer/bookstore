@@ -2,16 +2,43 @@
 
 RSpec.describe SignUp do
   let(:sign_up) { described_class.new }
-  let(:user) { build(:user) }
 
   before { sign_up.load }
 
   it { expect(sign_up).to be_all_there }
 
-  describe 'Click to Sign up button' do
-    it 'sign up with valid values' do
-      sign_up.visit_and_sign_up_as(user.email, user.password)
-      expect(page).to have_current_path(root_path, ignore_query: true)
+  context 'when signup valid data' do
+    let(:user) { build(:user) }
+
+    before do
+      sign_up.visit_and_sign_up_as(email: user.email, password: user.password)
+    end
+
+    it 'redirects to root path' do
+      expect(sign_up).to have_current_path(root_path, ignore_query: true)
+    end
+
+    it 'sets success flash message' do
+      expect(sign_up).to have_success_flash_message
+    end
+
+    it 'hides links sign_up and log_in after success' do
+      expect(sign_up).not_to have_sign_up_link
+      expect(sign_up).not_to have_log_in_link
+    end
+  end
+
+  context 'when invalid password or email' do
+    before do
+      sign_up.visit_and_sign_up_as
+    end
+
+    it 'redirects to root path' do
+      expect(sign_up).to have_current_path(user_registration_path)
+    end
+
+    it 'sets failure flash message' do
+      expect(sign_up).to have_error_message
     end
   end
 end

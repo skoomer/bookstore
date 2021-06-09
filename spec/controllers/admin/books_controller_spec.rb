@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Admin::BooksController do
   render_views
 

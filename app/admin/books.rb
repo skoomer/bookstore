@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Book do
   decorate_with BookDecorator
-  includes :category,  :author
+  includes :category, :author
 
-  permit_params :title, :price, :description, :author_id, :category_id, :height, :width, :depth, :material, :quantity, :publication_year
+  permit_params :title, :price, :description, :author_id, :category_id, :height, :width, :depth, :material, :quantity,
+                :publication_year
 
   index do
     selectable_column
@@ -31,7 +34,6 @@ ActiveAdmin.register Book do
     f.semantic_errors
     f.inputs do
       f.input :title
-
       f.input :description, as: :text
       f.input :price
       f.input :publication_year

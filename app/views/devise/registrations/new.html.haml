@@ -5,15 +5,12 @@
     = render 'devise/partials/social_buttons'
     %p.general-login-text
       = t('.or')
-  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html:{ class: 'general-form' }) do |f|
-    .form-group.mb-30
-      = f.input :email, wrapper_html: { class: 'email' }, label: t('.email_label'), placeholder: t('.email_placeholder')
-    .form-group.mb-30
-      = f.input :password, required: false, wrapper_html: { class: 'password' }, label: t('auth_user.password_label'), placeholder: t('.password_placeholder')
-    .form-group.mb-30
-      = f.input :password_confirmation, wrapper_html: { class: 'password_confirmation' }, label: t('.confirm_password_label'), placeholder: t('.confirm_password_label')
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = f.input :email, autofocus: true
+    = f.input :password
+    = f.input :password_confirmation
     .text-center
-      = f.submit t('.sign_up'), wrapper_html: { class: 'btn btn-default mb-20' }, id: 'sign_up', method: :post
+      = f.button :submit, t('.sign_up'), id: 'sign_up'
     %p.general-sign-text.text-center
       = t('.have_account')
       = link_to t('.log_in'), new_user_session_path

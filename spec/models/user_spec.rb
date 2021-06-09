@@ -1,17 +1,29 @@
 # frozen_string_literal: true
 
 RSpec.describe User do
-  describe 'with validation' do
+  describe 'validations' do
     it { is_expected.to validate_presence_of(:email) }
     it { is_expected.to validate_presence_of(:password) }
   end
 
-  describe '#self.from_omniauth' do
-    let(:auth_facebook) { OmniAuth.config.mock_auth[:facebook] }
-    let(:user) { described_class.from_omniauth(auth_facebook) }
+  describe '.from_omniauth' do
+    let(:auth) { OpenStruct.new(auth_data) }
+    let(:auth_data) { stub_facebook_omniauth(email: user.email, uid: user.uid) }
 
-    it 'returns or cteate user' do
-      expect(user.email).to eq(auth_facebook.info.email)
+    context 'when user already registered' do
+      let(:user) { create(:user, :with_facebook) }
+
+      it 'returns user' do
+        expect(described_class.from_omniauth(auth)).to eq(user)
+      end
+    end
+
+    context 'when new user' do
+      let(:user) { build(:user) }
+
+      it 'creates a new user' do
+        expect { described_class.from_omniauth(auth) }.to change(described_class, :count).from(0).to(1)
+      end
     end
   end
 end

@@ -31,16 +31,13 @@
                   = current_user.email
                 %ul.dropdown-menu
                   %li
-                    = link_to t('.settings'), edit_user_path
+                    = link_to t('.settings'), edit_user_registration_path
                   %li
-                    = link_to  t('.menu_order')
+                    = link_to t('.menu_order')
                   %li
                     = link_to t('.log_out'), destroy_user_session_path, method: :delete
               - else
-                %a.dropdown-toggle{ href: '#', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }
-                  = t('.my_account')
-                %ul.dropdown-menu
-                  %li
-                    = link_to t('.log_in'), new_user_session_path, class: 'collapse-link'
-                  %li
-                    = link_to t('.sign_up'), new_user_registration_path, class: 'collapse-link'
+                %li
+                  = link_to t('.log_in'), new_user_session_path, class: 'collapse-link', id: 'log_in_link'
+                %li
+                  = link_to t('.sign_up'), new_user_registration_path, class: 'collapse-link', id: 'sign_up_link'

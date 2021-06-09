@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Author do
   config.filters = false
   decorate_with AuthorDecorator
 
   permit_params :first_name, :last_name
-
 
   index do
     selectable_column
@@ -21,5 +22,4 @@ ActiveAdmin.register Author do
       row :updated_at
     end
   end
-  
 end
