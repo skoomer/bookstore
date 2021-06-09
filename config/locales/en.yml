@@ -1,220 +1,148 @@
 en:
-  time:
-    formats:
-      short: '%d/%m/%y'
-      checkout: '%B %d, %Y'
-  books:
-    show:
-      back_to_results: Back to results
-      description: Description
-      dimensions: Dimensions
-      dimension_line: 'H:%{height}" x W: %{width}" x D: %{depth}"'
-      materials: Materials
-      year_of_publication: Year of publication
-      read_more: Read more
-      read_less: Read less
-      review_caption: Write a Review
-  page:
-    catalog:
-      title: Catalog
-      filter_by_category: Filter by category
-      sort_by: Sort by
-    checkout_email_login:
-      not_authorized: ''
-      returning_customer: Returning Customer
-      or: or
-      new_customer: New Customer
-      log_in_with_password: Log In with Password
-      email_label: Enter Email
-      email_placeholder: Enter Email
-      password_label: Password
-      password_placeholder: Password
-      forgot_password: Forgot password?
-      log_in: Log In with Password
-      continue_to_checkout: Continue to Checkout
-      quick_registrate: Quick Register
-      quick_registrate_message: You’ll be able to create password later
-  cart_items:
-    index:
-      caption: Cart
-      your_cart_is_empty: Your cart is empty
-      back_to_home: Back to Home
-    order_summary_table:
-      sub_total: SubTotal
-      order_total: Order Total
-      summary_coupon: Coupon
-    cart_item:
-      apply_coupon: Apply Coupon
-      checkout: Checkout
-      order_summary: Order Summary
-      coupon_label: Enter Your Coupon Code
-      coupon_placeholder: Enter Your Coupon Code
-    cart_item_table:
-      price: Price
-      product: Product
-      sub_total: SubTotal
-      quantity: Quantity
-    cart_item_grid:
-      price: Price
-      product: Product
-      sub_total: SubTotal
-      quantity: Quantity
-  checkouts:
-    delivery:
-      days: Days
-      delivery: Delivery
-      method: Method
-      price: Price
-      save_and_continue: Save and Continue
-    address:
-      all_fields_are_required: all fields are required
-      billing_address: Billing Address
-      shipping_address: Shipping Address
-      use_billing_address: Use Billing Address
-      save_and_continue: Save and Continue
-    checkout_header:
-      checkout: Checkout
-    confirmation:
-      place_order: Place Order
-      shipping_address: Shipping Address
-      billing_address: Billing Address
-      shipments: Shipments
-      payment_information: Payment Information
-    confirm_info_box:
-      edit: edit
-    completed:
-      back_to_store: Back to Store
-      thank_message: Thank You for your Order!
-      thank_description: An order confirmation has been has been sent to %{user} %{email}
-      order_number: "Order #%{number}"
-    payment:
-      credit_card: Credit card
-      example_number: ' Example: 6798823404354258'
-      name_on_card_label: Name on Card
-      name_on_card_placeholder: Name on Card
-      name_on_card_error: only allows letters and space
-      number_label: Card Number
-      number_placeholder: Card Number
-      date_expiry_label: MM / YY
-      date_expiry_placeholder: MM / YY
-      date_expiry_error: 'example: 12/22'
-      cvv_label: CVV
-      cvv_placeholder: CVV
-      cvv_hint: |
-        3-digit security code, usually found on the back of your card.
-        American Express cards has 4-digit code, located on the front.
-      cvv_error: only allows numbers
-      save_and_continue: Save and Continue
-    order_summary_item:
-      coupon: Discount
-      item_total: 'Item Total:'
-      order_total: 'Order Total:'
-      delivery: Delivery
-    order_summary:
-      order_summary: Order Summary
-    update:
-      not_authorized: User not authorized for update
-    destroy:
-      not_authorized: User not authorized for destroy
-    step:
-      address: Address
-      delivery: Delivery
-      payment: Payment
-      confirmation: Confirm
-      completed: Complete
-  address:
-    create:
-      successful_message: '%{type} update successful.'
-      not_authorized: You are not authorized to perform this action.
-  all: All
-  view_more: View more
-  add_to_cart: Add to Cart  
-  site_name: Bookstore
-  welcome_caption: Welcome to our amazing Bookstore!
-  welcome_message: We pore through hundreds of new books each month and select the five best we can find to share with our members.
-  get_started:  Get Started
-  best_sellers: Best Sellers
-  home: Home
-  not_valid: Not valid
-  shop: Shop
-  phone: Phone +%{number}
-  no_item_selected: No item selected
-  mobile_development: Mobile development
-  photo: Photo
-  web_design: Web design
-  sign_up: Sign up
-  log_in: Log in
-  log_out: Log out
-  unprocessed: Unprocessed
-  unprocessable_entity: Unprocessable entity
-  approved: Approved
-  rejected: Rejected
-  settings: Settings
-  previous: Previous
-  menu_orders: Orders
-  reviews:
-    create:
-      successful_message: Thanks for Review. It will be published as soon as Admin will approve it.
-  sort_list:
-    newest_first: Newest first
-    popular_first: Popular first
-    price_asc: 'Price: Low to hight'
-    price_desc: 'Price: Hight to low'
-    title_asc: 'Title: A - Z'
-    title_desc: 'Title: Z - A'
-  partials:
-    header:
-      my_account: My Account
-      close: Close
-    slider:
-      buy_now: Buy Now
-      previous: Previous
-      next: Next
-    reviews_list:
-      reviews_count: Reviews (%{count})
-    review_write:
-      score: Score
-      title: Title
-      post: Post
-      review: Review
-    address_form_fields:
+  devise:
+    shared:
+      facebook_authentication:
+        or: or
+    hello: Hello
+    change_my_password: Change my password
+    password_wont_change: Your password won't change until you access the link above and create a new one
+    didnt_request: If you didn't request this, please ignore this email.
+    change_password_requested: Someone has requested a link to change your password. You can do this through the link below
+    email_change: We're contacting you to notify you that your email is being changed to
+    facebook: Facebook
+    confirmations:
+      confirmed: "Your email address has been successfully confirmed."
+      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
+      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+    failure:
+      already_authenticated: "You are already signed in."
+      inactive: "Your account is not activated yet."
+      invalid: "Invalid %{authentication_keys} or password."
+      locked: "Your account is locked."
+      last_attempt: "You have one more attempt before your account is locked."
+      not_found_in_database: "Invalid %{authentication_keys} or password."
+      timeout: "Your session expired. Please sign in again to continue."
+      unauthenticated: "You need to sign in or sign up before continuing."
+      unconfirmed: "You have to confirm your email address before continuing."
+    mailer:
+      confirmation_instructions:
+        subject: "Confirmation instructions"
+      reset_password_instructions:
+        hello_message: "Hello %{email}!"
+        password_information: password information
+        ignore_mail_message: Ignore email
+        change_my_password: Change my password
+        reset_password_message: Reset your password
+        subject: "Reset password instructions"
+      unlock_instructions:
+        subject: "Unlock instructions"
+      email_changed:
+        email_changed: "We're contacting you to notify you that your email has been changed to %{email}."
+        hello: "Hello %{email}!"
+        email_change: "We're contacting you to notify you that your email is being changed to %{unconfirmed_email}."
+      password_change:
+        hello: "Hello %{email}!"
+        password_change: Password Change 
+    omniauth_callbacks:
+      facebook: Facebook
+      failure: "Could not authenticate you from %{kind}"
+      success: "Successfully authenticated from %{kind} account."
+    passwords:
+      edit:
+        title: New Password
+        password_label: Password
+        password_placeholder: new password
+        confirm_password_label: Confirm password
+        change: Change
+      new:
+        cancel : Cancel
+        email_instructions: Email instruction
+        email_label: Email
+        email_placeholder: enter email
+        forgot_password: Forgot password?
+        instructions_message: We'll email you instructions on how to reset it
+      no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
+      send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
+      send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
+      updated: "Your password has been changed successfully. You are now signed in."
+      updated_not_active: "Your password has been changed successfully."
+    registrations:
+      privacy_form:
+        password: Password
+        save: Save
+      edit_password:
+        password_label: Password
+        password_placeholder: password
+        confirm_password_label: Confirm password
+        save: Save
+        current_password: Current password
+      edit_email:
+       
+        email_label: Email
+        email_placeholder: example@mail.com
+        save: Save
+      edit:
+        cancel: cancel
+        save: Save
+        billing_address: Billing Address
+        shipping_address: Shipping Address
         first_name: First name
-        first_name_placeholder: First name
         last_name: Last name
-        last_name_placeholder: Last name
-        address: Address
-        address_placeholder: Address
         city: City
-        city_placeholder: City
         zip: Zip
-        zip_placeholder: Zip
-        country: Country
-        country_placeholder: Country
-        phone: Phone
-        phone_placeholder: Example +355 66 123 4567
-  orders:
-    show:
-      billing_address: Billing address
-      shipping_address: Shipping Address
-      shipments: Shipments
-      payment_information: Payment Information
-      order_with_number: 'Order %{number}'
-    index:
-      filter: Filter by
-      not_authorized: You are not authorized to perform this action
-      my_orders: My Orders
-    cart_items_table:
-      completed_at: Completed at
-      number: Number
-      status: Status
-      total: Total
-    cart_items_grid:
-      completed_at: Completed at
-      number: Number
-      status: Status
-      total: Total
-    status:
-      completed: Waiting for processing
-      in_delivery: In Delivery
-      delivered: Delivered
-      canceled: Canceled
+        country: Select country
+        phone_number: Example +355 66 123 4567
+        remove_account: Remove account
+        password: Password
+        email: Email
+        privacy: Privacy
+        address: Address
+        settings: Settings
+      new:
+        email_label: Email
+        sign_up: Sign up
+        confirm_password_label: Confirm password
+        email_placeholder: email placeholder
+        have_account: Have an Account?
+        password_placeholder: password placeholder
+        password_label: Password
+        or: or
+        log_in: Log in
+      destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
+      signed_up: "Welcome! You have signed up successfully."
+      signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
+      signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
+      signed_up_but_unconfirmed: "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account."
+      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirmation link to confirm your new email address."
+      updated: "Your account has been updated successfully."
+      updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again"
+    sessions:
+      new:
+        password_label: Password
+        email_label: Email
+        password: Password
+        sign_up: Sign up
+        dont_have_account: Don't have an account?
+        remember_me: remember me
+        forgot_password: Forgot password?
+        password_placeholder: Password placeholder
+        email_placeholder: Email placeholder
+        or: or
+        log_in: Log in
+      signed_in: "Signed in successfully."
+      signed_out: "Signed out successfully."
+      already_signed_out: "Signed out successfully."
+    unlocks:
+      send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
+      send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
+      unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+  errors:
+    messages:
+      already_confirmed: "was already confirmed, please try signing in"
+      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
+      expired: "has expired, please request a new one"
+      not_found: "not found"
+      not_locked: "was not locked"
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"
