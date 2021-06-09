@@ -8,7 +8,6 @@ class Book < ApplicationRecord
 
   has_one_attached :cover
   has_many_attached :images
-  
 
   validates :title, presence: true
 end

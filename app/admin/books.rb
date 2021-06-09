@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Book do
   decorate_with BookDecorator
   config.filters = false
 
   permit_params :title, :price, :description, :author_id, :author,
-   :category_id, :height, :width, :depth, :material, :quantity,
-    :publication_year, :cover, images: []
+                :category_id, :height, :width, :depth, :material, :quantity,
+                :publication_year, :cover, images: []
 
   index do
     selectable_column
@@ -14,9 +16,7 @@ ActiveAdmin.register Book do
     column :category
     column :price
     column :cover do |book|
-      if book.cover.attached?
-        image_tag book.cover, style: 'width: 100px'
-      end
+      image_tag book.cover, style: 'width: 100px' if book.cover.attached?
     end
 
     column :images do |book|
@@ -42,7 +42,7 @@ ActiveAdmin.register Book do
       row :width
       row :depth
     end
-    
+
     if book.reviews.approved.present?
       panel t('admin.reviews') do
         table_for book.reviews.approved do
@@ -54,7 +54,6 @@ ActiveAdmin.register Book do
     end
     active_admin_comments
   end
-
 
   form do |f|
     f.semantic_errors
@@ -69,9 +68,8 @@ ActiveAdmin.register Book do
       f.input :height
       f.input :width
       f.input :depth
-      f.input :cover, :as => :file
-      f.input :images, :as => :file, input_html: { multiple: true }
-
+      f.input :cover, as: :file
+      f.input :images, as: :file, input_html: { multiple: true }
     end
     f.actions
   end

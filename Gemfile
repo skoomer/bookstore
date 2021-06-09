@@ -36,18 +36,18 @@ gem 'jwt', '~> 2.2.2'
 gem 'lefthook', '~> 0.5.5'
 gem 'mimemagic', '~> 0.4.3'
 # Reduces boot times through caching; required in config/boot.rb
+gem 'activeadmin'
+gem 'activeadmin_addons'
+gem 'aws-sdk-s3', require: false
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'country_select', '~> 4.0'
 gem 'draper', '~> 4.0.1'
 gem 'omniauth', '~> 1.9.1'
 gem 'omniauth-facebook', '8.0.0'
 gem 'omniauth-rails_csrf_protection'
-gem 'simple_form'
-gem 'rectify', '~> 0.13.0'
-gem 'country_select', '~> 4.0'
-gem 'activeadmin'
-gem 'activeadmin_addons'
 gem 'pundit'
-gem "aws-sdk-s3", require: false
+gem 'rectify', '~> 0.13.0'
+gem 'simple_form'
 gem 'virtus'
 
 group :development, :test do

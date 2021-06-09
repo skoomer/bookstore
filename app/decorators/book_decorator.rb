@@ -2,7 +2,7 @@
 
 class BookDecorator < Draper::Decorator
   BOOK_DESCRIPTION = 240
-  DEFAULT_COVER_URL = 'https://www.bramstein.com/static/smashing-book-5-photo-stack.9d5d114e3e.jpg'.freeze
+  DEFAULT_COVER_URL = 'https://www.bramstein.com/static/smashing-book-5-photo-stack.9d5d114e3e.jpg'
 
   decorates_association :author
   delegate :full_name, to: :author, prefix: true
@@ -17,7 +17,7 @@ class BookDecorator < Draper::Decorator
   end
 
   def book_cover
-    cover.attached? ?  cover : DEFAULT_COVER_URL
+    cover.attached? ? cover : DEFAULT_COVER_URL
   end
 
   def description_short

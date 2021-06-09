@@ -17,11 +17,9 @@ module Users
       it 'redirects to root' do
         expect(response).to redirect_to(root_path)
       end
-      
     end
 
     # describe 'anonymus' do
-  
 
     #   it 'sets user_id' do
     #     get :facebook
@@ -32,7 +30,7 @@ module Users
     #     get :facebook
     #     expect(response).to redirect_to root_path
     #   end
-      
+
     # end
   end
 end

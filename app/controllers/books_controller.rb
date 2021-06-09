@@ -21,5 +21,4 @@ class BooksController < ApplicationController
     @order_item = current_order.order_items.build
     @reviews = @book.reviews
   end
-
 end

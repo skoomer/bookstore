@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Review do
   config.filters = false
-
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -20,7 +21,7 @@ ActiveAdmin.register Review do
 
   after_save do |review|
     event = params[:review][:active_admin_requested_event]
-    unless event.blank?
+    if event.present?
       safe_event = (review.aasm.events(permitted: true).map(&:name) & [event.to_sym]).first
       raise "Forbidden event #{event} requested on instance #{review.id}" unless safe_event
 
@@ -56,5 +57,4 @@ ActiveAdmin.register Review do
     end
     f.actions
   end
-  
 end

@@ -1,9 +1,7 @@
 %tr
   %td
     .general-img-wrap-table
-      = link_to order_item.book do
-        -# order_item.book.covers.first.variant
-        
+      = link_to order_item.book do        
         = image_tag order_item.book.decorate.book_cover, class: "cart-img-shadow pull-left"
   %td
     = link_to order_item.book.title, order_item.book, class: 'title'
