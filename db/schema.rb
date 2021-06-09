@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
-
-ActiveRecord::Schema.define(version: 2021_05_17_163032) do
-
+ActiveRecord::Schema.define(version: 2021_05_17_155123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +44,6 @@ ActiveRecord::Schema.define(version: 2021_05_17_163032) do
   end
 
   create_table "addresses", force: :cascade do |t|
-<<<<<<< HEAD
     t.string "type"
     t.string "first_name"
     t.string "last_name"
@@ -61,17 +56,6 @@ ActiveRecord::Schema.define(version: 2021_05_17_163032) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
-=======
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "city", null: false
-    t.string "address", null: false
-    t.string "country", null: false
-    t.integer "zip", null: false
-    t.string "phone_number", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
->>>>>>> 4ba59ff (add address billing shipping)
   end
 
   create_table "authors", force: :cascade do |t|
@@ -118,25 +102,10 @@ ActiveRecord::Schema.define(version: 2021_05_17_163032) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-<<<<<<< HEAD
-=======
-    t.string "provider"
-    t.string "uid"
-    t.string "name"
-    t.text "image"
-    t.bigint "billing_address_id"
-    t.bigint "shipping_address_id"
-    t.index ["billing_address_id"], name: "index_users_on_billing_address_id"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["shipping_address_id"], name: "index_users_on_shipping_address_id"
->>>>>>> 4ba59ff (add address billing shipping)
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "books", "authors"
   add_foreign_key "books", "categories"
-  add_foreign_key "users", "addresses", column: "billing_address_id"
-  add_foreign_key "users", "addresses", column: "shipping_address_id"
 end

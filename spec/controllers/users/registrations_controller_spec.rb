@@ -28,7 +28,6 @@ RSpec.describe Users::RegistrationsController do
   end
 
   describe '#email' do
-
     it 'send valid values' do
       post :update, params: { user: { email: FFaker::Internet.email } }
       expect(response).to have_http_status(:ok)
@@ -36,7 +35,6 @@ RSpec.describe Users::RegistrationsController do
   end
 
   describe '#password' do
-    
     let(:password_params) do
       { user: { current_password: user.password, password_confirmation: password_new, password: password_new } }
     end

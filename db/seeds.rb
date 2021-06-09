@@ -25,3 +25,14 @@ end
     author: Author.all.sample
   )
 end
+
+unless User.exists?
+  User.create!(
+    [
+      { email: 'goskoomer@gmail.com', password: 'Popi1245'
+      
+       
+     }
+    ]
+  )
+end
