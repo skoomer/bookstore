@@ -30,7 +30,7 @@ RSpec.describe Users::RegistrationsController do
   describe '#email' do
     it 'send valid values' do
       post :update, params: { user: { email: FFaker::Internet.email } }
-      expect(response).to have_http_status(:ok)
+      expect(response).to have_http_status(:redirect)
     end
   end
 
