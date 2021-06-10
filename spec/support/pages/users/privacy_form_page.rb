@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-  class Users::PrivacyForm < SitePrism::Section
+module Users
+  class PrivacyForm < SitePrism::Section
     element :title, '#privacy > h2', text: I18n.t('devise.registrations.edit.privacy')
 
     element :email_privacy_field, '#user_email'
@@ -31,4 +32,4 @@
       cancel_button.click
     end
   end
-
+end

@@ -16,9 +16,7 @@ FactoryBot.define do
     end
 
     trait :shipping_address do
-
       type { 'ShippingAddress' }
     end
-    # initialize_with { type.present? ? type.constantize.create : Address.create }
   end
 end
