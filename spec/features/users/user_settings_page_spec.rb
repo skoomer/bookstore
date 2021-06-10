@@ -34,18 +34,17 @@ RSpec.describe Users::UserSettingsPage do
   end
 
   context 'when enter billing address' do
-    let(:billing_address) { create(:address, :billing_address)}
-    # let(:shipping_address) { create(:address, :shipping_address)}
-
+    let(:billing_address) { create(:address, :billing_address) }
+    let(:shipping_address) { create(:address, :shipping_address) }
 
     it 'save billing address' do
-      settings_page.billing_address_form.initialize_billing_address billing_address
+      settings_page.billing_address.initialize_billing_address billing_address
       expect(settings_page).to have_flash_success
     end
 
-    # it 'save shipping address' do
-    #   settings_page.shipping_address.initialize_shipping_address shipping_address
-    #   expect(settings_page).to have_flash_success
-    # end
+    it 'save shipping address' do
+      settings_page.shipping_address.initialize_shipping_address shipping_address
+      expect(settings_page).to have_flash_success
+    end
   end
 end
