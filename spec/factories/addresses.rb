@@ -7,8 +7,16 @@ FactoryBot.define do
     last_name { FFaker::Name.last_name }
     city { FFaker::AddressUA.city }
     zip { FFaker::AddressUA.zip_code }
-    country { FFaker::AddressUA.country }
+    country { ISO3166::Country.all_translated.sample }
     phone_number { FFaker::PhoneNumberUA.international_mobile_phone_number.gsub!(/\s/, '').delete('-') }
     user
+
+    trait :billing_address do
+      type { 'BillingAddress' }
+    end
+
+    trait :shipping_address do
+      type { 'ShippingAddress' }
+    end
   end
 end
