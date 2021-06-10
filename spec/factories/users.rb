@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :user do
     email { FFaker::Internet.email }
-    password { Devise.friendly_token[0, 20] }
+    password { FFaker::String.from_regexp(User::PASSWORD_FORMAT_REGEX) }
 
     trait :with_facebook do
       provider { :facebook }
