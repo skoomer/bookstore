@@ -3,7 +3,7 @@
 ActiveAdmin.register Book do
   decorate_with BookDecorator
   config.filters = false
-
+  #add comment to fix after netudy zapuwul
   permit_params :title, :price, :description, :author_id, :author,
                 :category_id, :height, :width, :depth, :material, :quantity,
                 :publication_year, :cover, images: []
