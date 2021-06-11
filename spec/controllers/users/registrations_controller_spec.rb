@@ -3,10 +3,7 @@
 RSpec.describe Users::RegistrationsController do
   let(:user) { create(:user) }
   let(:password_new) { FFaker::String.from_regexp(User::PASSWORD_FORMAT_REGEX) }
-  let(:address) { build(:address) }
-  let(:address_empty) do
-    { first_name: '', last_name: '', address: '', city: '', zip: '', country: '', phone_number: '' }
-  end
+  # let(:address) { attributes_for(:address) }
 
   before do
     request.env['devise.mapping'] = Devise.mappings[:user]
@@ -59,14 +56,18 @@ RSpec.describe Users::RegistrationsController do
   end
 
   describe '#address' do
-    it 'send invalid values' do
+    let(:address) { attributes_for(:address) }
+    let(:address_empty) do
+      { first_name: '', last_name: '', address: '', city: '', zip: '', country: '', phone_number: '' }
+    end
+
+    it 'returns invalid params' do
       post :create, params: address_empty
       expect(response).to redirect_to(root_path)
     end
 
-    it 'send valid values' do
-      address.user_id = user.id
-      post :create, params: address.attributes
+    it '#create' do
+      post :create, params: address
       expect(response).to redirect_to(root_path)
     end
   end

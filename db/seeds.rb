@@ -29,10 +29,7 @@ end
 unless User.exists?
   User.create!(
     [
-      { email: 'goskoomer@gmail.com', password: 'Popi1245'
-      
-       
-     }
+      { email: 'exampl@gmail.com', password: 'Password1245' }
     ]
   )
 end
