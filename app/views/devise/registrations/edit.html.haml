@@ -1,37 +1,36 @@
 %h1.settings-main-title= t('.settings')
 .tabs
   %ul.nav.nav-tabs.collaps.pl-50
-    %li.nav-item.active{rel: 'addresses'}
+    %li.nav-item.active{ rel: 'addresses', id: 'address_link' }
       = link_to t('.address'), class: 'nav-link.active'
-    %li.nav-item{rel: 'privacy'}
-      = link_to "Privacy", class: 'nav-link.active'
+    %li.nav-item{rel: 'privacy', id: 'privacy_link' }
+      = link_to t('.privacy'), class: 'nav-link.active'
 %main.container.general-main-wrap
   .text-center
-    #privacy.tabbody{style: "display: none;"}
+    #privacy.tabbody{ style: "display: none;" }
       .row.mb-60
         .col-sm-5
           %p.in-gold-500.font-18.mb-25
-
-          %h2.settings-title=t('.privacy')
+          %h2.settings-title= t('.privacy')
           = render 'devise/registrations/edit_email'
         .col-sm-5.col-sm-offset-1
           %p.in-gold-500.font-18.mb-25
             = t('.password')
           = render 'devise/registrations/edit_password'
-        .col-sm-12   
-          %p.in-gold-500.font-18.mb-25   
+        .col-sm-12
+          %p.in-gold-500.font-18.mb-25
             %h3= t('.cancel')
           = check_box_tag  'checkBox', class: 'form-check-input'
           = label_tag 'checkBox', t('.cancel')
-          = button_to t('.cancel'), registration_path(resource_name), method: :delete, class: 'btn btn-default mb-20 cancel-account-js', disabled: true
+          = button_to t('.cancel'), registration_path(resource_name), method: :delete, class: 'btn btn-default mb-20 cancel-account-js', disabled: true, id: 'cancel_button'
     #addresses.tabbody
       .row
         .col-md-5.mb-40
           .visible-xs.visible-sm
             %h3.general-subtitle.mt-0
-          %h2.settings-title=t('.shipping_address')
+          %h2.settings-title= t('.shipping_address')
           = render 'devise/registrations/address_form', resource: resource, address: :shipping_address
         .col-md-5.mb-40
           .visible-xs.visible-sm
-          %h2.settings-title=t('.billing_address')
+          %h2.settings-title= t('.billing_address')
           = render 'devise/registrations/address_form', resource: resource, address: :billing_address

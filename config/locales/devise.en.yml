@@ -77,7 +77,6 @@ en:
         save: Save
         current_password: Current password
       edit_email:
-       
         email_label: Email
         email_placeholder: example@mail.com
         save: Save

@@ -10,6 +10,7 @@ module Users
         success_flash_message if is_navigational_format?
       else
         session['devise.facebook_data'] = request.env['omniauth.auth']
+        redirect_to new_user_registration_url
         failure_flash_message
       end
     end
@@ -18,7 +19,6 @@ module Users
 
     def failure_flash_message
       set_flash_message(:alert, :failure, kind: t('omniauth.facebook'))
-      redirect_to new_user_registration_url
     end
 
     def success_flash_message

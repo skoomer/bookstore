@@ -14,7 +14,7 @@ end
   book = Book.create(
     title: FFaker::Book.title,
     price: rand(10.0..150.0).floor(2),
-    description:  FFaker::Book.description(10),
+    description: FFaker::Book.description(10),
     publication_year: rand(2000...Time.zone.now.year),
     height: rand(0.1...0.9).floor(1),
     width: rand(0.1...0.9).floor(1),
@@ -26,14 +26,14 @@ end
   )
 end
 
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
 unless User.exists?
   User.create!(
     [
-      { email: 'goskoomer@gmail.com', password: 'Popi1245'
-      
-       
-     }
+      { email: 'exampl@gmail.com', password: 'Password1245' }
     ]
   )
 end
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+
