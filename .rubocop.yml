@@ -18,6 +18,8 @@ Metrics/BlockLength:
     - 'vendor/*'
     - 'vendor/**/*'
     - 'node_modules/**/*'
+    - 'app/admin/**/*'
+
 
 Style/Documentation:
   Enabled: false
@@ -30,4 +32,3 @@ RSpec/MultipleExpectations:
 
 Rails/FilePath:
   Enabled: false
-

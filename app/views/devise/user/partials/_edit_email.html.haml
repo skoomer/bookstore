@@ -1,6 +1,0 @@
-= form_for(@user, url: update_user_email_path, html: {class: 'general-form-md email' }) do |f|
-  .form-group.mb-30
-    = f.label :email, class: "control-label input-label"
-    = f.email_field :email, class: "form-control"
-  .form-group.mb-30
-    = f.submit t('settings.save'), class: 'btn btn-default mb-10', id: 'email_btn'

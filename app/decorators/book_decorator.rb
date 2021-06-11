@@ -2,6 +2,9 @@
 
 class BookDecorator < Draper::Decorator
   BOOK_DESCRIPTION = 240
+
+  decorates_association :author
+  delegate :full_name, to: :author, prefix: true
   delegate_all
 
   def book_matarial
@@ -14,10 +17,6 @@ class BookDecorator < Draper::Decorator
 
   def dimensions
     I18n.t('books.show.dimensions', height: height, width: width, depth: depth)
-  end
-
-  def author_name
-    "#{author.first_name} #{author.last_name}"
   end
 
   def medium_description

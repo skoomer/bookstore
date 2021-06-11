@@ -35,3 +35,10 @@ en:
         sort: Sort by
       next_page_link:
         button: View More
+  sort_list:
+    newest_first: Newest first
+    popular_first: Popular first
+    price_asc: 'Price: Low to hight'
+    price_desc: 'Price: Hight to low'
+    title_asc: 'Title: A - Z'
+    title_desc: 'Title: Z - A'

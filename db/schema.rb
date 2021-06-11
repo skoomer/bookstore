@@ -58,15 +58,18 @@ ActiveRecord::Schema.define(version: 2021_05_18_124833) do
   end
 
   create_table "addresses", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "city", null: false
-    t.string "address", null: false
-    t.string "country", null: false
-    t.integer "zip", null: false
-    t.string "phone_number", null: false
+    t.string "type"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "city"
+    t.string "address"
+    t.string "country"
+    t.integer "zip"
+    t.string "phone_number"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "admin_users", force: :cascade do |t|
@@ -137,26 +140,17 @@ ActiveRecord::Schema.define(version: 2021_05_18_124833) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.string "name"
+    t.string "image"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "provider"
-    t.string "uid"
-    t.string "name"
-    t.text "image"
-    t.bigint "billing_address_id"
-    t.bigint "shipping_address_id"
-    t.index ["billing_address_id"], name: "index_users_on_billing_address_id"
-    t.index ["shipping_address_id"], name: "index_users_on_shipping_address_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -165,6 +159,4 @@ ActiveRecord::Schema.define(version: 2021_05_18_124833) do
   add_foreign_key "books", "categories"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"
-  add_foreign_key "users", "addresses", column: "billing_address_id"
-  add_foreign_key "users", "addresses", column: "shipping_address_id"
 end
