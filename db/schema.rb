@@ -138,16 +138,10 @@ ActiveRecord::Schema.define(version: 2021_05_18_102032) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "billing_address_id"
-    t.bigint "shipping_address_id"
-    t.index ["billing_address_id"], name: "index_users_on_billing_address_id"
-    t.index ["shipping_address_id"], name: "index_users_on_shipping_address_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "books", "authors"
   add_foreign_key "books", "categories"
-  add_foreign_key "users", "addresses", column: "billing_address_id"
-  add_foreign_key "users", "addresses", column: "shipping_address_id"
 end
