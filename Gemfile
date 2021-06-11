@@ -38,6 +38,7 @@ gem 'mimemagic', '~> 0.4.3'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'activeadmin'
 gem 'activeadmin_addons'
+gem 'aws-sdk-s3', require: false
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'country_select', '~> 4.0'
 gem 'draper', '~> 4.0.1'
@@ -46,9 +47,7 @@ gem 'omniauth', '~> 1.4.1'
 gem 'omniauth-facebook', '8.0.0'
 gem 'pundit'
 gem 'rectify', '~> 0.13.0'
-gem "aws-sdk-s3", require: false
 gem 'simple_form', '~> 5.1.0'
-
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -15,9 +15,7 @@ ActiveAdmin.register Book do
     column :category
     column :price
     column :cover do |book|
-      if book.cover.attached?
-        image_tag book.cover, style: 'width: 100px'
-      end
+      image_tag book.cover, style: 'width: 100px' if book.cover.attached?
     end
     column :images do |book|
       book.images.map do |cover|
@@ -42,17 +40,6 @@ ActiveAdmin.register Book do
       row :width
       row :depth
     end
-
-    if book.reviews.approved.present?
-      panel t('admin.reviews') do
-        table_for book.reviews.approved do
-          column :title
-          column :user
-          column :created_at
-        end
-      end
-    end
-    active_admin_comments
   end
 
   form do |f|
@@ -68,8 +55,8 @@ ActiveAdmin.register Book do
       f.input :width
       f.input :depth
       f.input :category
-      f.input :cover, :as => :file
-      f.input :images, :as => :file, input_html: { multiple: true }
+      f.input :cover, as: :file
+      f.input :images, as: :file, input_html: { multiple: true }
       # f.input :author, as: :check_boxes, collection: Author.all.decorate.map { |author| [author.full_name, author.id] }
     end
     f.actions

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   include Pagy::Backend
   helper_method :categories
   protect_from_forgery
-  
+
   def not_found
     render 'errors/404.html', layout: false, status: :not_found
   end
