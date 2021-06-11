@@ -4,7 +4,9 @@ en:
       index:
         authors: Authors
         price: Price
-
+  reviews:
+    form:
+      post: Post
   home_page:
     welcome: "Welcome to our amazing Bookstore!"
     under_welcome: "We pore through hundreds of new books each month and select the five best we can find to share with our members."
