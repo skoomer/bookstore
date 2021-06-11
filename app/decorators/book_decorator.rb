@@ -2,6 +2,7 @@
 
 class BookDecorator < Draper::Decorator
   BOOK_DESCRIPTION = 240
+
   DEFAULT_COVER_URL = 'https://www.bramstein.com/static/smashing-book-5-photo-stack.9d5d114e3e.jpg'.freeze
 
   decorates_association :author

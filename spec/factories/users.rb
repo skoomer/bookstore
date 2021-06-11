@@ -6,9 +6,13 @@ FactoryBot.define do
     password { FFaker::String.from_regexp(User::PASSWORD_FORMAT_REGEX) }
 
     trait :with_facebook do
-      password { Devise.friendly_token[0, 20] }
-      name { FFaker::Name.name }
-      image { FFaker::Avatar.image }
+      provider { :facebook }
+      uid { rand(5) }
+    end
+
+    factory :user_with_addresses do
+      association :shipping_address, factory: :address
+      association :billing_address, factory: :address
     end
   end
 end

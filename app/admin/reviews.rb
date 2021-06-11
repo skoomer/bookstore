@@ -3,7 +3,6 @@ ActiveAdmin.register Review do
 
   permit_params :status, :active_admin_requested_event
   
-
   after_save do |review|
     event = params[:review][:active_admin_requested_event]
     unless event.blank?
@@ -36,11 +35,9 @@ ActiveAdmin.register Review do
     f.inputs do
       f.input :title, input_html: { disabled: true }
       f.input :text, input_html: { disabled: true }
-
       f.input :active_admin_requested_event, label: t('admin.change_state'), as: :radio, collection:
         f.object.aasm.events(permitted: true).map(&:name)
     end
     f.actions
   end
-  
 end
