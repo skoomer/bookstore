@@ -6,18 +6,6 @@ module Users
 
     def edit; end
 
-    def update
-      user_params[:email].present? ? update_email : update_password
-    end
-
-    def update_email
-      current_user.update_without_password(user_params)
-    end
-
-    def user_params
-      params.require(:user).permit(:email, :current_password, :password, :password_confirmation)
-    end
-
     protected
 
     def update_resource(resource, params)
