@@ -81,7 +81,8 @@ en:
         email_placeholder: example@mail.com
         save: Save
       edit:
-        cancel: cancel
+        confirm: I understand that all data will be lost
+        cancel: Remove account
         save: Save
         billing_address: Billing Address
         shipping_address: Shipping Address
