@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_order
 
+  def current_ability
+    @current_ability ||= Ability.new(current_user, session)
+  end
+
   def not_found
     render 'errors/404.html', layout: false, status: :not_found
   end
