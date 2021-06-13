@@ -5,7 +5,6 @@ class Book < ApplicationRecord
   belongs_to :author
   has_many :reviews, dependent: :destroy
 
-
   validates :title, :price, :description, :publication_year, presence: true
   validates :title, format: { with: Constants::NAME_FORMAT }, length: { maximum: Constants::MAXIMUM_NAME_LENGTH }
 end

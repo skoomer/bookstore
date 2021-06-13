@@ -106,18 +106,19 @@ RSpec.describe Admin::BooksController do
     end
 
     context 'with invalid params' do
-      it 'returns http success' do
+      before do
         put :update, params: { id: book.id, book: invalid_attributes }
+      end
+
+      it 'returns http success' do
+        # put :update, params: { id: book.id, book: invalid_attributes }
         expect(response).to have_http_status(:success)
       end
 
-      # rubocop:disable Lint/AmbiguousBlockAssociation
       it 'does not change book' do
-        expect do
-          put :update, params: { id: book.id, book: invalid_attributes }
-        end.not_to change { book.reload.title }
+        # put :update, params: { id: book.id, book: invalid_attributes }
+        expect { response }.not_to change { book.reload.title }
       end
-      # rubocop:enable Lint/AmbiguousBlockAssociation
     end
   end
 
