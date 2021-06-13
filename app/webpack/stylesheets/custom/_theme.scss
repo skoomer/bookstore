@@ -38,6 +38,27 @@
     width: 100%;
   }
 }
+.settings-main-title {
+  margin-left: 5%;
+  margin-bottom: 2%;
+  color: $gold-500
+}
+.settings-title {
+  color: $gold-500
+}
+.tabs {
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
+.tabbody {
+  .row {
+    display: flex;
+    .column {
+      flex: 50%;
+    }
+  }
+}
 .dropdown-menu {
   min-width: 210px;
   > li > a {
