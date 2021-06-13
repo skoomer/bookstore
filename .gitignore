@@ -51,9 +51,7 @@ rdoc
 .txt
 /.vscode/
 my_command.txt
-*.key
 
-/config/credentials/production.key
 
 /config/credentials/development.key
 
