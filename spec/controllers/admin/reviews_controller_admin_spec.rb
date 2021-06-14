@@ -10,20 +10,23 @@ RSpec.describe Admin::ReviewsController do
   before { sign_in current_user }
 
   describe 'GET index' do
+    before { get :index }
+
     it 'returns http success' do
-      get :index
       expect(response).to have_http_status(:success)
     end
 
     it 'assigns the reviews' do
-      get :index
       expect(assigns(:reviews)).to include(review)
     end
   end
 
   describe '#status' do
-    it 'update review status' do
+    before do
       post :create, params: { review: valid_attributes }
+    end
+
+    it 'update review status' do
       expect(review).to transition_from(:waiting).to(:approved).on_event(:approved)
       expect(review).to transition_from(:waiting).to(:rejected).on_event(:rejected)
     end

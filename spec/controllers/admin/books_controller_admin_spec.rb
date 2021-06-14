@@ -12,25 +12,25 @@ RSpec.describe Admin::BooksController do
   before { sign_in current_user }
 
   describe 'GET index' do
+    before { get :index }
+
     it 'returns http success' do
-      get :index
       expect(response).to have_http_status(:success)
     end
 
     it 'assigns the book' do
-      get :index
       expect(assigns(:books)).to include(book)
     end
   end
 
   describe 'GET new' do
+    before { get :new }
+
     it 'returns http success' do
-      get :new
       expect(response).to have_http_status(:success)
     end
 
     it 'assigns the book' do
-      get :new
       expect(assigns(:book)).to be_a_new(Book)
     end
   end
@@ -57,19 +57,20 @@ RSpec.describe Admin::BooksController do
     end
 
     context 'with invalid params' do
-      it 'invalid_attributes return http success' do
+      before do
         post :create, params: { book: invalid_attributes }
+      end
+
+      it 'invalid_attributes return http success' do
         expect(response).to have_http_status(:success)
       end
 
       it 'assigns a newly created but unsaved book as @book' do
-        post :create, params: { book: invalid_attributes }
         expect(assigns(:book)).to be_a_new(Book)
       end
 
       it 'invalid_attributes do not create a Book' do
         expect do
-          post :create, params: { book: invalid_attributes }
         end.not_to change(Book, :count)
       end
     end
@@ -111,13 +112,12 @@ RSpec.describe Admin::BooksController do
       end
 
       it 'returns http success' do
-        # put :update, params: { id: book.id, book: invalid_attributes }
         expect(response).to have_http_status(:success)
       end
 
       it 'does not change book' do
-        # put :update, params: { id: book.id, book: invalid_attributes }
-        expect { response }.not_to change { book.reload.title }
+        expect do
+        end.not_to change { book.reload.title }
       end
     end
   end

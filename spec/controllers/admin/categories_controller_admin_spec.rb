@@ -12,25 +12,25 @@ RSpec.describe Admin::CategoriesController do
   before { sign_in current_user }
 
   describe 'GET index' do
+    before { get :index }
+
     it 'returns http success' do
-      get :index
       expect(response).to have_http_status(:success)
     end
 
     it 'assigns the category' do
-      get :index
       expect(assigns(:categories)).to include(category)
     end
   end
 
   describe 'GET new' do
+    before { get :new }
+
     it 'returns http success' do
-      get :new
       expect(response).to have_http_status(:success)
     end
 
     it 'assigns the category' do
-      get :new
       expect(assigns(:category)).to be_a_new(Category)
     end
   end
@@ -43,7 +43,7 @@ RSpec.describe Admin::CategoriesController do
         end.to change(Category, :count).by(1)
       end
 
-      it 'assigns a newly created category as @category' do
+      it 'assigns a newly created category as category' do
         post :create, params: { category: valid_attributes }
         expect(assigns(:category)).to be_a(Category)
         expect(assigns(:category)).to be_persisted
@@ -57,19 +57,20 @@ RSpec.describe Admin::CategoriesController do
     end
 
     context 'with invalid params' do
-      it 'invalid_attributes return http success' do
+      before do
         post :create, params: { category: invalid_attributes }
+      end
+
+      it 'invalid_attributes return http success' do
         expect(response).to have_http_status(:success)
       end
 
-      it 'assigns a newly created but unsaved category as @category' do
-        post :create, params: { category: invalid_attributes }
+      it 'assigns a newly created but unsaved category as category' do
         expect(assigns(:category)).to be_a_new(Category)
       end
 
       it 'invalid_attributes do not create a Category' do
         expect do
-          post :create, params: { category: invalid_attributes }
         end.not_to change(Category, :count)
       end
     end
@@ -106,18 +107,18 @@ RSpec.describe Admin::CategoriesController do
     end
 
     context 'with invalid params' do
-      it 'returns http success' do
+      before do
         put :update, params: { id: category.id, category: invalid_attributes }
+      end
+
+      it 'returns http success' do
         expect(response).to have_http_status(:success)
       end
 
-      # rubocop:disable Lint/AmbiguousBlockAssociation
       it 'does not change category' do
         expect do
-          put :update, params: { id: category.id, category: invalid_attributes }
         end.not_to change { category.reload.title }
       end
-      # rubocop:enable Lint/AmbiguousBlockAssociation
     end
   end
 
