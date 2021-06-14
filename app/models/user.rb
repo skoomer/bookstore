@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  # PASSWORD_FORMAT = /\A(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/x
-  PASSWORD_FORMAT_REGEX = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\S]{8,}\z/
+  PASSWORD_FORMAT_REGEX = /\A(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/x
 
   devise :database_authenticatable,
          :registerable,
@@ -12,10 +11,8 @@ class User < ApplicationRecord
          :omniauthable,
          omniauth_providers: %i[facebook]
 
-  # validate :password_regex
+  validate :password_regex
 
-  validates :password,
-            format: { with: PASSWORD_FORMAT_REGEX }
   has_one  :shipping_address, dependent: :destroy
   has_one  :billing_address, dependent: :destroy
 
@@ -34,11 +31,11 @@ class User < ApplicationRecord
     end
   end
 
-  # private
+  private
 
-  # def password_regex
-  #   return if password.blank? || password =~ PASSWORD_FORMAT
+  def password_regex
+    return if password.blank? || password =~ PASSWORD_FORMAT_REGEX
 
-  #   errors.add :password, I18n.t('users.passwords.messages.uncorrect_password')
-  # end
+    errors.add :password, I18n.t('users.passwords.messages.uncorrect_password')
+  end
 end

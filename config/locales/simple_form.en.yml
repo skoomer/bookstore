@@ -4,9 +4,10 @@ en:
     "no": 'No'
     placeholders:
       user:
-        email: example@gmail.com
-        password: password
-        password_confirmation: password
+        email: Enter email
+        password: Enter password
+        password_confirmation: Enter password confirmation
+        current_password: Enter your current password
     required:
       text: 'required'
       mark: '*'

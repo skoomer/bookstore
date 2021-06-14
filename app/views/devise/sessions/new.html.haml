@@ -6,18 +6,7 @@
       %i.fa.fa-facebook-official
     %p.general-login-text
       = t('.or') 
-    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      = f.input :email, autofocus: true
-      = f.input :password
-      = link_to t('.forgot_password'), new_user_password_path, class: 'help-block in-gold-500'
-      .form-group.checkbox
-        %label.checkbox-label
-          = f.check_box :remember_me, hidden: 'true' , class: 'checkbox-input'
-          %span.checkbox-icon
-            %i.fa.fa-check
-          %span.checkbox-text
-            = t('.remember_me')
-      = f.button :submit, t('.log_in'), id: 'log_in_button'
+      = render 'devise/sessions/login_form'
   %p.general-sign-text.text-center
     = t('.dont_have_account')
     = link_to t('.sign_up'), new_user_registration_path, class: 'in-gold-500'

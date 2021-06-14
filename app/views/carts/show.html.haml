@@ -1,19 +1,19 @@
 %main.container.general-main-wrap
-  %h1.general-title-margin=t('.cart')
+  %h1.general-title-margin= t('.cart')
   - unless @order_items.empty?
     .books
       .hidden-xs
         %table.table.table-hover
           %tr.no-hover
             %th.col-pic.pl-0
-              %span.in-grey-600=t('.product')
+              %span.in-grey-600= t('.product')
             %th.col-title
             %th.col-price
-              %span.in-grey-600=t('.price')
+              %span.in-grey-600= t('.price')
             %th.col-quantity
-              %span.in-grey-600=t('.quantity')
+              %span.in-grey-600= t('.quantity')
             %th.col-total
-              %span.in-grey-600=t('.subtotal')
+              %span.in-grey-600= t('.subtotal')
             %th.col-close
           = render partial: 'cart_book', collection: @order_items, as: :order_item
       .general-order-wrap
@@ -26,16 +26,16 @@
                 = form.submit t('.apply_coupon'), class: "btn btn-primary mr-5 mb-15"
           .col-sm-8
             .res-mr-200.general-text-right
-              %p.in-gold-500.font-18=t('.order_summary')
+              %p.in-gold-500.font-18= t('.order_summary')
               %table.general-summary-table.general-summary-table-right.general-text-right
                 %tr
                   %td
-                    %p.font-16=t('.subtotal')
+                    %p.font-16= t('.subtotal')
                   %td
                     %p.font-16= number_to_currency(@subtotal_price_sum)
                 %tr
                   %td
-                    %p.font-16=t('.coupon')
+                    %p.font-16= t('.coupon')
                   %td
                     %p.discount.font-16= number_to_currency(@discount)
                 %tr
@@ -44,6 +44,7 @@
                   %td
                     %strong.font-18= number_to_currency(@item_total_price)
       .text-center
-        = link_to t('.checkout'), class: "btn btn-default mb-20"
+        = link_to t('.checkout'), checkout_path(:login), class: "btn btn-default mb-20"
   - else
-    %h2.general-title-margin.in-gold-500=t('.sorry')
+    %h2.general-title-margin.in-gold-500= t('.sorry')
+    = link_to t('.checkout'),  checkout_path(:login), class: "btn btn-default mb-20"

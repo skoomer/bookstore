@@ -3,8 +3,8 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user, session = nil)
-    user ||= User.new # guest user (not logged in)
+  def initialize(user)
+    user ||= User.new 
     if user.is_a? Admin
       can :manage, :all
     elsif user.is_a?(User) && user.persisted?

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
+  include Pagy::Backend
   decorates_assigned :books, :book
 
   def index
@@ -9,7 +10,6 @@ class BooksController < ApplicationController
     scoped_books = Books::FilterQuery.new(params).call
 
     @pagy, @books = pagy_countless(scoped_books, link_extra: 'data-remote="true"')
-
     respond_to do |format|
       format.html
       format.js

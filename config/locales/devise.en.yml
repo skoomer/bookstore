@@ -77,12 +77,12 @@ en:
         save: Save
         current_password: Current password
       edit_email:
-       
         email_label: Email
         email_placeholder: example@mail.com
         save: Save
       edit:
-        cancel: cancel
+        confirm: I understand that all data will be lost
+        cancel: Remove account
         save: Save
         billing_address: Billing Address
         shipping_address: Shipping Address
@@ -117,6 +117,18 @@ en:
       updated: "Your account has been updated successfully."
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again"
     sessions:
+      login_form:
+        password_label: Password
+        email_label: Email
+        password: Password
+        sign_up: Sign up
+        dont_have_account: Don't have an account?
+        remember_me: remember me
+        forgot_password: Forgot password?
+        password_placeholder: Password placeholder
+        email_placeholder: Email placeholder
+        or: or
+        log_in: Log in
       new:
         password_label: Password
         email_label: Email

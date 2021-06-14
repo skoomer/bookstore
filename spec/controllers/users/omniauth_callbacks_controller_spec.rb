@@ -2,35 +2,31 @@
 
 module Users
   RSpec.describe OmniauthCallbacksController do
-    describe 'GET auth/facebook/callback' do
-      before do
-        valid_facebook_login_setup
-        request.env['devise.mapping'] = Devise.mappings[:user]
-        request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:facebook]
-        get :facebook
+    describe '#facebook' do
+      let(:get_facebook) { get :facebook }
+      let(:user) { create(:user) }
+
+      context 'when user failure' do
+        before do
+          request.env['devise.mapping'] = Devise.mappings[:user]
+          request.env['omniauth.auth'] = stub_facebook_omniauth(email: user.email)
+          get_facebook
+        end
+
+        it { expect(response).to redirect_to(new_user_registration_path) }
       end
 
-      it 'sets user_id' do
-        expect(session['warden.user.user.key'].flatten.first).to eq(User.last.id)
-      end
+      context 'when user success' do
+        let(:user) { create(:user, :with_facebook) }
 
-      it 'redirects to root' do
-        expect(response).to redirect_to(root_path)
+        before do
+          request.env['devise.mapping'] = Devise.mappings[:user]
+          request.env['omniauth.auth'] = stub_facebook_omniauth(email: user.email, uid: user.uid)
+          get_facebook
+        end
+
+        it { expect(response).to redirect_to(root_path) }
       end
     end
-
-    # describe 'anonymus' do
-
-    #   it 'sets user_id' do
-    #     get :facebook
-    #     expect(session[:user_id]).to eq(User.last.id)
-    #   end
-
-    #   it 'redirects to root' do
-    #     get :facebook
-    #     expect(response).to redirect_to root_path
-    #   end
-
-    # end
   end
 end

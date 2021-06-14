@@ -1,24 +1,39 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Login' do
-  let(:sign_in) { SignIn.new }
-  let(:home_page) { Home.new }
-  let(:user) { create(:user) }
+RSpec.describe SignIn do
+  let(:sign_in) { described_class.new }
 
   before { sign_in.load }
 
-  it 'Show form `Log in`' do
-    expect(sign_in).to have_facebook_icon
-    expect(sign_in).to have_email_input
-    expect(sign_in).to have_password_input
-    expect(sign_in).to have_log_in_button
-    expect(sign_in).to have_sign_up_link
+  it { expect(sign_in).to be_all_there }
+
+  context 'when valid email' do
+    let(:user) { create(:user) }
+
+    before do
+      sign_in.visit_and_login_as(email: user.email, password: user.password)
+    end
+
+    it 'redirects to root path' do
+      expect(sign_in).to have_current_path(root_path, ignore_query: true)
+    end
+
+    it 'sets success flash message' do
+      expect(sign_in).to have_success_flash_message
+    end
   end
 
-  describe 'Click to Log in button' do
-    it 'Empty email and password' do
-      sign_in.log_in_button.click
-      expect(sign_in.alert_message.visible?).to eq(true)
+  context 'when invalid password or email' do
+    before do
+      sign_in.visit_and_login_as
+    end
+
+    it 'redirects to user path' do
+      expect(sign_in).to have_current_path(new_user_session_path)
+    end
+
+    it 'sets failure flash message' do
+      expect(sign_in).to have_failure_flash_message
     end
   end
 end
