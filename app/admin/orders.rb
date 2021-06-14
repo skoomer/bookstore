@@ -37,8 +37,6 @@ ActiveAdmin.register Order do
     f.semantic_errors
     f.inputs do
       f.input :status, input_html: { disabled: true }, as: :string, label: 'Current state'
-
-      # use the attr_accessor to pass the data
       f.input :active_admin_requested_event, label: t('admin.change_state'), as: :radio, collection:
         f.object.aasm.events(permitted: true).map(&:name)
     end

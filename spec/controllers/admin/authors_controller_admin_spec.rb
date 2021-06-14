@@ -12,25 +12,25 @@ RSpec.describe Admin::AuthorsController do
   before { sign_in current_user }
 
   describe 'GET index' do
+    before { get :index }
+
     it 'returns http success' do
-      get :index
       expect(response).to have_http_status(:success)
     end
 
     it 'assigns the author' do
-      get :index
       expect(assigns(:authors)).to include(author)
     end
   end
 
   describe 'GET new' do
+    before { get :new }
+
     it 'returns http success' do
-      get :new
       expect(response).to have_http_status(:success)
     end
 
     it 'assigns the author' do
-      get :new
       expect(assigns(:author)).to be_a_new(Author)
     end
   end
@@ -57,19 +57,20 @@ RSpec.describe Admin::AuthorsController do
     end
 
     context 'with invalid params' do
-      it 'invalid_attributes return http success' do
+      before do
         post :create, params: { author: invalid_attributes }
+      end
+
+      it 'invalid_attributes return http success' do
         expect(response).to have_http_status(:success)
       end
 
       it 'assigns a newly created but unsaved author as @author' do
-        post :create, params: { author: invalid_attributes }
         expect(assigns(:author)).to be_a_new(Author)
       end
 
       it 'invalid_attributes do not create a Author' do
         expect do
-          post :create, params: { author: invalid_attributes }
         end.not_to change(Author, :count)
       end
     end
@@ -106,18 +107,18 @@ RSpec.describe Admin::AuthorsController do
     end
 
     context 'with invalid params' do
-      it 'returns http success' do
+      before do
         put :update, params: { id: author.id, author: invalid_attributes }
+      end
+
+      it 'returns http success' do
         expect(response).to have_http_status(:success)
       end
 
-      # rubocop:disable Lint/AmbiguousBlockAssociation
       it 'does not change author' do
         expect do
-          put :update, params: { id: author.id, author: invalid_attributes }
         end.not_to change { author.reload.first_name }
       end
-      # rubocop:enable Lint/AmbiguousBlockAssociation
     end
   end
 
