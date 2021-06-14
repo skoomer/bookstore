@@ -18,11 +18,11 @@ module Users
     private
 
     def failure_flash_message
-      set_flash_message(:alert, :failure, kind: t('omniauth.facebook'))
+      set_flash_message(:alert, :failure, kind: t('devise.omniauth_callbacks.facebook'))
     end
 
     def success_flash_message
-      set_flash_message(:notice, :success, kind: t('omniauth.facebook'))
+      set_flash_message(:notice, :success, kind: t('devise.omniauth_callbacks.facebook'))
     end
   end
 end

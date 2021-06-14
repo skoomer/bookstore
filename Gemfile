@@ -45,7 +45,7 @@ gem 'draper', '~> 4.0.1'
 gem 'ffaker', '~> 2.18.0', require: false
 gem 'omniauth', '~> 1.4.1'
 gem 'omniauth-facebook', '8.0.0'
-gem 'pundit'
+gem 'pundit', '~> 2.1.0'
 gem 'rectify', '~> 0.13.0'
 gem 'simple_form', '~> 5.1.0'
 

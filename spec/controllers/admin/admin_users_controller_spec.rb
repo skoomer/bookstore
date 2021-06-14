@@ -9,13 +9,13 @@ RSpec.describe Admin::AdminUsersController do
   before { sign_in current_user }
 
   describe 'GET index' do
+    before { get :index }
+
     it 'returns http success' do
-      get :index
       expect(response).to have_http_status(:success)
     end
 
     it 'assigns the admin user' do
-      get :index
       expect(assigns(:admin_users)).to include(current_user)
     end
   end
