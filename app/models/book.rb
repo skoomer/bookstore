@@ -5,7 +5,7 @@ class Book < ApplicationRecord
   belongs_to :author
   has_many :reviews, dependent: :destroy
 
-  has_many :order_items
+  has_many :order_items, dependent: :destroy
 
   has_one_attached :cover
   has_many_attached :images
