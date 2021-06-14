@@ -3,7 +3,6 @@
 RSpec.describe Users::RegistrationsController do
   let(:user) { create(:user) }
   let(:password_new) { FFaker::String.from_regexp(User::PASSWORD_FORMAT_REGEX) }
-  # let(:address) { attributes_for(:address) }
 
   before do
     request.env['devise.mapping'] = Devise.mappings[:user]
