@@ -3,7 +3,13 @@ en:
     "yes": 'Yes'
     "no": 'No'
     placeholders:
+      card:
+        number: Card Number
+        card_holder: Name on Card
+        valid_thru: MM/YY
+        cvv: CVV
       user:
+        number: Number
         email: Enter email
         password: Enter password
         password_confirmation: Enter password confirmation

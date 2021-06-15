@@ -52,7 +52,6 @@ en:
     description: "Description"
     review: "Write a Review"
     title: "Title"
-    review: "Review"
     view_more: "View More"
     catalog: "Catalog"
     newest_first: "Newest first"
@@ -76,7 +75,6 @@ en:
     log_out: "Log out"
     log_in: "Log In"
     enter_email: "Enter Email"
-    forgot_pass: "Forgot your password?"
     instructions: "Email Instructions"
     cancel: "Cancel"
     pass_text: "We'll email you instructions on how to reset it"
@@ -96,7 +94,6 @@ en:
     shipping_address: "Shipping Address"
     first_name: "First name"
     last_name: "Last name"
-    address: "Address"
     city: "City"
     zip: "Zip"
     country: "Select country"
@@ -110,17 +107,18 @@ en:
     blank_email: "Email can't be blank and Email invalid format"
     blank_password: "Current password can't be blank"
   orders:
-    my_order: "My Orders"
-    sort_by: "Sort by"
-    waiting: "Waiting for processing"
-    all: "All"
-    in_delivery: "In delivery"
-    delivered: "Delivered"
-    canceled: "Canceled"
-    number: "Number"
-    completed_at: "Completed at"
-    status: "Status"
-    total: "Total"
+    index:
+      my_order: "My Orders"
+      sort_by: "Sort by"
+      waiting: "Waiting for processing"
+      all: "All"
+      in_delivery: "In delivery"
+      delivered: "Delivered"
+      canceled: "Canceled"
+      number: "Number"
+      completed_at: "Completed at"
+      status: "Status"
+      total: "Total"
   admin:
     change_status: "Change status"
     change_state: "Change state"
@@ -154,6 +152,66 @@ en:
     sorry: "Sorry but you have not books yet"
     discount: "€0.00"
   checkout:
+    complete:
+      back_to_store: Back to store
+      order_summary: "Order Summary"
+      order: Order
+      thank_you: "Thank You for your Order!"
+      order_confirmation: "An order confirmation has been has been sent to"
+    confirm:
+      place_order: "Place order"
+      thank_you: "Thank You for your Order!"
+      order_confirmation: "An order confirmation has been has been sent to"
+      order: "Order"
+      order_summary: Order summary
+    payment:
+      card: Card
+      enter_cvv_here: Enter cvv here
+      order_summary: Order summary
+      save_and_continue: "Save and Continue"
+    delivery:
+      save_and_continue: "Save and Continue"
+      method: "Method"
+      days: "Days"
+      price: "Price"
+      order_summary: "Order Summary"
+      book: "Book"
+      quantity: "Quantity"
+      total: "Total"
+      shipping_method: "Shipping method"
+    address:
+      save_and_continue: "Save and Continue"
+      order_summary: "Order Summary"
+      use_billing: Use billing
+      all_fields: All fields
+      billing_address: "Billing Address"
+      shipping_address: "Shipping Address"
+    partials:
+      table_for_books:
+        book: Book
+        price: Price
+        quantity: "Quantity"
+        total: Total
+      confirm:
+        order_summary: Order summary
+        card:
+          payment_info: Payment info
+          edit: Edit
+        delivery:
+          shipments: Shipments
+          delivered: Delivered
+          edit: Edit
+        address:
+          address: Address
+          edit: Edit
+          phone: Phone
+      total_price:
+        delivery: Delivery
+        order_total: Order Total
+        coupon: Coupon
+        subtotal: Subtotal
+      header:
+        checkout: Checkout
     login:
       returning_customer: Returning Costumer
       new_customer: "New Customer"
@@ -162,25 +220,6 @@ en:
       password_later: "You’ll be able to create password later"
       enter_email: "Enter Email"
       continue_to_checkout: "Continue to Checkout"
-    card: "Credit Card"
-    card_number: "Card Number"
-    name_on_card: "Name on Card"
-    mm_yy: "MM / YY"
-    cvv: "CVV"
-    enter_cvv_here: "Enter your CVV code here"
-    subtotal: "Subtotal:"
-    delivery: "Delivery:"
-    item_total: "Item Total:"
-    order_total: "Order Total:"
-    save_and_continue: "Save and Continue"
-    shipping_method: "Shipping method"
-    method: "Method"
-    days: "Days"
-    price: "Price"
-    order_summary: "Order Summary"
-    book: "Book"
-    quantity: "Quantity"
-    total: "Total"
     place_order: "Place order"
     thank_you: "Thank You for your Order!"
     order_confirmation: "An order confirmation has been has been sent to"

@@ -38,7 +38,7 @@ ActiveAdmin.register Order do
     f.inputs do
       f.input :status, input_html: { disabled: true }, as: :string, label: 'Current state'
       f.input :active_admin_requested_event, label: t('admin.change_state'), as: :radio, collection:
-        f.object.aasm.events(permitted: true).map(&:name)
+        f.object.aasm.events(permit: true).map(&:name)
     end
     f.actions
   end

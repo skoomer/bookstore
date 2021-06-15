@@ -7,7 +7,9 @@ class Order < ApplicationRecord
 
   has_many :order_items, dependent: :destroy
   belongs_to :user, optional: true
+  belongs_to :delivery, optional: true
   has_one :coupon, dependent: :destroy
+  has_one :card, dependent: :destroy
 
   after_create :set_number
   scope :order_not_in_progress, -> { where.not(status: :in_progress) }

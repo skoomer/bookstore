@@ -1,0 +1,25 @@
+%main.container
+  = render partial: "checkout/partials/header"
+  %h3.general-subtitle= t('.card')
+  = simple_form_for @checkout.card, url: wizard_path, method: :put, validate: true, html: {class: "max-600 mb-80"} do |f|
+    .form-group.has-error
+      = f.input :number
+    .row
+      .col-sm-6
+        .form-group
+          = f.input :card_holder
+      .col-sm-3
+        .form-group
+          = f.input :valid_thru
+      .col-sm-3
+        .form-group.relative
+          = f.input :cvv
+          %i.fa.fa-question-circle.general-form-help{ 'data-toggle': 'tooltip', 'data-placement': :top, title: t('.enter_cvv_here') }
+    #payment_centred
+      .general-text-align
+        %p.in-gold-500.font-18= t('.order_summary')
+        %table.general-summary-table
+          = render "checkout/partials/total_price"
+      #payment_button
+        .text-center
+          = f.button :submit, t('.save_and_continue')

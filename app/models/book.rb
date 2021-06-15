@@ -10,6 +10,8 @@ class Book < ApplicationRecord
   has_one_attached :cover
   has_many_attached :images
 
+  scope :by_category, ->(category_id) { where category_id: category_id }
+
   validates :title, :price, :description, :publication_year, presence: true
   validates :title, format: { with: Constants::NAME_FORMAT }, length: { maximum: Constants::MAXIMUM_NAME_LENGTH }
 end

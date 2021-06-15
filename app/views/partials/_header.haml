@@ -31,7 +31,7 @@
                   %li
                     = link_to t('.settings'), edit_user_registration_path
                   %li
-                    = link_to t('.menu_order')
+                    = link_to t('.menu_order'), orders_path
                   %li
                     = link_to t('.log_out'), destroy_user_session_path, method: :delete
               - else
