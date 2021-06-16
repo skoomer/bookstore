@@ -2,14 +2,14 @@
 
 FactoryBot.define do
   factory :order do
-    number { 1}
+    number { 1 }
     status { 1 }
     user
 
     trait :with_items do
       order_items { build_list :order_item, rand(1..10) }
     end
-  
+
     trait :completed do
       status { Order.statuses[:completed] }
     end

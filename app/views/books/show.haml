@@ -6,7 +6,6 @@
     .col-sm-6
       .product-gallery
         .mb-20
-          
           = image_tag book.book_cover, alt:'', class: "img-responsive"
         .images.clearfix
           - book.book_images.each do |images|
@@ -15,12 +14,8 @@
     .col-sm-6
       %h1.mt-res-0= book.title
       %p.lead.small= book.author_full_name
-      -#  %p.h1.in-gold-500.mt-10= number_to_currency(book.price)
-          -# %button.btn.btn-default.pull-right.general-position= t('.buttons.add_to_cart')
       .row
         = render 'order_items/form'
-
-
       .general-info-wrap.divider-lg
         %p= t('.description')
         %p.lead.small.line-height-2

@@ -32,7 +32,7 @@ RSpec.describe Admin::OrdersController do
     # end
 
     it 'status state' do
-        expect(order).to have_state(:in_progress)
-      end
+      expect(order).to have_state(:in_progress)
+    end
   end
 end
