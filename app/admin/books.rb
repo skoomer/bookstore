@@ -57,7 +57,6 @@ ActiveAdmin.register Book do
       f.input :category
       f.input :cover, as: :file
       f.input :images, as: :file, input_html: { multiple: true }
-      # f.input :author, as: :check_boxes, collection: Author.all.decorate.map { |author| [author.full_name, author.id] }
     end
     f.actions
   end
