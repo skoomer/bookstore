@@ -53,9 +53,8 @@
           %p.pull-left= t('.materials')
           %p.lead.small.pull-right= book.book_matarial
   .mb-80
-    %h3= t('.review') + " (#{ @reviews.approved.count})"
+    %h4= t('.review_title') + " (#{ @reviews.approved.count})"
     = render @reviews.approved
   - if user_signed_in?
     .mb-80
-      %h3= t('.score')
       = render 'reviews/form'
