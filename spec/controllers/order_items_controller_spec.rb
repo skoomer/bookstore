@@ -2,9 +2,9 @@
 
 RSpec.describe OrderItemsController do
   let!(:book) { create(:book) }
-  let(:order_item_new) { build(:order_item, book: create(:book)) }
-  let(:order_item) { create(:order_item) }
-  let(:user) {create(:user)}
+  let(:order) { create(:order) }
+  let(:order_item) { create(:order_item, order: order) }
+  let(:order_item_params) { { book_id: book.id, quantity: 1 } }
 
   describe 'POST #create' do
     let(:create_params) { { order_item: { book_id: book.id, quantity: 1 } } }
@@ -18,28 +18,35 @@ RSpec.describe OrderItemsController do
     it { expect(response).to have_http_status :ok }
   end
 
-  # describe 'PATCH #update' do
-  #   context 'when input correct value' do
-  #     it 'returns a 302 status' do
-  #       patch :update, format: 'js', params: { id: order_item.id, order_item: order_item.attributes }
-  #       expect(response).to have_http_status(:found)
-  #     end
-  #   end
-  # end
-
-  describe 'POST #update' do
-    let(:create_params) { { order_item: { book_id: book.id, quantity: 1 } } }
-    let!(:book) { create(:book) }
-
-
-    it 'assign order_item' do
-      # binding.pry
-      patch :update , params: { quantity: order_item.quantity}
-      # expect(response).to have_http_status(:found)
-      expect(response).to redirect_to(root_path)
-
+  describe '#update' do
+    before do
+      allow(controller).to receive(:current_order).and_return(order)
+      put :update, params: { id: order_item.id, order_item: order_item_params }
     end
 
-    it { expect(response).to have_http_status :ok }
+    def action
+      put :update, params: { id: order_item.id, order_item: order_item_params }
+    end
+
+    it 'redirects to root_path' do
+      action
+      expect(response).to redirect_to(root_path)
+    end
+
+    it 'increase order_item quantity by 2' do
+      order_item_params[:quantity] = 2
+      expect { action }.to change { order_item.reload && order_item.quantity }.by(2)
+    end
+  end
+
+  describe 'delete' do
+    before do
+      allow(controller).to receive(:current_order).and_return(order)
+    end
+
+    it 'redirect to root_path' do
+      delete :destroy, params: { id: order_item.id, order_item: order_item_params }
+      expect(response).to redirect_to(root_path)
+    end
   end
 end

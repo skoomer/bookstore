@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe CartsController do
-  let!(:book) { create(:book) }
-  let(:order_item_new) { build(:order_item, book: create(:book)) }
-  let(:order_item) { create(:order_item) }
-  let(:user) {create(:user)}
   describe 'GET #show' do
     before { get :show }
 
@@ -29,20 +25,5 @@ RSpec.describe CartsController do
       it { expect(response.status).to eq(302) }
       it { expect(response).to redirect_to cart_path }
     end
-  end
-  describe 'POST #update' do
-    # let(:create_params) { { order_item: { book_id: book.id, quantity: 1 } } }
-    # let!(:book) { create(:book) }
-
-
-    it 'assign order_item' do
-      # binding.pry
-      patch :update , params: { id: order_item.id, order_item: order_item.attributes}
-      # expect(response).to have_http_status(:found)
-      expect(response).to redirect_to(cart_path)
-
-    end
-
-    it { expect(response).to have_http_status :ok }
   end
 end
