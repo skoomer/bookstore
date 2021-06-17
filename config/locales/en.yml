@@ -10,7 +10,11 @@ en:
         authors: Authors
         price: Price
   reviews:
+    review:
+      verified: "Verified Reviewer"
     form:
+      write_review: Write Your review
+      score: Score
       post: Post
   home_page:
     welcome: "Welcome to our amazing Bookstore!"
@@ -50,9 +54,7 @@ en:
     dimension: "Dimensions"
     year: "Year of publication"
     description: "Description"
-    review: "Write a Review"
     title: "Title"
-    review: "Review"
     view_more: "View More"
     catalog: "Catalog"
     newest_first: "Newest first"
@@ -76,7 +78,6 @@ en:
     log_out: "Log out"
     log_in: "Log In"
     enter_email: "Enter Email"
-    forgot_pass: "Forgot your password?"
     instructions: "Email Instructions"
     cancel: "Cancel"
     pass_text: "We'll email you instructions on how to reset it"
@@ -90,7 +91,6 @@ en:
     confirmation_link: "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account"
   addresses:
     settings: "Settings"
-    address: "Address"
     privacy: "Privacy"
     billing_address: "Billing Address"
     shipping_address: "Shipping Address"

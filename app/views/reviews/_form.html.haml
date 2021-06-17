@@ -1,9 +1,14 @@
 .mb-15
-  = simple_form_for [@book, @book.reviews.build], html: {class: 'col-md-8 mb-40'} do |f|
-    = f.label :score
-    = f.collection_radio_buttons(:score, (1..5), :to_s, :to_s) do |star|
-      = star.radio_button(class: 'star-button') + star.label
-    = f.hidden_field :user_id, value: current_user.id
-    = f.input :title
-    = f.input :text
-    = f.button :submit, t('.post'), class: "btn mb-20"
+  = simple_form_for [book, book.reviews.build], html: {class: 'col-md-8 mb-40'} do |f|
+    %h5= t('.write_review')
+    %p.general-info-text= t('.score')
+    .row
+      .col-md-6
+        .mb-30
+          .form-group
+            = f.collection_radio_buttons(:score, (1..5), :to_s, :to_s) do |star|
+              = star.radio_button(class: 'star-button') + star.label
+            = f.hidden_field :user_id, value: current_user.id
+            = f.input :title
+            = f.input :text
+            = f.button :submit, t('.post'), id: 'post_review'

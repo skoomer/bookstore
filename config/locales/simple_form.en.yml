@@ -4,6 +4,7 @@ en:
     "no": 'No'
     placeholders:
       user:
+        score: Score
         email: Enter email
         password: Enter password
         password_confirmation: Enter password confirmation
