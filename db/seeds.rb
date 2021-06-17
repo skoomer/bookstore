@@ -26,10 +26,4 @@ end
   )
 end
 
-unless User.exists?
-  User.create!(
-    [
-      { email: 'exampl@gmail.com', password: 'Password1245' }
-    ]
-  )
-end
+User.create(email: 'exampl@gmail.com', password: 'Password1245')
