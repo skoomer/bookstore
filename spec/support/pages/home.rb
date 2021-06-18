@@ -23,6 +23,7 @@ class Home < SitePrism::Page
   element :text_best_sellers, 'h3', text: I18n.t('pages.index.best')
   element :success_flash_message, 'div.alert.alert-success'
   element :failure_flash_message, 'div.alert.alert-danger'
+  element :email_header, 'a#user-email'
   element :header, 'header'
   section :menu, Menu, 'li.dropdown'
 
