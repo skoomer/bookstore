@@ -11,6 +11,7 @@ RSpec.describe Users::UserSettingsPage do
   end
 
   context 'when update profile' do
+    let(:home_page) { Home.new }
     let(:new_email) { user_attributes[:email] }
 
     before do
@@ -23,8 +24,9 @@ RSpec.describe Users::UserSettingsPage do
     end
 
     it 'change email' do
-      settings_page.privacy_form.update_email(email: user.email)
+      settings_page.privacy_form.update_email(email: new_email)
       expect(settings_page).to have_success_flash_message
+      expect(home_page).to have_email_header(text: new_email)
     end
 
     it 'change password' do
