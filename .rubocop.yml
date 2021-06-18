@@ -30,3 +30,6 @@ RSpec/MultipleExpectations:
 
 Rails/FilePath:
   Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false

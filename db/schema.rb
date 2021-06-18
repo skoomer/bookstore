@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2021_05_17_155123) do
     t.string "city"
     t.string "address"
     t.string "country"
-    t.integer "zip"
+    t.string "zip"
     t.string "phone_number"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
