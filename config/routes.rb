@@ -14,4 +14,5 @@ Rails.application.routes.draw do
     put '/users/edit',  to: 'users/registrations#update', as: :user_edit
   end
   resources :books, only: %i[index show]
+
 end
