@@ -2,6 +2,7 @@
 
 RSpec.describe Users::UserSettingsPage do
   let(:settings_page) { described_class.new }
+  let(:user_attributes) { attributes_for(:user) }
   let(:user) { create(:user) }
 
   before do
@@ -10,6 +11,8 @@ RSpec.describe Users::UserSettingsPage do
   end
 
   context 'when update profile' do
+    let(:new_email) { user_attributes[:email] }
+
     before do
       settings_page.user_privacy_link.click
     end

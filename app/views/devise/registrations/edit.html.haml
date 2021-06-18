@@ -2,7 +2,8 @@
 .tabs
   %ul.nav.nav-tabs.collaps.pl-50
     %li.nav-item.active{ rel: 'addresses', id: 'address_link' }
-      = link_to t('.address'), class: 'nav-link.active'
+      %a.tab-link{href: "/user/address"}= t('.address')
+
     %li.nav-item{rel: 'privacy', id: 'privacy_link' }
       = link_to t('.privacy'), class: 'nav-link.active'
 %main.container.general-main-wrap
