@@ -12,7 +12,7 @@ module Users
     element :phone_number, '#user_billing_address_attributes_phone_number'
     element :submit, '#billing_address_submit_id'
 
-    def initialize_billing_address(address)
+    def fill_in_billing_address(address)
       input_billing_address(address)
       input_user_name(address)
       submit.click

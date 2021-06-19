@@ -4,7 +4,7 @@ module Users
   class UserSettingsPage < SitePrism::Page
     set_url '/users/edit'
 
-    element :flash_success, '.alert.alert-success'
+    element :success_flash_message, '.alert.alert-success'
 
     element :user_privacy_link, '.nav-item', text: I18n.t('devise.registrations.edit.privacy')
     element :user_address_link, '.nav-item', text: I18n.t('devise.registrations.edit.address')

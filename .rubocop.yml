@@ -35,3 +35,6 @@ Rails/FilePath:
 
 Lint/AmbiguousBlockAssociation:
   Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
