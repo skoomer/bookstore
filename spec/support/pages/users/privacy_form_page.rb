@@ -12,8 +12,13 @@ module Users
     element :confirmation_password_field, '#user_password_confirmation'
     element :password_button, '#password_button'
 
-    element :checkbox, '#checkBox'
-    element :cancel_button, '#cancel_button'
+    element :confirm_checkbox_to_remove, '#checkBox'
+    element :remove_account_button, '#remove_account_button'
+
+    def fill_in(email)
+      email_privacy_field.set email
+      email_button.click
+    end
 
     def update_email(email: '')
       email_privacy_field.set email
@@ -28,8 +33,8 @@ module Users
     end
 
     def remove_account
-      checkbox.click
-      cancel_button.click
+      confirm_checkbox_to_remove.click
+      remove_account_button.click
     end
   end
 end

@@ -11,7 +11,7 @@ module Users
     element :phone_number, '#user_shipping_address_attributes_phone_number'
     element :submit, '#shipping_address_submit_id'
 
-    def initialize_shipping_address(address)
+    def fill_in_shipping_address(address)
       input_shipping_address(address)
       input_user_name(address)
       submit.click

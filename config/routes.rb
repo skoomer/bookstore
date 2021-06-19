@@ -10,5 +10,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  devise_scope :user do
+    put '/users/edit',  to: 'users/registrations#update', as: :user_edit
+  end
   resources :books, only: %i[index show]
 end
