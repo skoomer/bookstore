@@ -9,7 +9,7 @@ RSpec.describe Users::RegistrationsController do
     sign_in user
   end
 
-  describe 'GET #index' do
+  describe '#edit' do
     before do
       get :edit
     end
@@ -23,14 +23,14 @@ RSpec.describe Users::RegistrationsController do
     end
   end
 
-  describe '#email' do
-    it 'send valid values' do
+  describe 'update email' do
+    it 'returns redirect status' do
       post :update, params: { user: { email: FFaker::Internet.email } }
       expect(response).to have_http_status(:redirect)
     end
   end
 
-  describe '#password' do
+  describe 'update password' do
     let(:password_params) do
       { user: { current_password: user.password, password_confirmation: password_new, password: password_new } }
     end
@@ -54,18 +54,18 @@ RSpec.describe Users::RegistrationsController do
     end
   end
 
-  describe '#address' do
+  describe 'create user address' do
     let(:address) { attributes_for(:address) }
     let(:address_empty) do
       { first_name: '', last_name: '', address: '', city: '', zip: '', country: '', phone_number: '' }
     end
 
-    it 'returns invalid params' do
+    it 'redirect to root_path if params invalid' do
       post :create, params: address_empty
       expect(response).to redirect_to(root_path)
     end
 
-    it '#create' do
+    it 'redirect to root_path if params valid' do
       post :create, params: address
       expect(response).to redirect_to(root_path)
     end

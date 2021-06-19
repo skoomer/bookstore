@@ -2,6 +2,7 @@
 
 RSpec.describe Users::UserSettingsPage do
   let(:settings_page) { described_class.new }
+  let(:user_attributes) { attributes_for(:user) }
   let(:user) { create(:user) }
 
   before do
@@ -10,41 +11,44 @@ RSpec.describe Users::UserSettingsPage do
   end
 
   context 'when update profile' do
+    let(:home_page) { Home.new }
+    let(:new_email) { user_attributes[:email] }
+
     before do
       settings_page.user_privacy_link.click
     end
 
-    it 'remove account user' do
+    it 'remove account profile' do
       settings_page.privacy_form.remove_account
-      expect(settings_page).to have_flash_success
-      expect(User.where(id: user.id)).not_to exist
+      expect(settings_page).to have_success_flash_message
     end
 
-    it 'update email' do
-      settings_page.privacy_form.update_email(email: user.email)
-      User.where(id: user.id)
-      expect(settings_page).to have_flash_success
+    it 'change email' do
+      settings_page.privacy_form.update_email(email: new_email)
+      expect(settings_page).to have_success_flash_message
+      expect(home_page).to have_email_header(text: new_email)
     end
 
-    it 'update password' do
+    it 'change password' do
       settings_page.privacy_form.update_password(current_password: user.password,
                                                  new_password: user.password.reverse)
-      expect(settings_page).to have_flash_success
+      expect(settings_page).to have_success_flash_message
     end
   end
 
-  context 'when enter billing address' do
-    let(:billing_address) { create(:address, :billing_address) }
-    let(:shipping_address) { create(:address, :shipping_address) }
+  context 'when enter addresses' do
+    let(:billing_address) { create(:address, :with_billing_address) }
+    let(:shipping_address) { create(:address, :with_shipping_address) }
 
-    it 'save billing address' do
-      settings_page.billing_address.initialize_billing_address billing_address
-      expect(settings_page).to have_flash_success
+    it 'update billing address' do
+      visit edit_user_registration_path
+      settings_page.billing_address.fill_in_billing_address billing_address
+      expect(settings_page).to have_success_flash_message
     end
 
-    it 'save shipping address' do
-      settings_page.shipping_address.initialize_shipping_address shipping_address
-      expect(settings_page).to have_flash_success
+    it 'update shipping address' do
+      settings_page.shipping_address.fill_in_shipping_address shipping_address
+      expect(settings_page).to have_success_flash_message
     end
   end
 end
