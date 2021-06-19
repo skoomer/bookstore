@@ -11,11 +11,11 @@ FactoryBot.define do
     phone_number { FFaker::PhoneNumberUA.international_mobile_phone_number.gsub!(/\s/, '').delete('-') }
     user
 
-    trait :billing_address do
+    trait :with_billing_address do
       type { 'BillingAddress' }
     end
 
-    trait :shipping_address do
+    trait :with_shipping_address do
       type { 'ShippingAddress' }
     end
   end

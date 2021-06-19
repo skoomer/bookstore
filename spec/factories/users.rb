@@ -10,8 +10,11 @@ FactoryBot.define do
       uid { rand(5) }
     end
 
-    factory :user_with_addresses do
+    trait :user_with_shipping_addresses do
       association :shipping_address, factory: :address
+    end
+
+    trait :user_with_billing_addresses do
       association :billing_address, factory: :address
     end
   end
