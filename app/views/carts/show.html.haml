@@ -1,5 +1,5 @@
 %main.container.general-main-wrap
-  %h1.general-title-margin=t('.cart')
+  %h1.general-title-margin= t('.cart')
   - unless @order_items.empty?
     .books
       .hidden-xs
@@ -21,7 +21,7 @@
           .col-sm-4
             = form_with url: cart_path, local: true, method: :patch  do |form|
               = form.label :code, t('.enter_coupon'), class: "input-label"
-              = form.text_field :code, placeholder: t('.enter_coupon_code'), class: "form-control mb-30"
+              = form.text_field :code, class: "form-control mb-30"
               %div
                 = form.submit t('.apply_coupon'), class: "btn btn-primary mr-5 mb-15"
           .col-sm-8
@@ -46,4 +46,4 @@
       .text-center
         = link_to t('.checkout'), class: "btn btn-default mb-20"
   - else
-    %h2.general-title-margin.in-gold-500=t('.sorry')
+    %h2.general-title-margin.in-gold-500= t('.sorry')

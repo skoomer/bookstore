@@ -130,11 +130,11 @@ en:
       sorry: sorry
       checkout: checkout
       coupon: coupon
-      order_total: order_total
-      order_summary: order_summary
+      order_total: order total
+      order_summary: order summary
       apply_coupon: apply_coupon
       enter_coupon_code: enter_coupon_code
-      enter_coupon: enter_coupon
+      enter_coupon: Coupon
       subtotal: subtotal
       quantity: quantity
       product: Product
@@ -154,7 +154,6 @@ en:
     sorry: "Sorry but you have not books yet"
     discount: "€0.00"
   checkout:
-
     card: "Credit Card"
     card_number: "Card Number"
     name_on_card: "Name on Card"

@@ -4,6 +4,7 @@ en:
     "no": 'No'
     placeholders:
       user:
+        coupon: Coupon
         score: Score
         email: Enter email
         password: Enter password
