@@ -21,18 +21,18 @@ RSpec.describe Admin::OrdersController do
     end
   end
 
-  describe 'GET edit' do
-    before do
-      post :create, params: { order: valid_attributes }
-    end
+  # describe 'GET edit' do
+  #   before do
+  #     post :create, params: { order: valid_attributes }
+  #   end
 
     # it 'change status' do
     # #   binding.pry
     #   expect(order).to transition_from(:in_progress!).to(:completed).on_event(:completed)
     # end
 
-    it 'status state' do
-      expect(order).to have_state(:in_progress)
-    end
+    # it 'status state' do
+    #   expect(order).to have_state(:in_progress)
+    # end
   end
 end

@@ -18,5 +18,4 @@ class CheckoutController < ApplicationController
 
     redirect_to next_wizard_path
   end
-
 end
