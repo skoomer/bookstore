@@ -5,7 +5,7 @@
     .input-group.general-position
       %a.input-link#minus
         %i.fa.fa-minus.line-height-40
-      = form.hidden_field :book_id, value: @book.id
+      = form.hidden_field :book_id, value: book.id
       = form.text_field :quantity, value: 1, class: 'form-control quantity-input'
       %a.input-link#plus
         %i.fa.fa-plus.line-height-40

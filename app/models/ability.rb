@@ -11,15 +11,11 @@ class Ability
       can :read, [Author, Book, Category, Coupon, Review]
       can :create, Review, user_id: user.id
       can %i[read create update], [Address], user_id: user.id
-      can %i[create update destroy], OrderItem, order_id: session[:current_order_id]
       can :create, Order
-      can :update, Order, id: session[:current_order_id]
       can :manage, User, user_id: user.id
     else
       can :read, [Author, Book, Category, Review]
-      can %i[create update destroy], OrderItem, order_id: session[:current_order_id]
       can :create, Order
-      can :update, Order, id: session[:current_order_id]
     end
   end
 end

@@ -28,12 +28,4 @@ end
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
-unless User.exists?
-  User.create!(
-    [
-      { email: 'exampl@gmail.com', password: 'Password1245' }
-    ]
-  )
-end
-
-
+User.create(email: 'exampl@gmail.com', password: 'Password1245')

@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :order do
     number { 1 }
-    status { 1 }
+    status { 0 }
     user
 
     trait :with_items do
@@ -38,8 +38,8 @@ FactoryBot.define do
 
     trait :add_addresses do
       after(:create) do |order|
-        order.billing_address = create(:address)
-        order.shipping_address = create(:address)
+        order.billing_address = create(:address, :with_billing_address)
+        order.shipping_address = create(:address, :with_shipping_address)
         order.save
       end
     end

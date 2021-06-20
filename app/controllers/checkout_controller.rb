@@ -12,10 +12,4 @@ class CheckoutController < ApplicationController
       render_wizard
     end
   end
-
-  def update
-    update_manager
-
-    redirect_to next_wizard_path
-  end
 end

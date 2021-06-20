@@ -19,6 +19,12 @@ Rails.application.routes.draw do
     resources :reviews, only: :create
   end
 
+
   resources :checkout
+
+
+  devise_scope :user do
+    put '/users/edit',  to: 'users/registrations#update', as: :user_edit
+  end
 
 end

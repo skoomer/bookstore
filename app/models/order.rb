@@ -45,7 +45,7 @@ class Order < ApplicationRecord
   end
 
   def total
-    price_with_disc + (delivery&.price || 0.00)
+    price_with_discount + (delivery&.price || 0.00)
   end
 
   def subtotal_price
@@ -53,10 +53,10 @@ class Order < ApplicationRecord
   end
 
   def discount
-    subtotal_price - price_with_disc || 0.00
+    subtotal_price - price_with_discount || 0.00
   end
 
-  def price_with_disc
+  def price_with_discount
     ((100 - (coupon ? coupon.discount.to_f : 0)) / 100) * subtotal_price
   end
 

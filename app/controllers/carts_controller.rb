@@ -4,7 +4,7 @@ class CartsController < ApplicationController
   def show
     @order_items = current_order.order_items.by_created
     @subtotal_price_sum = current_order.subtotal_price
-    @item_total_price = current_order.price_with_disc
+    @item_total_price = current_order.price_with_discount
   end
 
   def update

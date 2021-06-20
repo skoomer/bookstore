@@ -22,7 +22,7 @@ en:
       materials: Materials
       dimensions: "H: %{height}\" x W: %{width}\" x D: %{depth}"
       dimensions_title: Dimensions
-      review: Write a Review
+      review_title: Reviews
       score: Score
       form:
         title: Title

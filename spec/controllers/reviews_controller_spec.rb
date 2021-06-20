@@ -27,7 +27,7 @@ RSpec.describe ReviewsController do
       before { post :create, params: { book_id: book.id, review: params_review } }
 
       it 'sends error flash' do
-        expect(flash[:error]).not_to be_nil
+        expect(flash[:danger]).not_to be_nil
       end
     end
   end

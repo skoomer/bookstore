@@ -2,7 +2,7 @@
 
 module Users
   class RegistrationsController < Devise::RegistrationsController
-    before_action :build_addresses, only: [:edit]
+    before_action :build_addresses, only: %i[edit]
 
     def edit; end
 
@@ -16,9 +16,8 @@ module Users
       edit_user_registration_path
     end
 
-    private
-
     def build_addresses
+      redirect_to edit_user_registration_path if resource.blank?
       resource.build_billing_address if resource.billing_address.blank?
       resource.build_shipping_address if resource.shipping_address.blank?
     end
