@@ -10,6 +10,8 @@ en:
         cvv: CVV
       user:
         number: Number
+        coupon: Coupon
+        score: Score
         email: Enter email
         password: Enter password
         password_confirmation: Enter password confirmation

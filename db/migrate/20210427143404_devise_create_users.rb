@@ -19,7 +19,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.datetime :remember_created_at
 
       t.timestamps null: false
-      
     end
   end
 end

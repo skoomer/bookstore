@@ -26,4 +26,23 @@ RSpec.describe User do
       end
     end
   end
+
+  describe 'abilities' do
+    let(:admin) { AdminUser.new }
+    let(:ability) { Ability.new(user) }
+    let(:user) { create(:user) }
+
+    context 'when is an user manager' do
+      it 'read book' do
+        expect(ability).to be_able_to(:read, Book.new(title: user))
+      end
+    end
+
+    context 'when is an admin manager' do
+      let(:admin) { create(:admin_user) }
+      let(:ability) { Ability.new(admin) }
+
+      it { expect(ability).to be_able_to(:create, Order) }
+    end
+  end
 end

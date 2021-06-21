@@ -5,16 +5,15 @@ class OrderItemsController < ApplicationController
 
   def create
     @order_item = current_order.order_items.find_or_create_by(book_id: order_params[:book_id])
-    @order_item.update(quantity: @order_item.quantity.to_i + order_params[:quantity].to_i)
+    @order_item.update(quantity: @order_item.quantity + order_params[:quantity].to_i)
     redirect_back(fallback_location: root_path)
   end
 
   def update
-    if @order_item.quantity.to_i >= 1
-      return @order_item if @order_item.quantity.to_i == 1 && order_params[:quantity].to_i == -1
+    return destroy if @order_item.quantity == 1 && order_params[:quantity].to_i.negative?
 
-      @order_item.update(quantity: @order_item.quantity.to_i + order_params[:quantity].to_i)
-    end
+    @order_item.update(quantity: @order_item.quantity + order_params[:quantity].to_i)
+
     redirect_back(fallback_location: root_path)
   end
 

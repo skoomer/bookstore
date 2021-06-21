@@ -10,6 +10,7 @@ AllCops:
     - 'bin/**/*'
     - vendor/bundle/**/*
     - 'node_modules/**/*'
+    - 'app/models/ability.rb'
         
 Metrics/BlockLength:
   Exclude:
@@ -34,4 +35,7 @@ Rails/FilePath:
   Enabled: false
 
 Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
   Enabled: false

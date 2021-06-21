@@ -1,4 +1,18 @@
 en:
+  session:
+    edit:
+      privacy:
+        email: Email
+        password: Password
+      address:
+        shippingaddress: Shipping Address
+        billingaddress: Billing Address
+  addresses:
+    form:
+      save: SAve
+    navigation:
+      address: Address
+      privacy: Privacy
   devise:
     shared:
       facebook_authentication:
