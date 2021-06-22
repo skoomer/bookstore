@@ -1,14 +1,14 @@
 %main.container.general-main-wrap
   = render partial: "checkout/partials/header"
   .text-center.mb-40
-    %h3.general-subtitle=t('.thank_you')
+    %h3.general-subtitle= t('.thank_you')
     %p.fw-300= "#{t('.order_confirmation')} #{current_user.email}"
     .general-text-right
       %p.general-order-number.mb-0= "#{t('.order')} #{@checkout.order.number}"
       %p.general-address.mb-30= @checkout.order.compleated_at.strftime("%B %d, %Y")
   = render "checkout/partials/table_for_books"
   .text-center.general-text-right
-    %p.in-gold-500.font-18=t('.order_summary')
+    %p.in-gold-500.font-18= t('.order_summary')
     %table.general-summary-table.general-summary-table-right.general-text-right
       = render "checkout/partials/total_price"
   .text-center

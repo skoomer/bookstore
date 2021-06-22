@@ -3,9 +3,9 @@
 FactoryBot.define do
   factory :card do
     card_holder { FFaker::Lorem.word }
-    number { (16.times.map { Random.rand(9) }).join }
-    valid_thru { "10/#{Time.zone.now.year.to_s.last(2)}" }
-    cvv { (3.times.map { Random.rand(9) }).join }
+    number { FFaker::Bank.card_number.gsub!(/\s/, '') }
+    valid_thru { FFaker::Bank.card_expiry_date }
+    cvv { (Array.new(3) { Random.rand(9) }).join }
     order { nil }
   end
 end

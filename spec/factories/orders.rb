@@ -39,10 +39,8 @@ FactoryBot.define do
 
     trait :add_addresses do
       after(:create) do |order|
-
-        order.user.shipping_address = create(:user, :user_with_shipping_addresses)
-        order.user.billing_address = create(:user, :user_with_billing_addresses)
-
+        order.shipping_address = create(:address, :with_shipping_address)
+        order.billing_address = create(:address, :with_billing_address)
         order.save
       end
     end

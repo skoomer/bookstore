@@ -51,7 +51,6 @@ module Checkout
     end
 
     def set_billing_address
-      # binding.pry
       @order.user.billing_address ||= @order.user.try(:billing_address) || Address.new
     end
 

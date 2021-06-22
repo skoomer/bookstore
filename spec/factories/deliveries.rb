@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :delivery do
-    name { 'MyString' }
-    time_shipping { 'MyString' }
+    name { FFaker::Lorem.phrase }
+    time_shipping { FFaker::Time.day_of_week }
     price { rand(20..30) }
   end
 end

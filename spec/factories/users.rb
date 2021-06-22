@@ -17,5 +17,19 @@ FactoryBot.define do
     trait :user_with_billing_addresses do
       association :billing_address, factory: :address
     end
+
+    trait :add_address do
+      after(:create) do |user|
+        user.billing_address = create(:billing_address)
+        user.shipping_address = create(:shipping_address)
+        user.save
+      end
+    end
+
+    trait :user_with_order do
+      after(:create) do |user|
+        user.orders << create(:order, user: user)
+      end
+    end
   end
 end

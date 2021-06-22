@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_15_122731) do
+ActiveRecord::Schema.define(version: 2021_06_22_081337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -175,7 +175,11 @@ ActiveRecord::Schema.define(version: 2021_06_15_122731) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "delivery_id"
+    t.bigint "billing_address_id"
+    t.bigint "shipping_address_id"
+    t.index ["billing_address_id"], name: "index_orders_on_billing_address_id"
     t.index ["delivery_id"], name: "index_orders_on_delivery_id"
+    t.index ["shipping_address_id"], name: "index_orders_on_shipping_address_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -214,6 +218,8 @@ ActiveRecord::Schema.define(version: 2021_06_15_122731) do
   add_foreign_key "coupons", "orders"
   add_foreign_key "order_items", "books"
   add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "addresses", column: "billing_address_id"
+  add_foreign_key "orders", "addresses", column: "shipping_address_id"
   add_foreign_key "orders", "deliveries"
   add_foreign_key "orders", "users"
   add_foreign_key "reviews", "books"

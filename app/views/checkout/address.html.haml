@@ -25,7 +25,7 @@
           = f.simple_fields_for :shipping, @checkout.address_shipping do |form|
             = render partial: "checkout/partials/address_form", locals: {f: form}
     .general-text-align.mb-60
-      %p.in-gold-500.font-18=t('.order_summary')
+      %p.in-gold-500.font-18= t('.order_summary')
       %table.general-summary-table
         = render "checkout/partials/total_price"
       .text-center
