@@ -185,7 +185,7 @@ en:
       save_and_continue: "Save and Continue"
       order_summary: "Order Summary"
       use_billing: Use billing
-      all_fields: All fields
+      all_fields: All fields must be blank
       billing_address: "Billing Address"
       shipping_address: "Shipping Address"
     partials:

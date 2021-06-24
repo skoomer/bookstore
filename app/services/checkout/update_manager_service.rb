@@ -47,20 +47,20 @@ module Checkout
       end
     end
 
-    def create_shipping(type_of_shipping)
-      @order.user.create_shipping_address(address_params(type_of_shipping))
+    def create_shipping(shipping)
+      @order.user.create_shipping_address(address_params(shipping))
     end
 
-    def create_billing(type_of_billing)
-      @order.user.create_billing_address(address_params(type_of_billing))
+    def create_billing(billing)
+      @order.user.create_billing_address(address_params(billing))
     end
 
-    def update_shipping(type_of_shipping)
-      @order.user.shipping_address.update(address_params(type_of_shipping))
+    def update_shipping(shipping)
+      @order.user.shipping_address.update(address_params(shipping))
     end
 
-    def update_billing(type_of_billing)
-      @order.user.billing_address.update(address_params(type_of_billing))
+    def update_billing(billing)
+      @order.user.billing_address.update(address_params(billing))
     end
 
     def address_params(type)

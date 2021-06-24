@@ -51,11 +51,11 @@ module Checkout
     end
 
     def set_billing_address
-      @order.user.billing_address ||= @order.user.try(:billing_address) || Address.new
+      @order.user.billing_address ||= @order.user.try(:billing_address) 
     end
 
     def set_shipping_address
-      @order.user.shipping_address ||= @order.user.try(:shipping_address) || Address.new
+      @order.user.shipping_address ||= @order.user.try(:shipping_address)
     end
   end
 end
