@@ -18,35 +18,35 @@ RSpec.describe Users::UserSettingsPage do
       settings_page.user_privacy_link.click
     end
 
-    it 'remove account profile' do
+    it 'renders success flash message' do
       settings_page.privacy_form.remove_account
       expect(settings_page).to have_success_flash_message
     end
 
-    it 'change email' do
+    it 'updates email' do
       settings_page.privacy_form.update_email(email: new_email)
       expect(settings_page).to have_success_flash_message
       expect(home_page).to have_email_header(text: new_email)
     end
 
-    it 'change password' do
+    it 'updates password' do
       settings_page.privacy_form.update_password(current_password: user.password,
                                                  new_password: user.password.reverse)
       expect(settings_page).to have_success_flash_message
     end
   end
 
-  context 'when enter addresses' do
+  describe 'addresses' do
     let(:billing_address) { create(:address, :with_billing_address) }
     let(:shipping_address) { create(:address, :with_shipping_address) }
 
-    it 'update billing address' do
+    it 'updates billing address' do
       visit edit_user_registration_path
       settings_page.billing_address.fill_in_billing_address billing_address
       expect(settings_page).to have_success_flash_message
     end
 
-    it 'update shipping address' do
+    it 'updates shipping address' do
       settings_page.shipping_address.fill_in_shipping_address shipping_address
       expect(settings_page).to have_success_flash_message
     end

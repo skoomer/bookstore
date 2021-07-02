@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function() {
-    $('#checkBox').click(function() {
+    $('#check_box').click(function() {
         if ($(this).is(':checked')) {
             $('.cancel-account-js').removeAttr('disabled');
         } else {

@@ -13,7 +13,7 @@ RSpec.describe Users::RegistrationsController do
       get :edit
     end
 
-    it 'renders the index template' do
+    it 'renders the edit template' do
       expect(response).to render_template(:edit)
     end
 
@@ -22,10 +22,10 @@ RSpec.describe Users::RegistrationsController do
     end
   end
 
-  describe 'update email' do
+  describe '#action' do
     before { put :update, params: params }
 
-    context 'when success' do
+    describe 'success' do
       let(:params) do
         { user: { email: FFaker::Internet.email } }
       end
@@ -33,7 +33,7 @@ RSpec.describe Users::RegistrationsController do
       it { expect(response).to redirect_to(edit_user_registration_path) }
     end
 
-    context 'when failure' do
+    describe 'failure' do
       let(:params) do
         { user: { email: FFaker::Name.first_name } }
       end
