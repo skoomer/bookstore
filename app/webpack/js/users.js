@@ -1,11 +1,8 @@
 $(document).on('turbolinks:load', function() {
-    $('#check_box').click(function() {
-        if ($(this).is(':checked')) {
-            $('.cancel-account-js').removeAttr('disabled');
-        } else {
-            $('.cancel-account-js').attr('disabled', 'disabled');
-        }
-    })
+  $('#check_box').click(function() {
+    $('.cancel-account-js').attr('disabled', !$(this).is(':checked'));
+    }
+  )
 
     $('.tabs ul li').click(function () {
         var tabid = $(this).attr('rel');
