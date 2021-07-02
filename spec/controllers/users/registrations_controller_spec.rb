@@ -2,7 +2,6 @@
 
 RSpec.describe Users::RegistrationsController do
   let(:user) { create(:user) }
-  let(:password_new) { FFaker::String.from_regexp(User::PASSWORD_FORMAT_REGEX) }
 
   before do
     request.env['devise.mapping'] = Devise.mappings[:user]
@@ -14,7 +13,7 @@ RSpec.describe Users::RegistrationsController do
       get :edit
     end
 
-    it 'renders the index template' do
+    it 'renders the edit template' do
       expect(response).to render_template(:edit)
     end
 
@@ -23,51 +22,89 @@ RSpec.describe Users::RegistrationsController do
     end
   end
 
-  describe 'update email' do
-    it 'returns redirect status' do
-      post :update, params: { user: { email: FFaker::Internet.email } }
-      expect(response).to have_http_status(:redirect)
+  describe '#action' do
+    before { put :update, params: params }
+
+    describe 'success' do
+      let(:params) do
+        { user: { email: FFaker::Internet.email } }
+      end
+
+      it { expect(response).to redirect_to(edit_user_registration_path) }
+    end
+
+    describe 'failure' do
+      let(:params) do
+        { user: { email: FFaker::Name.first_name } }
+      end
+
+      it { expect(response).to render_template(:edit) }
     end
   end
 
   describe 'update password' do
-    let(:password_params) do
-      { user: { current_password: user.password, password_confirmation: password_new, password: password_new } }
-    end
+    let(:password_new) { FFaker::String.from_regexp(User::PASSWORD_FORMAT_REGEX) }
 
     before { put :update, params: password_params }
 
-    it 'returns status response' do
-      expect(response).to have_http_status(:found)
+    context 'when success' do
+      let(:password_params) do
+        { user: { current_password: user.password, password_confirmation: password_new, password: password_new } }
+      end
+
+      it { expect(response).to redirect_to(edit_user_registration_path) }
     end
 
-    it 'redirect to users edit' do
-      expect(response).to redirect_to edit_user_registration_path
-    end
+    context 'when failure' do
+      let(:password_params) do
+        { user: { current_password: user.password, password_confirmation: password_new, password: nil } }
+      end
 
-    it 'send valid values' do
-      post :update, params: { password_form: { current_password: user.password,
-                                               password: password_new,
-                                               password_confirmation: password_new } }
-
-      expect(response).to have_http_status(:ok)
+      it { expect(response).to render_template(:edit) }
     end
   end
 
   describe 'create user address' do
     let(:address) { attributes_for(:address) }
-    let(:address_empty) do
-      { first_name: '', last_name: '', address: '', city: '', zip: '', country: '', phone_number: '' }
+
+    context 'when success' do
+      before { post :create, params: address }
+
+      let(:address) { attributes_for(:address) }
+
+      it { expect(response).to redirect_to(root_path) }
     end
 
-    it 'redirect to root_path if params invalid' do
-      post :create, params: address_empty
-      expect(response).to redirect_to(root_path)
+    context 'when failure' do
+      before { post :create, params: address_empty }
+
+      let(:address_empty) do
+        { first_name: '', last_name: '', address: '', city: '', zip: '', country: '', phone_number: '' }
+      end
+
+      it { expect(response).to redirect_to(root_path) }
+    end
+  end
+
+  describe 'update address' do
+    let(:address) { attributes_for(:address) }
+
+    context 'when success' do
+      before { put :update, params: address }
+
+      let(:address) { attributes_for(:address) }
+
+      it { expect(response).to redirect_to(edit_user_registration_path) }
     end
 
-    it 'redirect to root_path if params valid' do
-      post :create, params: address
-      expect(response).to redirect_to(root_path)
+    context 'when failure' do
+      before { put :edit, params: address_empty }
+
+      let(:address_empty) do
+        { first_name: '', last_name: '', address: '', city: '', zip: '', country: '', phone_number: '' }
+      end
+
+      it { expect(response).to render_template(:edit) }
     end
   end
 end

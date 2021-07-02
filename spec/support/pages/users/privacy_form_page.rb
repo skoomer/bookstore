@@ -12,7 +12,7 @@ module Users
     element :confirmation_password_field, '#user_password_confirmation'
     element :password_button, '#password_button'
 
-    element :confirm_checkbox_to_remove, '#checkBox'
+    element :confirm_checkbox_to_remove, '#check_box'
     element :remove_account_button, '#remove_account_button'
 
     def fill_in(email)

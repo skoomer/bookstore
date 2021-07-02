@@ -23,7 +23,7 @@ RSpec.describe Address do
     it { is_expected.to belong_to(:user) }
   end
 
-  describe 'length address field' do
+  describe 'length validations' do
     it { is_expected.to validate_length_of(:first_name).is_at_most(valid_text_lenght) }
     it { is_expected.to validate_length_of(:last_name).is_at_most(valid_text_lenght) }
     it { is_expected.to validate_length_of(:city).is_at_most(valid_text_lenght) }
@@ -33,7 +33,7 @@ RSpec.describe Address do
     it { is_expected.to validate_length_of(:phone_number).is_at_most(valid_lenght_phone_number) }
   end
 
-  describe 'validations address format' do
+  describe 'format validations' do
     it { is_expected.to allow_value(valid_text_value).for(:first_name) }
     it { is_expected.to allow_value(valid_text_value).for(:last_name) }
     it { is_expected.to allow_value(valid_text_value).for(:city) }
@@ -44,7 +44,7 @@ RSpec.describe Address do
   end
 
   describe '#country_name' do
-    it 'return country name' do
+    it 'returns country name' do
       expect(address.country_name).to eq(ISO3166::Country[address.country])
     end
   end
