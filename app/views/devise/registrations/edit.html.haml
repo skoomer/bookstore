@@ -1,10 +1,10 @@
 %h1.settings-main-title= t('.settings')
 .tabs
   %ul.nav.nav-tabs.collaps.pl-50
-    %li.tab-item{ rel: 'addresses', id: 'address_link', role: 'tab', 'data-toggle': 'tab' }
-      = link_to t('.address'), class: 'tab-link'
-    %li.tab-item{rel: 'privacy', id: 'privacy_link' , role: 'tab', 'data-toggle': 'tab'}
-      = link_to t('.privacy'), class: 'tab-link'
+    %li.tab-item{ rel: 'addresses', id: 'address_link' }
+      = link_to t('.address'), class: 'tab-link', role: 'tab', 'data-toggle': 'tab'
+    %li.tab-item{rel: 'privacy', id: 'privacy_link'}
+      = link_to t('.privacy'), class: 'tab-link', role: 'tab', 'data-toggle': 'tab'
 %main.container.general-main-wrap
   .text-center
     #privacy.tabbody{ style: "display: none;" }
