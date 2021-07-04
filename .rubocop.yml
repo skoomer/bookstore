@@ -36,3 +36,6 @@ RSpec/MultipleMemoizedHelpers:
 
 RSpec/NestedGroups:
   Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
