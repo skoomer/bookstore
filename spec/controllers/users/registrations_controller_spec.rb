@@ -22,7 +22,7 @@ RSpec.describe Users::RegistrationsController do
     end
   end
 
-  describe '#action' do
+  describe '#put' do
     before { put :update, params: params }
 
     describe 'success' do
@@ -31,6 +31,30 @@ RSpec.describe Users::RegistrationsController do
       end
 
       it { expect(response).to redirect_to(edit_user_registration_path) }
+
+      context 'when update password' do
+        let(:password_params) do
+          { user: { current_password: user.password, password_confirmation: password_new, password: password_new } }
+        end
+
+        it { expect(response).to redirect_to(edit_user_registration_path) }
+      end
+
+      context 'when create user address' do
+        before { post :create, params: address }
+
+        let(:address) { attributes_for(:address) }
+
+        it { expect(response).to redirect_to(root_path) }
+      end
+
+      context 'when update address' do
+        before { put :update, params: address }
+
+        let(:address) { attributes_for(:address) }
+
+        it { expect(response).to redirect_to(edit_user_registration_path) }
+      end
     end
 
     describe 'failure' do
@@ -39,72 +63,34 @@ RSpec.describe Users::RegistrationsController do
       end
 
       it { expect(response).to render_template(:edit) }
-    end
-  end
 
-  describe 'update password' do
-    let(:password_new) { FFaker::String.from_regexp(User::PASSWORD_FORMAT_REGEX) }
+      context 'when update password' do
+        let(:password_params) do
+          { user: { current_password: user.password, password_confirmation: password_new, password: nil } }
+        end
 
-    before { put :update, params: password_params }
-
-    context 'when success' do
-      let(:password_params) do
-        { user: { current_password: user.password, password_confirmation: password_new, password: password_new } }
+        it { expect(response).to render_template(:edit) }
       end
 
-      it { expect(response).to redirect_to(edit_user_registration_path) }
-    end
+      context 'when create user address' do
+        before { post :create, params: address_empty }
 
-    context 'when failure' do
-      let(:password_params) do
-        { user: { current_password: user.password, password_confirmation: password_new, password: nil } }
+        let(:address_empty) do
+          { first_name: '', last_name: '', address: '', city: '', zip: '', country: '', phone_number: '' }
+        end
+
+        it { expect(response).to redirect_to(root_path) }
       end
 
-      it { expect(response).to render_template(:edit) }
-    end
-  end
+      context 'when update address' do
+        before { put :edit, params: address_empty }
 
-  describe 'create user address' do
-    let(:address) { attributes_for(:address) }
+        let(:address_empty) do
+          { first_name: '', last_name: '', address: '', city: '', zip: '', country: '', phone_number: '' }
+        end
 
-    context 'when success' do
-      before { post :create, params: address }
-
-      let(:address) { attributes_for(:address) }
-
-      it { expect(response).to redirect_to(root_path) }
-    end
-
-    context 'when failure' do
-      before { post :create, params: address_empty }
-
-      let(:address_empty) do
-        { first_name: '', last_name: '', address: '', city: '', zip: '', country: '', phone_number: '' }
+        it { expect(response).to render_template(:edit) }
       end
-
-      it { expect(response).to redirect_to(root_path) }
-    end
-  end
-
-  describe 'update address' do
-    let(:address) { attributes_for(:address) }
-
-    context 'when success' do
-      before { put :update, params: address }
-
-      let(:address) { attributes_for(:address) }
-
-      it { expect(response).to redirect_to(edit_user_registration_path) }
-    end
-
-    context 'when failure' do
-      before { put :edit, params: address_empty }
-
-      let(:address_empty) do
-        { first_name: '', last_name: '', address: '', city: '', zip: '', country: '', phone_number: '' }
-      end
-
-      it { expect(response).to render_template(:edit) }
     end
   end
 end
