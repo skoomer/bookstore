@@ -25,3 +25,5 @@ end
     author: Author.all.sample
   )
 end
+
+User.create(email: 'exampl@gmail.com', password: 'Password1245')

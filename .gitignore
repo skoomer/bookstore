@@ -52,15 +52,3 @@ rdoc
 /.vscode/
 my_command.txt
 *.key
-
-/config/credentials/production.key
-
-/config/credentials/eaa7b0666b1325208d63744987a43b4f.key
-
-/config/credentials/j7DeR7F9LayW2xllyOPN33We8HcoeNiJtcqHpnKro01+6INKI9aqWCNACSbI6Yb3YF2kLPctxu9iJtnnTcrOBvaApAo=--Lf9Bk/DbnBAaLNHl--Nd6dUdVltBm6eENtZV7rzA==.key
-
-/config/credentials/I8IbeeZyTr7VNcSA18ffj1xDDoq0Iqpdy4FuO6EvxVDKODvQQgJxkH+tPKaQ3E3sCMgfPPvEqEoAicAR9yY8BYYaJ8I=--MWimuRqApkIVy26C--lfRK6ZQXYXNG/OIqLJyhGw==.key
-
-/config/credentials/production.yml.enc.key
-
-/config/credentials/development.key

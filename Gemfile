@@ -37,6 +37,7 @@ gem 'lefthook', '~> 0.5.5'
 gem 'mimemagic', '~> 0.4.3'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'country_select', '~> 4.0'
 gem 'draper', '~> 4.0.1'
 gem 'ffaker', '~> 2.18.0', require: false
 gem 'omniauth', '~> 1.4.1'
