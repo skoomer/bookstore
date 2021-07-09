@@ -30,6 +30,21 @@ SimpleForm.setup do |config|
     end
   end
 
+config.wrappers :review,
+  hint_class: :field_with_hint, error_class: 'has-error' do |b|
+  b.use :html5
+  b.use :placeholder
+  b.optional :maxlength
+  b.optional :minlength
+  b.optional :pattern
+  b.optional :min_max
+  b.wrapper tag: :div, class: 'form-group' do |component|
+    component.use :label_input
+    component.use :hint, wrap_with: { class: :hint }
+    component.use :full_error, wrap_with: { class: 'help-block' }
+  end
+end
+
   # The default wrapper to be used by the FormBuilder.
   config.default_wrapper = :default
 

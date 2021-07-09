@@ -6,7 +6,7 @@ RSpec.describe Users::UserSettingsPage do
   let(:user) { create(:user) }
 
   before do
-    login_as(user)
+    login_as(user, scope: :user)
     settings_page.load
   end
 

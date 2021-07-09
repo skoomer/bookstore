@@ -2,7 +2,6 @@
 
 RSpec.describe 'Book' do
   let(:book_page_detail) { BookDetail.new }
-
   let!(:book) { create(:book, author: author, category: category) }
   let(:author) { create(:author) }
   let(:category) { create(:category) }
