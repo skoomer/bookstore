@@ -40,14 +40,4 @@ RSpec.describe BooksController do
       it { is_expected.to respond_with(:not_found) }
     end
   end
-
-  describe 'book not found' do
-    let(:book) { create(:book) }
-
-    before { get :show, params: { id: book.id.next } }
-
-    it 'response status 404' do
-      expect(response.status).to eq(404)
-    end
-  end
 end

@@ -41,10 +41,4 @@ RSpec.describe SignUp do
       expect(sign_up).to have_error_message
     end
   end
-
-  describe 'Click valid values' do
-    before do
-      sign_up.visit_and_sign_up_as(user.email, user.password)
-    end
-  end
 end

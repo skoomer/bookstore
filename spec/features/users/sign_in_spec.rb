@@ -36,10 +36,4 @@ RSpec.describe SignIn do
       expect(sign_in).to have_failure_flash_message
     end
   end
-
-  describe 'Click valid values' do
-    before do
-      sign_up.visit_and_login_as(user.email, user.password)
-    end
-  end
 end
