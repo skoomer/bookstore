@@ -11,7 +11,7 @@ RSpec.describe Admin::AuthorsController do
 
   before { sign_in current_user }
 
-  describe 'GET index' do
+  describe '#index' do
     it 'returns http success' do
       get :index
       expect(response).to have_http_status(:success)
@@ -75,7 +75,7 @@ RSpec.describe Admin::AuthorsController do
     end
   end
 
-  describe 'GET edit' do
+  describe '#edit' do
     before do
       get :edit, params: { id: author.id }
     end
@@ -111,13 +111,11 @@ RSpec.describe Admin::AuthorsController do
         expect(response).to have_http_status(:success)
       end
 
-      # rubocop:disable Lint/AmbiguousBlockAssociation
       it 'does not change author' do
         expect do
           put :update, params: { id: author.id, author: invalid_attributes }
         end.not_to change { author.reload.first_name }
       end
-      # rubocop:enable Lint/AmbiguousBlockAssociation
     end
   end
 

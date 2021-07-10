@@ -11,7 +11,7 @@ RSpec.describe Admin::CategoriesController do
 
   before { sign_in current_user }
 
-  describe 'GET index' do
+  describe '#index' do
     it 'returns http success' do
       get :index
       expect(response).to have_http_status(:success)
@@ -75,7 +75,7 @@ RSpec.describe Admin::CategoriesController do
     end
   end
 
-  describe 'GET edit' do
+  describe '#edit' do
     before do
       get :edit, params: { id: category.id }
     end
@@ -111,13 +111,11 @@ RSpec.describe Admin::CategoriesController do
         expect(response).to have_http_status(:success)
       end
 
-      # rubocop:disable Lint/AmbiguousBlockAssociation
       it 'does not change category' do
         expect do
           put :update, params: { id: category.id, category: invalid_attributes }
         end.not_to change { category.reload.title }
       end
-      # rubocop:enable Lint/AmbiguousBlockAssociation
     end
   end
 

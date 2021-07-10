@@ -4,7 +4,10 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Bookstore"
+  config.site_title = 'Bookstore'
+
+  config.comments = false
+
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -117,27 +120,7 @@ ActiveAdmin.setup do |config|
   # roots for each namespace.
   #
   # Default:
-  # config.root_to = 'dashboard#index'
-
-  # == Admin Comments
-  #
-  # This allows your users to comment on any resource registered with Active Admin.
-  #
-  # You can completely disable comments:
-  # config.comments = false
-  #
-  # You can change the name under which comments are registered:
-  # config.comments_registration_name = 'AdminComment'
-  #
-  # You can change the order for the comments and you can change the column
-  # to be used for ordering:
-  # config.comments_order = 'created_at ASC'
-  #
-  # You can disable the menu item for the comments index page:
-  # config.comments_menu = false
-  #
-  # You can customize the comment menu:
-  # config.comments_menu = { parent: 'Admin', priority: 1 }
+  config.root_to = 'books#index'
 
   # == Batch Actions
   #

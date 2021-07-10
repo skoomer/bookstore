@@ -2,6 +2,7 @@ en:
   active_admin:
     resource:
       index:
+        delete: Delete
         authors: Authors
         price: Price
 
@@ -114,6 +115,24 @@ en:
     status: "Status"
     total: "Total"
   admin:
+    bookstore: Bookstore
+    authors:
+      confirmations: 'Are you sure you want to delete these item? They are associated with %{quantity} of books.'
+      view: View
+      edit: Edit
+    categories:
+      confirmations: 'Are you sure you want to delete these item? They are associated with %{quantity} of books.'
+      view: View
+      edit: Edit
+    test:
+      destroy: "%{item} was successfully destroyed."
+    reviews:
+      approved: Approved
+      rejected: Rejected
+      show: show
+      status:
+        approved: "Status changed to approved!"
+        rejected: "Status changed to rejected!"
     change_status: "Change status"
     change_state: "Change state"
     reviews: "Reviews"
@@ -181,4 +200,3 @@ en:
     update_email:
       fail: You have to confirm your email address before continuing
       success: success
-

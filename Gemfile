@@ -36,8 +36,8 @@ gem 'jwt', '~> 2.2.2'
 gem 'lefthook', '~> 0.5.5'
 gem 'mimemagic', '~> 0.4.3'
 # Reduces boot times through caching; required in config/boot.rb
-gem 'activeadmin'
-gem 'activeadmin_addons'
+gem 'activeadmin', '~> 2.9.0'
+gem 'activeadmin_addons', '~> 1.7.1'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'country_select', '~> 4.0'
 gem 'draper', '~> 4.0.1'
