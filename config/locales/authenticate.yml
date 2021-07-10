@@ -27,3 +27,4 @@ en:
     password_placeholder: enter your valid password
     forgot_password: Forgot password?
     confirm_password_label: Password
+    save: Save

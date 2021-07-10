@@ -18,6 +18,8 @@ Metrics/BlockLength:
     - 'vendor/*'
     - 'vendor/**/*'
     - 'node_modules/**/*'
+    - 'app/admin/**/*'
+
 
 Style/Documentation:
   Enabled: false
@@ -35,4 +37,7 @@ RSpec/MultipleMemoizedHelpers:
   Enabled: false
 
 RSpec/NestedGroups:
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation:
   Enabled: false
