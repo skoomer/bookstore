@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_15_144912) do
+ActiveRecord::Schema.define(version: 2021_06_15_122731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,13 +59,13 @@ ActiveRecord::Schema.define(version: 2021_06_15_144912) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "type"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "city"
-    t.string "address"
-    t.string "country"
-    t.integer "zip"
-    t.string "phone_number"
+    t.string "first_name", limit: 50, null: false
+    t.string "last_name", limit: 50, null: false
+    t.string "city", limit: 50, null: false
+    t.string "address", limit: 50, null: false
+    t.string "country", limit: 50, null: false
+    t.string "zip", limit: 10, null: false
+    t.string "phone_number", limit: 15, null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -175,7 +175,6 @@ ActiveRecord::Schema.define(version: 2021_06_15_144912) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "delivery_id"
-    t.string "aasm_state"
     t.index ["delivery_id"], name: "index_orders_on_delivery_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
