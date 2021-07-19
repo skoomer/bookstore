@@ -13,8 +13,8 @@ RSpec.describe OrdersController do
       get :index, format: 'text/html'
     end
 
-    it 'returns a 204 OK status' do
-      expect(response).to have_http_status(:no_content)
+    it 'returns OK status' do
+      expect(response).to have_http_status(:ok)
     end
   end
 end

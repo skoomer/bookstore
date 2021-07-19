@@ -1,3 +1,4 @@
+
 # frozen_string_literal: true
 
 RSpec.describe CartsController do
@@ -9,7 +10,7 @@ RSpec.describe CartsController do
     end
 
     it 'assign discount' do
-      expect(assigns(:discount)).to eq nil
+      expect(assigns(:discount)).to eq 0
     end
 
     context 'when status 200' do

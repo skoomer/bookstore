@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative 'menu'
 
 class Home < SitePrism::Page
@@ -21,10 +19,12 @@ class Home < SitePrism::Page
   element :greeting, 'h2.h1', text: I18n.t('pages.index.greeting')
   element :button_start, 'a', text: I18n.t('pages.index.buttons.start')
   element :text_best_sellers, 'h3', text: I18n.t('pages.index.best')
-  element :div_success, 'div.alert.alert-success'
-  element :div_danger, 'div.alert.alert-danger'
+  element :success_flash_message, 'div.alert.alert-success'
+  element :failure_flash_message, 'div.alert.alert-danger'
+  element :email_header, 'a#user-email'
   element :header, 'header'
   section :menu, Menu, 'li.dropdown'
+
 
   expected_elements :nav_bar, :slider, :button_prev, :button_next, :best_sellers, :item_best_sellers, :footer, :title,
                     :button_home, :button_shop, :footer_email,

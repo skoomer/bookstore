@@ -10,6 +10,7 @@ AllCops:
     - 'bin/**/*'
     - vendor/bundle/**/*
     - 'node_modules/**/*'
+    - 'app/models/ability.rb'
         
 Metrics/BlockLength:
   Exclude:

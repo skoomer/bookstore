@@ -31,5 +31,5 @@
         = link_to t('.buttons.start'), books_path, class: 'button btn btn-default'
     .mb-35
         %h3= t('.best')
-        .roew
+        #best_sellers.row
             = render partial: 'pages/best_selers', collection: @top_books, as: :book
